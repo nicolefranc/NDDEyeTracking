@@ -3,16 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1DD7D54F265E2B6D008EA48E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D54E265E2B6D008EA48E /* AppDelegate.swift */; };
 		1DD7D551265E2B6D008EA48E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D550265E2B6D008EA48E /* SceneDelegate.swift */; };
 		1DD7D553265E2B6D008EA48E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D552265E2B6D008EA48E /* ViewController.swift */; };
-		1DD7D556265E2B6D008EA48E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7D554265E2B6D008EA48E /* Main.storyboard */; };
 		1DD7D558265E2B6E008EA48E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7D557265E2B6E008EA48E /* Assets.xcassets */; };
 		1DD7D55B265E2B6E008EA48E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7D559265E2B6E008EA48E /* LaunchScreen.storyboard */; };
+		1DD7D563265E2E22008EA48E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D562265E2E22008EA48E /* MainView.swift */; };
+		1DD7D566265E2F6C008EA48E /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD7D565265E2F6C008EA48E /* Resolver */; };
+		1DD7D569265E2F7E008EA48E /* EyeTrackKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD7D568265E2F7E008EA48E /* EyeTrackKit */; };
+		1DD7D56D265E3086008EA48E /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */; };
+		1DD7D575265ED187008EA48E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7D574265ED187008EA48E /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +24,12 @@
 		1DD7D54E265E2B6D008EA48E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DD7D550265E2B6D008EA48E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1DD7D552265E2B6D008EA48E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1DD7D555265E2B6D008EA48E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1DD7D557265E2B6E008EA48E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DD7D55A265E2B6E008EA48E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DD7D55C265E2B6E008EA48E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DD7D562265E2E22008EA48E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
+		1DD7D574265ED187008EA48E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DD7D566265E2F6C008EA48E /* Resolver in Frameworks */,
+				1DD7D569265E2F7E008EA48E /* EyeTrackKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +48,7 @@
 		1DD7D542265E2B6D008EA48E = {
 			isa = PBXGroup;
 			children = (
+				1DD7D574265ED187008EA48E /* .gitignore */,
 				1DD7D54D265E2B6D008EA48E /* NDDEyeTracking */,
 				1DD7D54C265E2B6D008EA48E /* Products */,
 			);
@@ -59,10 +68,11 @@
 				1DD7D54E265E2B6D008EA48E /* AppDelegate.swift */,
 				1DD7D550265E2B6D008EA48E /* SceneDelegate.swift */,
 				1DD7D552265E2B6D008EA48E /* ViewController.swift */,
-				1DD7D554265E2B6D008EA48E /* Main.storyboard */,
 				1DD7D557265E2B6E008EA48E /* Assets.xcassets */,
 				1DD7D559265E2B6E008EA48E /* LaunchScreen.storyboard */,
 				1DD7D55C265E2B6E008EA48E /* Info.plist */,
+				1DD7D562265E2E22008EA48E /* MainView.swift */,
+				1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */,
 			);
 			path = NDDEyeTracking;
 			sourceTree = "<group>";
@@ -83,6 +93,10 @@
 			dependencies = (
 			);
 			name = NDDEyeTracking;
+			packageProductDependencies = (
+				1DD7D565265E2F6C008EA48E /* Resolver */,
+				1DD7D568265E2F7E008EA48E /* EyeTrackKit */,
+			);
 			productName = NDDEyeTracking;
 			productReference = 1DD7D54B265E2B6D008EA48E /* NDDEyeTracking.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +124,10 @@
 				Base,
 			);
 			mainGroup = 1DD7D542265E2B6D008EA48E;
+			packageReferences = (
+				1DD7D564265E2F6C008EA48E /* XCRemoteSwiftPackageReference "Resolver" */,
+				1DD7D567265E2F7E008EA48E /* XCRemoteSwiftPackageReference "EyeTrackKit" */,
+			);
 			productRefGroup = 1DD7D54C265E2B6D008EA48E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,8 +143,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DD7D55B265E2B6E008EA48E /* LaunchScreen.storyboard in Resources */,
+				1DD7D575265ED187008EA48E /* .gitignore in Resources */,
 				1DD7D558265E2B6E008EA48E /* Assets.xcassets in Resources */,
-				1DD7D556265E2B6D008EA48E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,22 +156,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DD7D553265E2B6D008EA48E /* ViewController.swift in Sources */,
+				1DD7D563265E2E22008EA48E /* MainView.swift in Sources */,
 				1DD7D54F265E2B6D008EA48E /* AppDelegate.swift in Sources */,
 				1DD7D551265E2B6D008EA48E /* SceneDelegate.swift in Sources */,
+				1DD7D56D265E3086008EA48E /* AppDelegate+Injection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1DD7D554265E2B6D008EA48E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1DD7D555265E2B6D008EA48E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1DD7D559265E2B6E008EA48E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4NAU8ZMDR5;
 				INFOPLIST_FILE = NDDEyeTracking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4NAU8ZMDR5;
 				INFOPLIST_FILE = NDDEyeTracking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -341,6 +355,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1DD7D564265E2F6C008EA48E /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
+		1DD7D567265E2F7E008EA48E /* XCRemoteSwiftPackageReference "EyeTrackKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ukitomato/EyeTrackKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1DD7D565265E2F6C008EA48E /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DD7D564265E2F6C008EA48E /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+		1DD7D568265E2F7E008EA48E /* EyeTrackKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DD7D567265E2F7E008EA48E /* XCRemoteSwiftPackageReference "EyeTrackKit" */;
+			productName = EyeTrackKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1DD7D543265E2B6D008EA48E /* Project object */;
 }
