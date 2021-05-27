@@ -19,7 +19,7 @@ struct EyeTrackingView: View {
     }
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             ZStack(alignment: .topLeading) {
                 self.eyeTrackController.view
                 Circle()
@@ -29,7 +29,6 @@ struct EyeTrackingView: View {
             }
                 .edgesIgnoringSafeArea(.all)
             
-
             Text("x: \(eyeTrackController.eyeTrack.lookAtPoint.x), y: \(eyeTrackController.eyeTrack.lookAtPoint.y)")
         }
     }

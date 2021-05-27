@@ -10,11 +10,19 @@ import SwiftUI
 struct PatientView: View {
     private(set) var patient: Patient
     
+    @State var isNewTestActive: Bool = false
+    
     init(patient: Patient) {
         self.patient = patient
     }
     
     var body: some View {
+        NavigationLink(
+            destination: TestOverview(checkpoint: .startTest).navigationBarHidden(true),
+            isActive: $isNewTestActive,
+            label: {
+                EmptyView()
+            })
         List {
             Section(header: Text("Eye Tracking Tests")) {
                 ForEach(patient.eyeTrackingTests) { eyeTrackingTest in
@@ -28,7 +36,7 @@ struct PatientView: View {
         }
         .toolbar {
             Button(action: {
-                print("Add new test")
+                isNewTestActive = true
             }, label: {
                 Image(systemName: "plus").imageScale(.large)
                 Text("New Test")
