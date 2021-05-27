@@ -19,7 +19,7 @@
 		1D98FBFB265F561C00BFD44B /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FBFA265F561C00BFD44B /* DataStore.swift */; };
 		1D98FBFD265F6F0900BFD44B /* EyeTrackingTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FBFC265F6F0900BFD44B /* EyeTrackingTestView.swift */; };
 		1D98FBFF265F7CC900BFD44B /* TestOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FBFE265F7CC900BFD44B /* TestOverview.swift */; };
-		1D98FC04265FC3D300BFD44B /* Task1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FC03265FC3D300BFD44B /* Task1.swift */; };
+		1D98FC04265FC3D300BFD44B /* Task1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FC03265FC3D300BFD44B /* Task1View.swift */; };
 		1DD7D54F265E2B6D008EA48E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D54E265E2B6D008EA48E /* AppDelegate.swift */; };
 		1DD7D551265E2B6D008EA48E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D550265E2B6D008EA48E /* SceneDelegate.swift */; };
 		1DD7D553265E2B6D008EA48E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D552265E2B6D008EA48E /* ViewController.swift */; };
@@ -45,7 +45,7 @@
 		1D98FBFA265F561C00BFD44B /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		1D98FBFC265F6F0900BFD44B /* EyeTrackingTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackingTestView.swift; sourceTree = "<group>"; };
 		1D98FBFE265F7CC900BFD44B /* TestOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOverview.swift; sourceTree = "<group>"; };
-		1D98FC03265FC3D300BFD44B /* Task1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task1.swift; sourceTree = "<group>"; };
+		1D98FC03265FC3D300BFD44B /* Task1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task1View.swift; sourceTree = "<group>"; };
 		1DD7D54B265E2B6D008EA48E /* NDDEyeTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NDDEyeTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD7D54E265E2B6D008EA48E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DD7D550265E2B6D008EA48E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		1D98FC02265FC3B800BFD44B /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
-				1D98FC03265FC3D300BFD44B /* Task1.swift */,
+				1D98FC03265FC3D300BFD44B /* Task1View.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -234,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D98FC04265FC3D300BFD44B /* Task1.swift in Sources */,
+				1D98FC04265FC3D300BFD44B /* Task1View.swift in Sources */,
 				1DD7D553265E2B6D008EA48E /* ViewController.swift in Sources */,
 				1D98FBEC265F154200BFD44B /* PatientView.swift in Sources */,
 				1D98FBE4265F0D7B00BFD44B /* ImageTaskView.swift in Sources */,

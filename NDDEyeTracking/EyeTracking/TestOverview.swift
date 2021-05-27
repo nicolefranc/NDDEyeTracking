@@ -64,7 +64,7 @@ struct TestOverview: View {
     func startTask1() -> some View {
         ZStack {
             if (shouldNavigate) {
-                Task1()
+                Task1View()
             } else if (self.seconds  > 0) {
                 Text("\(self.seconds)").font(.system(size: 96)).bold()
             } else {
@@ -106,7 +106,7 @@ struct TestOverview: View {
         }
     }
     
-    func startTimer() {
+    private func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             if self.seconds == -3 {
                 self.shouldNavigate = true
@@ -117,7 +117,7 @@ struct TestOverview: View {
         }
     }
     
-    func stopTimer() {
+    private func stopTimer() {
         self.seconds = -1
         timer?.invalidate()
         timer = nil
