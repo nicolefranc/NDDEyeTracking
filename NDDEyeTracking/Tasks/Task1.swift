@@ -10,9 +10,8 @@ import SwiftUI
 struct Task1: View {
     var body: some View {
         ZStack {
-            EyeTrackingView()
             ImageTaskView()
-//            EyeTrackingView()
+            EyeTrackingView()
         }
     }
 }

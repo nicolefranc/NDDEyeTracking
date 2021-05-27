@@ -19,7 +19,7 @@ struct EyeTrackingView: View {
     }
     
     var body: some View {
-        ZStack(alignment: .bottom) {
+        ZStack() {
             ZStack(alignment: .topLeading) {
                 self.eyeTrackController.view
                 Circle()

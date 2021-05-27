@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ImageTaskView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image("penguin")
+            .resizable()
+            .scaledToFit()
+            .aspectRatio(contentMode: .fill)
+            .ignoresSafeArea()
     }
 }
 
