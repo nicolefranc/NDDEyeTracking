@@ -19,6 +19,7 @@ struct Task1View: View {
             ImageTaskView()
             EyeTrackingView()
         }
+            .navigationBarHidden(true)
     }
 
     private func startTimer() {

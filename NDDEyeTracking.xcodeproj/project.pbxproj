@@ -20,6 +20,8 @@
 		1D98FBFD265F6F0900BFD44B /* EyeTrackingTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FBFC265F6F0900BFD44B /* EyeTrackingTestView.swift */; };
 		1D98FBFF265F7CC900BFD44B /* TestOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FBFE265F7CC900BFD44B /* TestOverview.swift */; };
 		1D98FC04265FC3D300BFD44B /* Task1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FC03265FC3D300BFD44B /* Task1View.swift */; };
+		1D98FC06266066B200BFD44B /* Task2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FC05266066B200BFD44B /* Task2View.swift */; };
+		1D98FC0826606C9600BFD44B /* Task3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FC0726606C9600BFD44B /* Task3View.swift */; };
 		1DD7D54F265E2B6D008EA48E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D54E265E2B6D008EA48E /* AppDelegate.swift */; };
 		1DD7D551265E2B6D008EA48E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D550265E2B6D008EA48E /* SceneDelegate.swift */; };
 		1DD7D553265E2B6D008EA48E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D552265E2B6D008EA48E /* ViewController.swift */; };
@@ -46,6 +48,8 @@
 		1D98FBFC265F6F0900BFD44B /* EyeTrackingTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackingTestView.swift; sourceTree = "<group>"; };
 		1D98FBFE265F7CC900BFD44B /* TestOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOverview.swift; sourceTree = "<group>"; };
 		1D98FC03265FC3D300BFD44B /* Task1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task1View.swift; sourceTree = "<group>"; };
+		1D98FC05266066B200BFD44B /* Task2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task2View.swift; sourceTree = "<group>"; };
+		1D98FC0726606C9600BFD44B /* Task3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task3View.swift; sourceTree = "<group>"; };
 		1DD7D54B265E2B6D008EA48E /* NDDEyeTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NDDEyeTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD7D54E265E2B6D008EA48E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DD7D550265E2B6D008EA48E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				1D98FC03265FC3D300BFD44B /* Task1View.swift */,
+				1D98FC05266066B200BFD44B /* Task2View.swift */,
+				1D98FC0726606C9600BFD44B /* Task3View.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -249,9 +255,11 @@
 				1DD7D551265E2B6D008EA48E /* SceneDelegate.swift in Sources */,
 				1D98FBEA265F138B00BFD44B /* EyeTrackingTest.swift in Sources */,
 				1DD7D56D265E3086008EA48E /* AppDelegate+Injection.swift in Sources */,
+				1D98FC06266066B200BFD44B /* Task2View.swift in Sources */,
 				1D98FBFB265F561C00BFD44B /* DataStore.swift in Sources */,
 				1D98FBFF265F7CC900BFD44B /* TestOverview.swift in Sources */,
 				1D98FBF1265F266700BFD44B /* GridLayout.swift in Sources */,
+				1D98FC0826606C9600BFD44B /* Task3View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
