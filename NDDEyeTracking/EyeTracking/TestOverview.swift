@@ -187,6 +187,6 @@ struct TestOverview: View {
 
 struct TestOverview_Previews: PreviewProvider {
     static var previews: some View {
-        TestOverview(checkpoint: .endTask3)
+        TestOverview(checkpoint: .startTest)
     }
 }

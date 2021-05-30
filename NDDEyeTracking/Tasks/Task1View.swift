@@ -21,23 +21,6 @@ struct Task1View: View {
         }
             .navigationBarHidden(true)
     }
-
-    private func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            if self.seconds == -3 {
-                self.shouldNavigate = true
-                self.stopTimer()
-            } else {
-                self.seconds = self.seconds - 1
-            }
-        }
-    }
-    
-    private func stopTimer() {
-        self.seconds = -1
-        timer?.invalidate()
-        timer = nil
-    }
 }
 
 struct Task1_Previews: PreviewProvider {

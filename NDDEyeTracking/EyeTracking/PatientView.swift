@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct PatientView: View {
-    private(set) var patient: Patient
+    @Binding var patient: Patient
     
     @State var isNewTestActive: Bool = false
     
-    init(patient: Patient) {
-        self.patient = patient
-    }
+//    init(patient: Patient) {
+//        self.patient = patient
+//    }
     
     var body: some View {
         NavigationLink(
