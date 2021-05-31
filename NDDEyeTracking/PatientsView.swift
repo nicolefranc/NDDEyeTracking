@@ -46,7 +46,12 @@ struct PatientsView: View {
     }
     
     private func didAddSheetDismiss() {
-        viewModel.addPatient(patientData: newPatientData)
+        let isValid = viewModel.validate(patient: newPatientData)
+        
+        if (isValid) {
+            viewModel.addPatient(patientData: newPatientData)
+            newPatientData = viewModel.resetFields(patient: newPatientData)
+        }
     }
 }
 
@@ -65,7 +70,7 @@ struct PatientEditor: View {
     }
 }
 
-struct PatientView_Previews: PreviewProvider {
+struct PatientsView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
     }

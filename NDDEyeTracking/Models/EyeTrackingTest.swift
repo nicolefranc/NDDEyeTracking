@@ -17,3 +17,13 @@ struct EyeTrackingTest: Identifiable {
         self.name = name
     }
 }
+
+extension EyeTrackingTest {
+    struct Data {
+        var name: String = ""
+    }
+    
+    mutating func update(from data: Data) {
+        self.name = data.name
+    }
+}

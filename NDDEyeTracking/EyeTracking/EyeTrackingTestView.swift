@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct EyeTrackingTestView: View {
-    private var patient: Patient
-    private var eyeTrackingTest: EyeTrackingTest
+    @Binding var eyeTrackingTest: EyeTrackingTest
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -17,11 +16,6 @@ struct EyeTrackingTestView: View {
             ETTResults()
         }
             .navigationBarTitle(eyeTrackingTest.name, displayMode: .inline)
-    }
-    
-    init(patient: Patient, eyeTrackingTest: EyeTrackingTest) {
-        self.patient = patient
-        self.eyeTrackingTest = eyeTrackingTest
     }
 }
 
@@ -45,6 +39,6 @@ struct ETTResults: View {
 
 struct EyeTrackingTestView_Previews: PreviewProvider {
     static var previews: some View {
-        EyeTrackingTestView(patient: Patient("Noah Green"), eyeTrackingTest: EyeTrackingTest("Test Preview #000"))
+        EyeTrackingTestView(eyeTrackingTest: .constant(EyeTrackingTest("Test Preview #constant")))
     }
 }

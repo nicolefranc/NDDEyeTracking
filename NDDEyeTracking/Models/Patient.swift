@@ -10,17 +10,17 @@ import Foundation
 struct Patient: Identifiable {
     private(set) var id: UUID
     private(set) var name: String
-    private(set) var eyeTrackingTests: [EyeTrackingTest]
+    var eyeTrackingTests: [EyeTrackingTest]
     
     init(_ name: String, eyeTrackingTests: [EyeTrackingTest] = []) {
         self.id = UUID()
         self.name = name
-        self.eyeTrackingTests = DataStore.eyeTrackingTests
+        self.eyeTrackingTests = eyeTrackingTests
     }
 }
 
 extension Patient {
-    static var data: [Patient] {
+    static var list: [Patient] {
         [
             Patient("John Appleseed"),
             Patient("Isaiah Pearflower"),
@@ -39,9 +39,13 @@ extension Patient {
     var data: Data {
         Data(name: self.name)
     }
-
-    mutating func addPatient(data: Data) {
+    
+    mutating func update(from data: Data) {
         self.name = data.name
-        self.eyeTrackingTests = []
+    }
+    
+    mutating func addTest(testData: EyeTrackingTest.Data) {
+        let ett = EyeTrackingTest(testData.name)
+        self.eyeTrackingTests.append(ett)
     }
 }
