@@ -10,30 +10,29 @@ import SwiftUI
 struct PatientView: View {
     @Binding var patient: Patient
     
-    @State var eyeTrackingTestData: EyeTrackingTest.Data = EyeTrackingTest.Data()
+    @State var eyeTrackingTestData: EyeTrackingTest = EyeTrackingTest()
     @State private var isNewTestToggled: Bool = false
     @State private var shouldStartTest: Bool = false
+//    @State private var newTest: EyeTrackingTest
     
     var body: some View {
         VStack {
-            NavigationLink(
-                destination: TestOverview(checkpoint: .startTest).navigationBarHidden(true),
-                isActive: $shouldStartTest,
-                label: {
-                    EmptyView()
-                })
             HStack {
                 newTestButton()
             }
             List {
                 Section(header: Text("Eye Tracking Tests")) {
-                    ForEach(patient.eyeTrackingTests) { eyeTrackingTest in
-                        NavigationLink(
-                            destination: EyeTrackingTestView(eyeTrackingTest: binding(for: eyeTrackingTest)),
-                            label: {
-                                Text(eyeTrackingTest.name)
-                            })
-                    }
+                    self.displayEyeTrackingTests()
+//                    ForEach(patient.eyeTrackingTests) { eyeTrackingTest in
+//                        NavigationLink(
+//                            destination: EyeTrackingTestView(eyeTrackingTest: binding(for: eyeTrackingTest)),
+//                            label: {
+//                                Text(eyeTrackingTest.name)
+//                            })
+//                    }
+                }
+                Section(header: Text("Debugging")) {
+                    Text(patient.stringValue())
                 }
             }
             .listStyle(InsetGroupedListStyle())
@@ -42,8 +41,8 @@ struct PatientView: View {
     }
     
     private func didNewTestSheetDismiss() {
-        patient.addTest(testData: eyeTrackingTestData)
-        //            MARK: - TODO: Comment below when debugging this page
+        patient.addTest(ett: eyeTrackingTestData)
+        //            MARK: - TODO: Comment out below when debugging this page
         self.shouldStartTest = true
     }
     
@@ -51,8 +50,23 @@ struct PatientView: View {
         guard let ettIndex = patient.eyeTrackingTests.firstIndex(where: { $0.id == ett.id }) else {
             fatalError("Can't find eye tracking test in array")
         }
-        
+
         return $patient.eyeTrackingTests[ettIndex]
+    }
+    
+    @ViewBuilder
+    private func displayEyeTrackingTests() -> some View {
+        if (patient.eyeTrackingTests.count > 0) {
+            ForEach(patient.eyeTrackingTests) { eyeTrackingTest in
+                NavigationLink(
+                    destination: EyeTrackingTestView(eyeTrackingTest: binding(for: eyeTrackingTest)),
+                    label: {
+                        Text(eyeTrackingTest.name)
+                    })
+            }
+        } else {
+            Text("This patient has no tests.")
+        }
     }
     
     @ViewBuilder
@@ -71,12 +85,19 @@ struct PatientView: View {
                     .navigationTitle("New Test")
             }
         }
+        
+        if (patient.eyeTrackingTests.count > 0) {
+            NavigationLink(
+                destination: TestOverview(patient: $patient, eyeTrackingTest: binding(for: eyeTrackingTestData), checkpoint: .startTest).navigationBarHidden(true),
+                isActive: $shouldStartTest) { EmptyView() }
+                .isDetailLink(false)
+        }
     }
 }
 
 struct EyeTrackingTestEditor: View {
     
-    @Binding var editableETTData: EyeTrackingTest.Data
+    @Binding var editableETTData: EyeTrackingTest
     
     var body: some View {
         VStack(spacing: 0) {

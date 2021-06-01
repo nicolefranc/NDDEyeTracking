@@ -11,12 +11,16 @@ import EyeTrackKit
 
 struct EyeTrackingView: View {
     @ObservedObject var eyeTrackController: EyeTrackController = Resolver.resolve()
+//    @EnvironmentObject var eyeTrackingViewModel: EyeTrackingViewModel
+    @Binding var shouldStopRecording: Bool
     
-    init() {
-        self.eyeTrackController.onUpdate = { info in
-            print(info?.centerEyeLookAtPoint ?? "none")
-        }
-    }
+//    init() {
+//        self.eyeTrackController.onUpdate = { info in
+//            // MARK: - ISSUE: need to instantiate view model but should not
+////            eyeTrackingViewModel.addTrackingData(info: info!)
+//            print(info?.centerEyeLookAtPoint ?? "nil")
+//        }
+//    }
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -31,11 +35,21 @@ struct EyeTrackingView: View {
             
             Text("x: \(eyeTrackController.eyeTrack.lookAtPoint.x), y: \(eyeTrackController.eyeTrack.lookAtPoint.y)")
         }
+        .onAppear {
+//            self.eyeTrackController.onUpdate = { info in
+//                self.eyeTrackingViewModel.addTrackingData(info: info!)
+//                print(info?.centerEyeLookAtPoint ?? "nil")
+//                if (shouldStopRecording) {
+//                    eyeTrackingViewModel.stopRecording()
+//                }
+//            }
+        }
     }
 }
 
 struct EyeTrackingView_Previews: PreviewProvider {
     static var previews: some View {
-        EyeTrackingView()
+//        EyeTrackingView()
+        MainView()
     }
 }

@@ -18,6 +18,11 @@ enum Checkpoint {
 }
 
 struct TestOverview: View {
+    @Binding var patient: Patient
+    @Binding var eyeTrackingTest: EyeTrackingTest
+//    @StateObject var eyeTrackingViewModel: EyeTrackingViewModel = EyeTrackingViewModel()
+    @StateObject var imageTaskViewModel: ImageTaskViewModel = ImageTaskViewModel()
+    
     @State private var checkpoint: Checkpoint
     @State private var seconds: Int = 3
     @State private var timer: Timer? = nil
@@ -47,13 +52,15 @@ struct TestOverview: View {
             .navigationBarHidden(true)
     }
     
-    init(checkpoint: Checkpoint) {
-        self.checkpoint = checkpoint
+    init(patient: Binding<Patient>, eyeTrackingTest: Binding<EyeTrackingTest>, checkpoint: Checkpoint) {
+        _patient = patient
+        _eyeTrackingTest = eyeTrackingTest
+        _checkpoint = State(initialValue: checkpoint)
     }
     
     // MARK: - Constants
-    private let countdownTime: Int = 3
-    private let instructionTime: Int = 3
+    private let countdownTime: Int = 1 // 3
+    private let instructionTime: Int = 1 // 3
     
     // MARK: - Display Task Views
     
@@ -74,7 +81,10 @@ struct TestOverview: View {
     func startTask1() -> some View {
         ZStack {
             if (shouldNavigate) {
-                Task1View()
+//                Task1View(patient: $patient)
+                TestingView(patient: $patient, eyeTrackingTest: $eyeTrackingTest)
+//                    .environmentObject(eyeTrackingViewModel)
+                    .environmentObject(imageTaskViewModel)
             } else if (!isCountdownDone && self.seconds > 0) {
                 Text("\(self.seconds)").font(.system(size: 96)).bold()
             } else {
@@ -145,7 +155,7 @@ struct TestOverview: View {
     }
 
     func endTask3() -> some View {
-        print(String(self.isTestFinished))
+        print("Test Finished- \(String(self.isTestFinished))")
         return VStack {
             Text("Task 3").font(.headline)
             Text("Complete 🎉").font(.largeTitle)
@@ -154,8 +164,9 @@ struct TestOverview: View {
             }) {
                 Text("Finish Test")
             }.padding()
-            // TODO: Navigate to EyeTrackingTestView displaying the test completed
-            NavigationLink(destination: EmptyView(),
+            // MARK: - TODO: Navigate to EyeTrackingTestView displaying the test completed
+            // Clicking the Back button on this PatientView must return to PatientsView (not Task3View)
+            NavigationLink(destination: PatientView(patient: $patient),
                 isActive: $isTestFinished) { EmptyView() }
         }
     }
@@ -187,6 +198,6 @@ struct TestOverview: View {
 
 struct TestOverview_Previews: PreviewProvider {
     static var previews: some View {
-        TestOverview(checkpoint: .startTest)
+        TestOverview(patient: .constant(Patient("Jennifer Orangetrunk")), eyeTrackingTest: .constant(EyeTrackingTest()), checkpoint: .startTest)
     }
 }

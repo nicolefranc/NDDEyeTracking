@@ -23,6 +23,8 @@
 		1D98FC04265FC3D300BFD44B /* Task1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FC03265FC3D300BFD44B /* Task1View.swift */; };
 		1D98FC06266066B200BFD44B /* Task2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FC05266066B200BFD44B /* Task2View.swift */; };
 		1D98FC0826606C9600BFD44B /* Task3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FC0726606C9600BFD44B /* Task3View.swift */; };
+		1DD114952665E9BE0004CBC3 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD114942665E9BE0004CBC3 /* TestingView.swift */; };
+		1DD114972665E9D80004CBC3 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD114962665E9D80004CBC3 /* DataController.swift */; };
 		1DD7D54F265E2B6D008EA48E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D54E265E2B6D008EA48E /* AppDelegate.swift */; };
 		1DD7D551265E2B6D008EA48E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D550265E2B6D008EA48E /* SceneDelegate.swift */; };
 		1DD7D553265E2B6D008EA48E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D552265E2B6D008EA48E /* ViewController.swift */; };
@@ -33,6 +35,9 @@
 		1DD7D569265E2F7E008EA48E /* EyeTrackKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD7D568265E2F7E008EA48E /* EyeTrackKit */; };
 		1DD7D56D265E3086008EA48E /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */; };
 		1DD7D575265ED187008EA48E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7D574265ED187008EA48E /* .gitignore */; };
+		1DE25A6A2664EC4200038A94 /* ImageTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE25A692664EC4200038A94 /* ImageTaskViewModel.swift */; };
+		1DE25A6C2664EC7200038A94 /* EyeTrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE25A6B2664EC7200038A94 /* EyeTrackingViewModel.swift */; };
+		1DE25A6E2664ED1D00038A94 /* ImageTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE25A6D2664ED1D00038A94 /* ImageTask.swift */; };
 		1DF62AB22663DC5600065CB3 /* PatientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF62AB12663DC5600065CB3 /* PatientViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +58,8 @@
 		1D98FC03265FC3D300BFD44B /* Task1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task1View.swift; sourceTree = "<group>"; };
 		1D98FC05266066B200BFD44B /* Task2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task2View.swift; sourceTree = "<group>"; };
 		1D98FC0726606C9600BFD44B /* Task3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task3View.swift; sourceTree = "<group>"; };
+		1DD114942665E9BE0004CBC3 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
+		1DD114962665E9D80004CBC3 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		1DD7D54B265E2B6D008EA48E /* NDDEyeTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NDDEyeTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD7D54E265E2B6D008EA48E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DD7D550265E2B6D008EA48E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +70,9 @@
 		1DD7D562265E2E22008EA48E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
 		1DD7D574265ED187008EA48E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		1DE25A692664EC4200038A94 /* ImageTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaskViewModel.swift; sourceTree = "<group>"; };
+		1DE25A6B2664EC7200038A94 /* EyeTrackingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackingViewModel.swift; sourceTree = "<group>"; };
+		1DE25A6D2664ED1D00038A94 /* ImageTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTask.swift; sourceTree = "<group>"; };
 		1DF62AB12663DC5600065CB3 /* PatientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +92,12 @@
 		1D2E9FD0266367540088DC68 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1D2E9FD32663770D0088DC68 /* PatientsViewModel.swift */,
+				1D98FBF4265F521800BFD44B /* PatientsView.swift */,
+				1D98FBF6265F524700BFD44B /* AboutView.swift */,
+				1D98FBE2265F0D5700BFD44B /* ImageTask */,
+				1D98FBE5265F10DF00BFD44B /* EyeTracking */,
+				1D98FC02265FC3B800BFD44B /* Tasks */,
 				1DF62AB02663DC3A00065CB3 /* Patient */,
 			);
 			path = Views;
@@ -91,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				1D98FBE3265F0D7B00BFD44B /* ImageTaskView.swift */,
+				1DE25A692664EC4200038A94 /* ImageTaskViewModel.swift */,
 			);
 			path = ImageTask;
 			sourceTree = "<group>";
@@ -101,6 +118,7 @@
 				1D98FBE6265F10EF00BFD44B /* EyeTrackingView.swift */,
 				1D98FBFC265F6F0900BFD44B /* EyeTrackingTestView.swift */,
 				1D98FBFE265F7CC900BFD44B /* TestOverview.swift */,
+				1DE25A6B2664EC7200038A94 /* EyeTrackingViewModel.swift */,
 			);
 			path = EyeTracking;
 			sourceTree = "<group>";
@@ -110,6 +128,7 @@
 			children = (
 				1D98FBE9265F138B00BFD44B /* EyeTrackingTest.swift */,
 				1D98FBF2265F4B2900BFD44B /* Patient.swift */,
+				1DE25A6D2664ED1D00038A94 /* ImageTask.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -129,6 +148,7 @@
 				1D98FC03265FC3D300BFD44B /* Task1View.swift */,
 				1D98FC05266066B200BFD44B /* Task2View.swift */,
 				1D98FC0726606C9600BFD44B /* Task3View.swift */,
+				1DD114942665E9BE0004CBC3 /* TestingView.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -154,11 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				1D2E9FD0266367540088DC68 /* Views */,
-				1D98FC02265FC3B800BFD44B /* Tasks */,
 				1D98FBED265F25CB00BFD44B /* Components */,
 				1D98FBE8265F131F00BFD44B /* Models */,
-				1D98FBE5265F10DF00BFD44B /* EyeTracking */,
-				1D98FBE2265F0D5700BFD44B /* ImageTask */,
 				1DD7D54E265E2B6D008EA48E /* AppDelegate.swift */,
 				1DD7D550265E2B6D008EA48E /* SceneDelegate.swift */,
 				1DD7D552265E2B6D008EA48E /* ViewController.swift */,
@@ -167,10 +184,8 @@
 				1DD7D55C265E2B6E008EA48E /* Info.plist */,
 				1DD7D562265E2E22008EA48E /* MainView.swift */,
 				1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */,
-				1D98FBF4265F521800BFD44B /* PatientsView.swift */,
-				1D98FBF6265F524700BFD44B /* AboutView.swift */,
 				1D98FBFA265F561C00BFD44B /* DataStore.swift */,
-				1D2E9FD32663770D0088DC68 /* PatientsViewModel.swift */,
+				1DD114962665E9D80004CBC3 /* DataController.swift */,
 			);
 			path = NDDEyeTracking;
 			sourceTree = "<group>";
@@ -263,9 +278,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D98FC04265FC3D300BFD44B /* Task1View.swift in Sources */,
+				1DE25A6A2664EC4200038A94 /* ImageTaskViewModel.swift in Sources */,
 				1DD7D553265E2B6D008EA48E /* ViewController.swift in Sources */,
 				1D98FBEC265F154200BFD44B /* PatientView.swift in Sources */,
+				1DD114972665E9D80004CBC3 /* DataController.swift in Sources */,
 				1D98FBE4265F0D7B00BFD44B /* ImageTaskView.swift in Sources */,
+				1DD114952665E9BE0004CBC3 /* TestingView.swift in Sources */,
 				1D98FBEF265F25DF00BFD44B /* Grid.swift in Sources */,
 				1D98FBE7265F10EF00BFD44B /* EyeTrackingView.swift in Sources */,
 				1DF62AB22663DC5600065CB3 /* PatientViewModel.swift in Sources */,
@@ -275,6 +293,7 @@
 				1DD7D563265E2E22008EA48E /* MainView.swift in Sources */,
 				1D98FBF7265F524700BFD44B /* AboutView.swift in Sources */,
 				1DD7D54F265E2B6D008EA48E /* AppDelegate.swift in Sources */,
+				1DE25A6E2664ED1D00038A94 /* ImageTask.swift in Sources */,
 				1DD7D551265E2B6D008EA48E /* SceneDelegate.swift in Sources */,
 				1D98FBEA265F138B00BFD44B /* EyeTrackingTest.swift in Sources */,
 				1DD7D56D265E3086008EA48E /* AppDelegate+Injection.swift in Sources */,
@@ -284,6 +303,7 @@
 				1D98FBF1265F266700BFD44B /* GridLayout.swift in Sources */,
 				1D2E9FD42663770D0088DC68 /* PatientsViewModel.swift in Sources */,
 				1D98FC0826606C9600BFD44B /* Task3View.swift in Sources */,
+				1DE25A6C2664EC7200038A94 /* EyeTrackingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

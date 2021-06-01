@@ -10,7 +10,7 @@ import Foundation
 class PatientViewModel: ObservableObject {
     @Published var patient: Patient = Patient("")
     
-    func addTest(testData: EyeTrackingTest.Data) {
-        patient.addTest(testData: testData)
-    }
+//    func addTest(testData: EyeTrackingTest.Data) {
+//        patient.addTest(testData: testData)
+//    }
 }

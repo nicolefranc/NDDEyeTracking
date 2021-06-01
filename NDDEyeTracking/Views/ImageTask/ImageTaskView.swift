@@ -8,38 +8,41 @@
 import SwiftUI
 
 struct ImageTaskView: View {
-    private let images: [String] = ["penguin", "snail", "field"]
+    @EnvironmentObject var viewModel: ImageTaskViewModel
     
     @State private var currentImgIdx: Int = 0
     @State private var seconds: Int = ImageTaskView.defaultSeconds
-    @State private var shouldNavigate: Bool = false
+    @Binding var shouldNavigate: Bool
+    @Binding var shouldStopRecording: Bool
     
     
     var body: some View {
-        Image(images[currentImgIdx])
+        Image(viewModel.imageNames[currentImgIdx])
             .resizable()
             .scaledToFit()
             .aspectRatio(contentMode: .fill)
             .ignoresSafeArea()
             .onReceive(timer, perform: { _ in
-                self.timerActions()
+                self.startTimer()
             })
-        NavigationLink(
-            destination: TestOverview(checkpoint: .endTask1),
-            isActive: $shouldNavigate) { EmptyView() }
+            .onAppear {
+                self.startRecording()
+            }
     }
     
     // MARK: - Timer Constants
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    static let defaultSeconds: Int = 3
+    static let defaultSeconds: Int = 1
     
     // MARK: - Timer functions
     
-    private func timerActions() {
+    private func startTimer() {
         if self.seconds == 0 {
-            if (self.currentImgIdx < self.images.count - 1) {
+            if (self.currentImgIdx < viewModel.imageNames.count - 1) {
                 self.currentImgIdx += 1
+                self.shouldStopRecording = true
+                self.saveRecording()
                 self.seconds = ImageTaskView.defaultSeconds
             } else {
                 self.timer.upstream.connect().cancel()
@@ -49,10 +52,18 @@ struct ImageTaskView: View {
             self.seconds -= 1
         }
     }
+    
+    // MARK: - Tracking Data Recording
+    
+    private func startRecording() {
+        
+    }
+    
+    private func saveRecording() {}
 }
 
 struct ImageTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageTaskView()
+        MainView()
     }
 }

@@ -27,6 +27,15 @@ extension Patient {
             Patient("Arthur Watermelon")
         ]
     }
+    
+    func stringValue() -> String {
+        var string = "patient- \(name)\n"
+        for ett in eyeTrackingTests {
+            string += "test: \(ett.name)\n"
+        }
+        
+        return string
+    }
 }
 
 extension Patient {
@@ -44,8 +53,8 @@ extension Patient {
         self.name = data.name
     }
     
-    mutating func addTest(testData: EyeTrackingTest.Data) {
-        let ett = EyeTrackingTest(testData.name)
+    mutating func addTest(ett: EyeTrackingTest) {
+//        let ett = EyeTrackingTest(testData.name)
         self.eyeTrackingTests.append(ett)
     }
 }

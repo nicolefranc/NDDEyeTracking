@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PatientsView: View {
     @ObservedObject var viewModel: PatientsViewModel = PatientsViewModel()
+//    @Environment(\.scenePhase) private var scenePhase
+    
     @State private var isAddPatientToggled: Bool = false
     @State private var newPatientData: Patient.Data = Patient.Data()
     
@@ -35,6 +37,14 @@ struct PatientsView: View {
                 }
             }
         }
+        
+        // MARK: Functions to persist data
+//        .onAppear {
+//            viewModel.load() // Load data
+//        }
+//        .onChange(of: scenePhase) { phase in
+//            if phase == .inactive { viewModel.save() } // Save data when app is inactive
+//        }
     }
     
     private func binding(for patient: Patient) -> Binding<Patient> {

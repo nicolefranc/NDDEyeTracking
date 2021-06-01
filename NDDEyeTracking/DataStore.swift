@@ -16,8 +16,8 @@ struct DataStore {
         Patient("Arthur Watermelon")
     ]
     
-    static var eyeTrackingTests: [EyeTrackingTest] = [
-        EyeTrackingTest("Test #000"),
+//    static var eyeTrackingTests: [EyeTrackingTest] = [
+//        EyeTrackingTest("Test #000"),
 //        EyeTrackingTest("Test #001"),
 //        EyeTrackingTest("Test #002"),
 //        EyeTrackingTest("Test #003"),
@@ -25,7 +25,7 @@ struct DataStore {
 //        EyeTrackingTest("Test #005"),
 //        EyeTrackingTest("Test #006"),
 //        EyeTrackingTest("Test #007")
-    ]
+//    ]
     
     static func addPatient(name: String) {
         DataStore.patients.append(Patient(name))

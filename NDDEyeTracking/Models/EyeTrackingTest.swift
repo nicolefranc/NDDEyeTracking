@@ -7,23 +7,35 @@
 
 import Foundation
 
+enum TaskType: String {
+    case task1 = "Task 1"
+    case task2 = "Task 2"
+    case task3 = "Task 3"
+}
+
 struct EyeTrackingTest: Identifiable {
     var id: UUID
     var name: String
     // Add Tasks here
+    var tasks: [TaskType: Any]
     
-    init(_ name: String) {
+    init() {
         self.id = UUID()
-        self.name = name
+        self.name = ""
+        self.tasks = [:]
+    }
+    
+    mutating func saveTaskResult(type: TaskType, task: Any) {
+        self.tasks[type] = task
     }
 }
 
-extension EyeTrackingTest {
-    struct Data {
-        var name: String = ""
-    }
-    
-    mutating func update(from data: Data) {
-        self.name = data.name
-    }
-}
+//extension EyeTrackingTest {
+//    struct Data {
+//        var name: String = ""
+//    }
+//    
+//    mutating func update(from data: Data) {
+//        self.name = data.name
+//    }
+//}
