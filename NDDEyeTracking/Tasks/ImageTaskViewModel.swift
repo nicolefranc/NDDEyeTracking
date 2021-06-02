@@ -36,6 +36,7 @@ class ImageTaskViewModel: ObservableObject {
         let secondLapData = Array(trackingData[laps[0] + 1...laps[1]])
         let lastLapData = Array(trackingData[laps[1] + 1...trackingData.count - 1])
         
+        // 2. Add the lap data to the corresponding photo
         images[0].trackingData = firstLapData
         images[1].trackingData = secondLapData
         images[2].trackingData = lastLapData

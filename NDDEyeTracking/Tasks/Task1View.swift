@@ -9,14 +9,25 @@ import SwiftUI
 import Resolver
 import EyeTrackKit
 
+private enum Task1Checkpoint {
+    case instructions
+    case task
+    case complete
+}
+
 struct Task1View: View {
     @EnvironmentObject var ettViewModel: ETTViewModel
     @Binding var currentTask: TaskType
     @ObservedObject var imageTaskViewModel: ImageTaskViewModel = ImageTaskViewModel()
     
+    // View Builder
+    @State fileprivate var checkpoint: Task1Checkpoint = .instructions
+    @State var isCountdownDone: Bool = false
+    @State var countdownSeconds: Int = Task1View.defaultCountdownSeconds
+    
     // Photo Loop
     @State var currentImgIdx: Int = 0
-    @State var seconds: Int = ImageTaskView.defaultSeconds
+    @State var imageSeconds: Int = Task1View.defaultImageSeconds
     
     // Eye Tracking
     @ObservedObject var eyeTrackController: EyeTrackController = Resolver.resolve()
@@ -27,17 +38,47 @@ struct Task1View: View {
         let data: DataController = Resolver.resolve()
         self.eyeTrackController.onUpdate = { info in
             data.addTrackingData(info: info!)
-            print(info?.centerEyeLookAtPoint ?? "nil")
+//            print(info?.centerEyeLookAtPoint ?? "nil")
         }
     }
     
     var body: some View {
-//        ZStack {
-//            ImageTaskView()
-//            EyeTrackingView()
-//        }
-//            .navigationBarHidden(true)
-        
+        displayView()
+            .onAppear {
+                self.dataController.startRecording()
+            }
+            .navigationBarHidden(true)
+    }
+    
+    // MARK: - View Builder
+    @ViewBuilder
+    private func displayView() -> some View {
+        switch checkpoint {
+        case .instructions: displayInstructions()
+        case .task: displayImageTask()
+        case .complete: displayCompleteTask()
+        }
+    }
+    
+    @ViewBuilder
+    private func displayInstructions() -> some View {
+        ZStack {
+            if (!isCountdownDone && self.countdownSeconds > 0) {
+                Text("\(self.countdownSeconds)").font(.system(size: 96)).bold()
+            } else {
+                VStack {
+                    Text("TASK 1").font(.headline).bold()
+                    Text("Look at the images carefully").font(.title)
+                }
+            }
+        }
+        .onReceive(timer, perform: { _ in
+            self.startInstructionsTimer()
+        })
+    }
+    
+    @ViewBuilder
+    private func displayImageTask() -> some View {
         ZStack {
             Image(imageTaskViewModel.filenames[currentImgIdx])
                             .resizable()
@@ -45,7 +86,7 @@ struct Task1View: View {
                             .aspectRatio(contentMode: .fill)
                             .ignoresSafeArea()
                             .onReceive(timer, perform: { _ in
-                                self.startTimer()
+                                self.startImageTimer()
                             })
             
 //             Eye Tracking View
@@ -63,38 +104,64 @@ struct Task1View: View {
             }
             
             Button("Task 1 Result") {
-//                imageTaskViewModel.updateTrackingData(imageIndex: 0, trackingData: ["TRACKING INFO"])
                 ettViewModel.addTaskResult(key: "Task 1", result: imageTaskViewModel.images)
                 currentTask = .task3
             }
-            .navigationBarHidden(true)
-        }
-        .onAppear {
-            self.dataController.startRecording()
         }
     }
+    
+    @ViewBuilder
+    private func displayCompleteTask() -> some View {
+        VStack {
+           Text("Task 1").font(.headline)
+           Text("Complete 🎉").font(.largeTitle)
+           Button(action: {
+                ettViewModel.addTaskResult(key: "Task 1", result: imageTaskViewModel.images)
+                currentTask = .task3
+           }) {
+               Text("Next Task")
+           }.padding()
+       }
+    }
+    
     
     // MARK: - Timer Constants
         
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    static let defaultSeconds: Int = 3
+    static let defaultCountdownSeconds: Int = 3
+    static let defaultInstructionsSeconds: Int = 3
+    static let defaultImageSeconds: Int = 1
     
     // MARK: - Timer functions
+    
+    private func startInstructionsTimer() {
+        if self.countdownSeconds == 0 {
+            if !isCountdownDone {
+                isCountdownDone = true
+                countdownSeconds = Task1View.defaultInstructionsSeconds
+            } else {
+                checkpoint = .task
+            }
+        } else {
+            self.countdownSeconds -= 1
+        }
+    }
         
-    private func startTimer() {
+    private func startImageTimer() {
 //        print("\(seconds) seconds")
-        if self.seconds == 0 {
+        if self.imageSeconds == 0 {
             if (self.currentImgIdx < imageTaskViewModel.filenames.count - 1) {
                 self.dataController.takeLap()
                 self.currentImgIdx += 1
-                self.seconds = ImageTaskView.defaultSeconds
+                self.imageSeconds = ImageTaskView.defaultSeconds
             } else {
                 self.timer.upstream.connect().cancel()
                 self.dataController.stopRecording()
                 self.imageTaskViewModel.updateTrackingData(laps: self.dataController.laps, trackingData: self.dataController.eyeTrackData)
+                checkpoint = .complete
             }
         } else {
-            self.seconds -= 1
+            self.imageSeconds -= 1
         }
     }
 }
