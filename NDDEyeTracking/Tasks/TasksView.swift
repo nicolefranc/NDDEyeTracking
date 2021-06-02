@@ -21,11 +21,6 @@ struct TasksView: View {
     
     var body: some View {
         VStack {
-//            Button("Task Result") {
-//                ettViewModel.addTaskResult(key: "Task 1", result: "YAAAYYYY")
-////                patient.addTest(ett: ettViewModel.ett)
-//                currentTask = .task3
-//            }
             displayTask()
         }
     }

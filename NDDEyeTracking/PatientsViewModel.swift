@@ -35,7 +35,7 @@ final class PatientsViewModel: ObservableObject {
                 var val = "============== PATIENT ================\n"
                     val += "Patient: \(patient.name)\nTest: \(ett.name)\n"
 
-                for task in ett.tasks.keys {
+                for task in ett.tasks {
                     val += "Task: \(task)\n"
                 }
                 print(val)

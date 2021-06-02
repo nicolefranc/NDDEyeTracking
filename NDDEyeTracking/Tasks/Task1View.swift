@@ -10,6 +10,7 @@ import SwiftUI
 struct Task1View: View {
     @EnvironmentObject var ettViewModel: ETTViewModel
     @Binding var currentTask: TaskType
+    @ObservedObject var imageTaskViewModel: ImageTaskViewModel = ImageTaskViewModel()
     
     var body: some View {
 //        ZStack {
@@ -20,7 +21,8 @@ struct Task1View: View {
         
         VStack {
             Button("Task 1 Result") {
-                ettViewModel.addTaskResult(key: "Task 1", result: "SUCCESS")
+                imageTaskViewModel.updateTrackingData(imageIndex: 0, trackingData: ["TRACKING INFO"])
+                ettViewModel.addTaskResult(key: "Task 1", result: imageTaskViewModel.images)
                 currentTask = .task3
             }
         }
@@ -29,6 +31,6 @@ struct Task1View: View {
 
 struct Task1_Previews: PreviewProvider {
     static var previews: some View {
-        Task1View(currentTask: .constant(.task1))
+        Task1View(currentTask: .constant(.task1), imageTaskViewModel: ImageTaskViewModel())
     }
 }
