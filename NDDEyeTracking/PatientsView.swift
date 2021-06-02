@@ -35,6 +35,9 @@ struct PatientsView: View {
                 }
             }
         }
+        .onAppear {
+            viewModel.printPatients()
+        }
     }
     
     private func binding(for patient: Patient) -> Binding<Patient> {

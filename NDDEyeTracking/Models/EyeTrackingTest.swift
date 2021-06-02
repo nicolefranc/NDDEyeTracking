@@ -10,20 +10,21 @@ import Foundation
 struct EyeTrackingTest: Identifiable {
     var id: UUID
     var name: String
-    // Add Tasks here
+    var tasks: [String:String]
     
-    init(_ name: String) {
+    init() {
         self.id = UUID()
-        self.name = name
+        self.name = ""
+        self.tasks = [:]
     }
 }
 
-extension EyeTrackingTest {
-    struct Data {
-        var name: String = ""
-    }
-    
-    mutating func update(from data: Data) {
-        self.name = data.name
-    }
-}
+//extension EyeTrackingTest {
+//    struct Data {
+//        var name: String = ""
+//    }
+//
+//    mutating func update(from data: Data) {
+//        self.name = data.name
+//    }
+//}

@@ -44,8 +44,7 @@ extension Patient {
         self.name = data.name
     }
     
-    mutating func addTest(testData: EyeTrackingTest.Data) {
-        let ett = EyeTrackingTest(testData.name)
+    mutating func addTest(ett: EyeTrackingTest) {
         self.eyeTrackingTests.append(ett)
     }
 }

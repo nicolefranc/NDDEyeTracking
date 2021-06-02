@@ -26,4 +26,20 @@ final class PatientsViewModel: ObservableObject {
     func resetFields(patient: Patient.Data) -> Patient.Data {
         return Patient.Data()
     }
+    
+    // MARK: - Debugging
+    
+    func printPatients() {
+        for patient in patients {
+            for ett in patient.eyeTrackingTests {
+                var val = "============== PATIENT ================\n"
+                    val += "Patient: \(patient.name)\nTest: \(ett.name)\n"
+
+                for task in ett.tasks.keys {
+                    val += "Task: \(task)\n"
+                }
+                print(val)
+            }
+        }
+    }
 }

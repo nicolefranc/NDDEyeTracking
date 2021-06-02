@@ -39,6 +39,7 @@ struct ETTResults: View {
 
 struct EyeTrackingTestView_Previews: PreviewProvider {
     static var previews: some View {
-        EyeTrackingTestView(eyeTrackingTest: .constant(EyeTrackingTest("Test Preview #constant")))
+//        EyeTrackingTestView(eyeTrackingTest: .constant(EyeTrackingTest("Test Preview #constant")))
+        MainView()
     }
 }

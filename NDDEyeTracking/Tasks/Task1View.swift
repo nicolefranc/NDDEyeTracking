@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct Task1View: View {
-    @State private var seconds: Int = 3
-    @State private var isTimerStopped = false
-    @State private var timer: Timer? = nil
-    @State private var shouldNavigate: Bool = false
-    @State private var isTaskComplete = false
     
     var body: some View {
-        ZStack {
-            ImageTaskView()
-            EyeTrackingView()
+//        ZStack {
+//            ImageTaskView()
+//            EyeTrackingView()
+//        }
+//            .navigationBarHidden(true)
+        
+        VStack {
+            Button("Task Result") {
+//                ettViewModel.addTaskResult(key: "Task 1", result: "SUCCESS")
+            }
         }
-            .navigationBarHidden(true)
     }
 }
 

@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct PatientView: View {
-    @Binding var patient: Patient
+    @Binding var patient: Patient // Always come back to update this bound patient variable
+    @ObservedObject var ettViewModel: ETTViewModel = ETTViewModel()
     
-    @State var eyeTrackingTestData: EyeTrackingTest.Data = EyeTrackingTest.Data()
     @State private var isNewTestToggled: Bool = false
     @State private var shouldStartTest: Bool = false
     
     var body: some View {
         VStack {
             NavigationLink(
-                destination: TestOverview(checkpoint: .startTest).navigationBarHidden(true),
+//                destination: TestOverview(checkpoint: .startTest).navigationBarHidden(true),
+                destination: TasksView(patient: $patient).environmentObject(ettViewModel),
                 isActive: $shouldStartTest,
                 label: {
                     EmptyView()
@@ -39,12 +40,16 @@ struct PatientView: View {
             .listStyle(InsetGroupedListStyle())
         }
         .navigationBarTitle(patient.name)
+        .onAppear {
+            ettViewModel.printETT()
+        }
     }
     
     private func didNewTestSheetDismiss() {
-        patient.addTest(testData: eyeTrackingTestData)
+//        patient.addTest(ett: ettViewModel.ett)
         //            MARK: - TODO: Comment below when debugging this page
         self.shouldStartTest = true
+        ettViewModel.printETT()
     }
     
     private func binding(for ett: EyeTrackingTest) -> Binding<EyeTrackingTest> {
@@ -63,7 +68,8 @@ struct PatientView: View {
         }
         .sheet(isPresented: $isNewTestToggled, onDismiss: didNewTestSheetDismiss) {
             NavigationView {
-                EyeTrackingTestEditor(editableETTData: $eyeTrackingTestData)
+                EyeTrackingTestEditor()
+                    .environmentObject(ettViewModel)
                     .toolbar { Button("Create") {
                             self.isNewTestToggled = false
                         }
@@ -76,13 +82,13 @@ struct PatientView: View {
 
 struct EyeTrackingTestEditor: View {
     
-    @Binding var editableETTData: EyeTrackingTest.Data
+    @EnvironmentObject var ettViewModel: ETTViewModel
     
     var body: some View {
         VStack(spacing: 0) {
             Form {
                 Section {
-                    TextField("Test Name", text: $editableETTData.name)
+                    TextField("Test Name", text: $ettViewModel.ett.name)
                 }
             }
         }

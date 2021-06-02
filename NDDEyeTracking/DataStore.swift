@@ -17,7 +17,7 @@ struct DataStore {
     ]
     
     static var eyeTrackingTests: [EyeTrackingTest] = [
-        EyeTrackingTest("Test #000"),
+//        EyeTrackingTest("Test #000"),
 //        EyeTrackingTest("Test #001"),
 //        EyeTrackingTest("Test #002"),
 //        EyeTrackingTest("Test #003"),
