@@ -10,11 +10,10 @@ import EyeTrackKit
 
 class Photo {
     var filename: String
-//    var trackingData: [EyeTrackInfo]
-    var trackingData: [String]
+    var trackingData: [EyeTrackInfo]
     var dimensions: [Int]
     
-    init(filename: String, trackingData: [String], dimensions: [Int]) {
+    init(filename: String, trackingData: [EyeTrackInfo], dimensions: [Int]) {
         self.filename = filename
         self.trackingData = trackingData
         self.dimensions = dimensions

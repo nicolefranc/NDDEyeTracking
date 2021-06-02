@@ -20,8 +20,24 @@ class ImageTaskViewModel: ObservableObject {
         ]
     }
     
+    var filenames: [String] {
+        get {
+            images.map { image in
+                image.filename
+            }
+        }
+    }
+    
     // TODO: Change trackingData type to [EyeTrackInfo]
-    func updateTrackingData(imageIndex: Int, trackingData: [String]) {
-        images[imageIndex].trackingData = trackingData
+    func updateTrackingData(laps: [Int], trackingData: [EyeTrackInfo]) {
+        // 1. Process trackingInfo: Split into laps
+        print("========= UPDATING =========\n\(laps)")
+        let firstLapData = Array(trackingData[...laps[0]])
+        let secondLapData = Array(trackingData[laps[0] + 1...laps[1]])
+        let lastLapData = Array(trackingData[laps[1] + 1...trackingData.count - 1])
+        
+        images[0].trackingData = firstLapData
+        images[1].trackingData = secondLapData
+        images[2].trackingData = lastLapData
     }
 }
