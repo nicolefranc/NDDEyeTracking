@@ -74,7 +74,7 @@ struct TestOverview: View {
     func startTask1() -> some View {
         ZStack {
             if (shouldNavigate) {
-                Task1View()
+//                Task1View()
             } else if (!isCountdownDone && self.seconds > 0) {
                 Text("\(self.seconds)").font(.system(size: 96)).bold()
             } else {
@@ -132,7 +132,7 @@ struct TestOverview: View {
     func startTask3() -> some View {
         return ZStack {
             if (shouldNavigate) {
-                Task3View()
+//                Task3View()
             } else if (!isCountdownDone && self.seconds > 0) {
                 Text("\(self.seconds)").font(.system(size: 96)).bold()
             } else {

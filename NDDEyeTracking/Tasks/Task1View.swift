@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Task1View: View {
+    @EnvironmentObject var ettViewModel: ETTViewModel
+    @Binding var currentTask: TaskType
     
     var body: some View {
 //        ZStack {
@@ -17,8 +19,9 @@ struct Task1View: View {
 //            .navigationBarHidden(true)
         
         VStack {
-            Button("Task Result") {
-//                ettViewModel.addTaskResult(key: "Task 1", result: "SUCCESS")
+            Button("Task 1 Result") {
+                ettViewModel.addTaskResult(key: "Task 1", result: "SUCCESS")
+                currentTask = .task3
             }
         }
     }
@@ -26,6 +29,6 @@ struct Task1View: View {
 
 struct Task1_Previews: PreviewProvider {
     static var previews: some View {
-        Task1View()
+        Task1View(currentTask: .constant(.task1))
     }
 }
