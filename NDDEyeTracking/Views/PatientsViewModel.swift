@@ -39,6 +39,9 @@ final class PatientsViewModel: ObservableObject {
                     val += "Task: \(task)\n"
                 }
                 print(val)
+                
+                let p: [Patient] = patients
+                print(p)
             }
         }
     }

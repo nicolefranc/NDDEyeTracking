@@ -15,7 +15,7 @@ struct Task3View: View {
     var body: some View {
         VStack {
             Text("Task 3 View")
-            Button("Task 3 Result") {
+            Button("Finish Test") {
                 ettViewModel.addTaskResult(key: "Task 3", result: [Task(taskType: .task3)])
                 patient.addTest(ett: ettViewModel.ett)
                 presentationMode.wrappedValue.dismiss()

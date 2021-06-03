@@ -8,16 +8,17 @@
 import SwiftUI
 
 enum TaskType: String {
-    case task1 = "Task 1"
-    case task2 = "Task 2"
-    case task3 = "Task 3"
+    case start
+    case task1
+    case task2
+    case task3
 }
 
 struct TasksView: View {
     @Binding var patient: Patient
     @EnvironmentObject var ettViewModel: ETTViewModel
     
-    @State var currentTask: TaskType = .task1
+    @State var currentTask: TaskType = .start
     
     var body: some View {
         VStack {
@@ -28,9 +29,24 @@ struct TasksView: View {
     @ViewBuilder
     private func displayTask() -> some View {
         switch currentTask {
+        case .start: displayStartTest()
         case .task1: Task1View(currentTask: $currentTask).environmentObject(ettViewModel)
         case .task2: Task2View()
         case .task3: Task3View(patient: $patient).environmentObject(ettViewModel)
+        }
+    }
+    
+    @ViewBuilder
+    private func displayStartTest() -> some View {
+        VStack {VStack {
+            Text("You are taking the Eye Tracking Test.").font(.title)
+            Text("This test consists of 3 tasks.\nPress START to begin.").multilineTextAlignment(.center)
+            Button(action: {
+                currentTask = .task1
+            }) {
+                Text("Start").font(.title)
+            }.padding()
+        }
         }
     }
 }
