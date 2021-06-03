@@ -9,6 +9,7 @@ import SwiftUI
 import Resolver
 import EyeTrackKit
 
+// TO BE DELETED - for reference only
 struct EyeTrackingView: View {
     @ObservedObject var eyeTrackController: EyeTrackController = Resolver.resolve()
     

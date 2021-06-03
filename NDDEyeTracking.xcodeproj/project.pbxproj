@@ -14,12 +14,9 @@
 		1D2E9FD42663770D0088DC68 /* PatientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E9FD32663770D0088DC68 /* PatientsViewModel.swift */; };
 		1D582E1C26676E8800547757 /* ETTViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D582E1B26676E8800547757 /* ETTViewModel.swift */; };
 		1D582E1E2667876E00547757 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D582E1D2667876E00547757 /* TasksView.swift */; };
-		1D98FBE4265F0D7B00BFD44B /* ImageTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FBE3265F0D7B00BFD44B /* ImageTaskView.swift */; };
 		1D98FBE7265F10EF00BFD44B /* EyeTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FBE6265F10EF00BFD44B /* EyeTrackingView.swift */; };
 		1D98FBEA265F138B00BFD44B /* EyeTrackingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FBE9265F138B00BFD44B /* EyeTrackingTest.swift */; };
 		1D98FBEC265F154200BFD44B /* PatientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FBEB265F154200BFD44B /* PatientView.swift */; };
-		1D98FBEF265F25DF00BFD44B /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FBEE265F25DF00BFD44B /* Grid.swift */; };
-		1D98FBF1265F266700BFD44B /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FBF0265F266700BFD44B /* GridLayout.swift */; };
 		1D98FBF3265F4B2900BFD44B /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FBF2265F4B2900BFD44B /* Patient.swift */; };
 		1D98FBF5265F521800BFD44B /* PatientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FBF4265F521800BFD44B /* PatientsView.swift */; };
 		1D98FBF7265F524700BFD44B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98FBF6265F524700BFD44B /* AboutView.swift */; };
@@ -50,12 +47,9 @@
 		1D2E9FD32663770D0088DC68 /* PatientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsViewModel.swift; sourceTree = "<group>"; };
 		1D582E1B26676E8800547757 /* ETTViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETTViewModel.swift; sourceTree = "<group>"; };
 		1D582E1D2667876E00547757 /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
-		1D98FBE3265F0D7B00BFD44B /* ImageTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaskView.swift; sourceTree = "<group>"; };
 		1D98FBE6265F10EF00BFD44B /* EyeTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackingView.swift; sourceTree = "<group>"; };
 		1D98FBE9265F138B00BFD44B /* EyeTrackingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackingTest.swift; sourceTree = "<group>"; };
 		1D98FBEB265F154200BFD44B /* PatientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientView.swift; sourceTree = "<group>"; };
-		1D98FBEE265F25DF00BFD44B /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
-		1D98FBF0265F266700BFD44B /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		1D98FBF2265F4B2900BFD44B /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		1D98FBF4265F521800BFD44B /* PatientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsView.swift; sourceTree = "<group>"; };
 		1D98FBF6265F524700BFD44B /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -94,26 +88,21 @@
 		1D2E9FD0266367540088DC68 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1D98FBF4265F521800BFD44B /* PatientsView.swift */,
+				1D2E9FD32663770D0088DC68 /* PatientsViewModel.swift */,
+				1D98FBF6265F524700BFD44B /* AboutView.swift */,
+				1DD25B572668B9A9002FC548 /* EyeTrackingTest */,
 				1DF62AB02663DC3A00065CB3 /* Patient */,
+				1D98FC02265FC3B800BFD44B /* Tasks */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		1D98FBE2265F0D5700BFD44B /* ImageTask */ = {
-			isa = PBXGroup;
-			children = (
-				1D98FBE3265F0D7B00BFD44B /* ImageTaskView.swift */,
-			);
-			path = ImageTask;
 			sourceTree = "<group>";
 		};
 		1D98FBE5265F10DF00BFD44B /* EyeTracking */ = {
 			isa = PBXGroup;
 			children = (
 				1D98FBE6265F10EF00BFD44B /* EyeTrackingView.swift */,
-				1D98FBFC265F6F0900BFD44B /* EyeTrackingTestView.swift */,
 				1D98FBFE265F7CC900BFD44B /* TestOverview.swift */,
-				1D582E1B26676E8800547757 /* ETTViewModel.swift */,
 			);
 			path = EyeTracking;
 			sourceTree = "<group>";
@@ -128,27 +117,27 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		1D98FBED265F25CB00BFD44B /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				1D98FBEE265F25DF00BFD44B /* Grid.swift */,
-				1D98FBF0265F266700BFD44B /* GridLayout.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		1D98FC02265FC3B800BFD44B /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				1D582E1D2667876E00547757 /* TasksView.swift */,
 				1D98FC03265FC3D300BFD44B /* Task1View.swift */,
 				1D98FC05266066B200BFD44B /* Task2View.swift */,
 				1D98FC0726606C9600BFD44B /* Task3View.swift */,
-				1D582E1D2667876E00547757 /* TasksView.swift */,
 				1D0BFE8D2667C9B7006875EF /* ImageTaskViewModel.swift */,
 				1D0BFE8F2667CC5E006875EF /* Task.swift */,
 				1D0BFE912667D348006875EF /* DataController.swift */,
 			);
 			path = Tasks;
+			sourceTree = "<group>";
+		};
+		1DD25B572668B9A9002FC548 /* EyeTrackingTest */ = {
+			isa = PBXGroup;
+			children = (
+				1D98FBFC265F6F0900BFD44B /* EyeTrackingTestView.swift */,
+				1D582E1B26676E8800547757 /* ETTViewModel.swift */,
+			);
+			path = EyeTrackingTest;
 			sourceTree = "<group>";
 		};
 		1DD7D542265E2B6D008EA48E = {
@@ -172,11 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				1D2E9FD0266367540088DC68 /* Views */,
-				1D98FC02265FC3B800BFD44B /* Tasks */,
-				1D98FBED265F25CB00BFD44B /* Components */,
 				1D98FBE8265F131F00BFD44B /* Models */,
 				1D98FBE5265F10DF00BFD44B /* EyeTracking */,
-				1D98FBE2265F0D5700BFD44B /* ImageTask */,
 				1DD7D54E265E2B6D008EA48E /* AppDelegate.swift */,
 				1DD7D550265E2B6D008EA48E /* SceneDelegate.swift */,
 				1DD7D552265E2B6D008EA48E /* ViewController.swift */,
@@ -185,10 +171,7 @@
 				1DD7D55C265E2B6E008EA48E /* Info.plist */,
 				1DD7D562265E2E22008EA48E /* MainView.swift */,
 				1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */,
-				1D98FBF4265F521800BFD44B /* PatientsView.swift */,
-				1D98FBF6265F524700BFD44B /* AboutView.swift */,
 				1D98FBFA265F561C00BFD44B /* DataStore.swift */,
-				1D2E9FD32663770D0088DC68 /* PatientsViewModel.swift */,
 			);
 			path = NDDEyeTracking;
 			sourceTree = "<group>";
@@ -284,8 +267,6 @@
 				1DD7D553265E2B6D008EA48E /* ViewController.swift in Sources */,
 				1D98FBEC265F154200BFD44B /* PatientView.swift in Sources */,
 				1D0BFE8E2667C9B7006875EF /* ImageTaskViewModel.swift in Sources */,
-				1D98FBE4265F0D7B00BFD44B /* ImageTaskView.swift in Sources */,
-				1D98FBEF265F25DF00BFD44B /* Grid.swift in Sources */,
 				1D98FBE7265F10EF00BFD44B /* EyeTrackingView.swift in Sources */,
 				1DF62AB22663DC5600065CB3 /* PatientViewModel.swift in Sources */,
 				1D98FBFD265F6F0900BFD44B /* EyeTrackingTestView.swift in Sources */,
@@ -304,7 +285,6 @@
 				1D0BFE922667D348006875EF /* DataController.swift in Sources */,
 				1D582E1E2667876E00547757 /* TasksView.swift in Sources */,
 				1D98FBFF265F7CC900BFD44B /* TestOverview.swift in Sources */,
-				1D98FBF1265F266700BFD44B /* GridLayout.swift in Sources */,
 				1D2E9FD42663770D0088DC68 /* PatientsViewModel.swift in Sources */,
 				1D0BFE902667CC5E006875EF /* Task.swift in Sources */,
 				1D98FC0826606C9600BFD44B /* Task3View.swift in Sources */,

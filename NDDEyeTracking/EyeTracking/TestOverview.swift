@@ -17,6 +17,7 @@ enum Checkpoint {
     case endTask3
 }
 
+// TO BE DELETED - for reference only
 struct TestOverview: View {
     @State private var checkpoint: Checkpoint
     @State private var seconds: Int = 3

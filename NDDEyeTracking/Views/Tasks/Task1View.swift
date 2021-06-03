@@ -35,6 +35,8 @@ struct Task1View: View {
     
     init(currentTask: Binding<TaskType>) {
         _currentTask = currentTask
+        
+        // Retrieve Eye Tracking Data
         let data: DataController = Resolver.resolve()
         self.eyeTrackController.onUpdate = { info in
             data.addTrackingData(info: info!)
@@ -153,7 +155,7 @@ struct Task1View: View {
             if (self.currentImgIdx < imageTaskViewModel.filenames.count - 1) {
                 self.dataController.takeLap()
                 self.currentImgIdx += 1
-                self.imageSeconds = ImageTaskView.defaultSeconds
+                self.imageSeconds = Task1View.defaultImageSeconds
             } else {
                 self.timer.upstream.connect().cancel()
                 self.dataController.stopRecording()
