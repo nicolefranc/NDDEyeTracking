@@ -10,7 +10,7 @@ import Foundation
 class ETTViewModel: ObservableObject {
     @Published var ett: EyeTrackingTest = EyeTrackingTest()
     
-    func addTaskResult(key: String, result: Any) {
+    func addTaskResult(key: String, result: [TaskData]) {
         ett.tasks[key] = result
     }
     

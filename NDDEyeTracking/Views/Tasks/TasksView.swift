@@ -23,6 +23,7 @@ struct TasksView: View {
     var body: some View {
         VStack {
             displayTask()
+                .navigationBarHidden(true)
         }
     }
     
@@ -38,7 +39,7 @@ struct TasksView: View {
     
     @ViewBuilder
     private func displayStartTest() -> some View {
-        VStack {VStack {
+        VStack {
             Text("You are taking the Eye Tracking Test.").font(.title)
             Text("This test consists of 3 tasks.\nPress START to begin.").multilineTextAlignment(.center)
             Button(action: {
@@ -46,7 +47,6 @@ struct TasksView: View {
             }) {
                 Text("Start").font(.title)
             }.padding()
-        }
         }
     }
 }

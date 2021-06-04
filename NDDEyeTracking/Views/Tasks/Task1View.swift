@@ -105,10 +105,11 @@ struct Task1View: View {
                 Text("x: \(eyeTrackController.eyeTrack.lookAtPoint.x), y: \(eyeTrackController.eyeTrack.lookAtPoint.y)")
             }
             
-            Button("Task 1 Result") {
-                ettViewModel.addTaskResult(key: "Task 1", result: imageTaskViewModel.images)
-                currentTask = .task3
-            }
+///            Debugging
+//            Button("Task 1 Result") {
+//                ettViewModel.addTaskResult(key: "Task 1", result: imageTaskViewModel.images)
+//                currentTask = .task3
+//            }
         }
     }
     
@@ -132,7 +133,7 @@ struct Task1View: View {
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     static let defaultCountdownSeconds: Int = 3
     static let defaultInstructionsSeconds: Int = 3
-    static let defaultImageSeconds: Int = 1
+    static let defaultImageSeconds: Int = 5
     
     // MARK: - Timer functions
     

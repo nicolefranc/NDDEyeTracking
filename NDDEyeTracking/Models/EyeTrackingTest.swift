@@ -10,7 +10,7 @@ import Foundation
 struct EyeTrackingTest: Identifiable {
     var id: UUID
     var name: String
-    var tasks: [String:Any]
+    var tasks: [String:[TaskData]]
     
     init() {
         self.id = UUID()
