@@ -120,7 +120,7 @@ struct Task1View: View {
            Text("Complete 🎉").font(.largeTitle)
            Button(action: {
                 ettViewModel.addTaskResult(key: "Task 1", result: imageTaskViewModel.images)
-                currentTask = .task3
+                currentTask = .task2
            }) {
                Text("Next Task")
            }.padding()
