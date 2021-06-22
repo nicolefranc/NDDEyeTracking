@@ -84,6 +84,7 @@ struct Task2View: View {
     private func displayMovingDotTask() -> some View {
         ZStack {
             // Moving Dot Task View
+            
 //             Eye Tracking View
             ZStack(alignment: .top) {
                 ZStack(alignment: .topLeading) {
