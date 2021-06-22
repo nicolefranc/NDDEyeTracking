@@ -13,9 +13,9 @@ import EyeTrackKit
 class CustomShape: TaskData, Identifiable {
     var id: UUID
     var trackingData: [EyeTrackInfo]
-    var shape: String
+    var shape: MovingPattern
     
-    init(shape: String, trackingData: [EyeTrackInfo], taskType: TaskType) {
+    init(shape: MovingPattern, trackingData: [EyeTrackInfo], taskType: TaskType) {
         self.id = UUID()
         self.trackingData = trackingData
         self.shape = shape

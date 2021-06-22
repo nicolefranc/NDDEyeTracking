@@ -16,6 +16,12 @@ private enum Task2Checkpoint {
     case complete
 }
 
+public enum MovingPattern: String {
+    case archSpiral = "Archimedean Spiral"
+    case spiroSquare = "Spiro Square"
+    case spiroGraph = "Spirograph"
+}
+
 struct Task2View: View {
     @EnvironmentObject var ettViewModel: ETTViewModel
     @Binding var currentTask: TaskType
@@ -84,7 +90,11 @@ struct Task2View: View {
     private func displayMovingDotTask() -> some View {
         ZStack {
             // Moving Dot Task View
-            
+            switch MovingPattern {
+            case .archSpiral: ArchSpiral()
+            case .spiroSquare: Spirograph()
+            case .spiroGraph: SpiroSquare()
+            }
 //             Eye Tracking View
             ZStack(alignment: .top) {
                 ZStack(alignment: .topLeading) {

@@ -10,20 +10,11 @@ import EyeTrackKit
 import SwiftUI
 
 class MovingDotViewModel: ObservableObject {
-    @Published var shapes = [
-        CustomShape(shape: "spirosquare", trackingData: [], taskType: .task2),
-        CustomShape(shape: "archspiral", trackingData: [], taskType: .task2),
-        CustomShape(shape: "spirograph", trackingData: [], taskType: .task2)
+    var shapes: [CustomShape] = [
+        CustomShape(shape: .archSpiral, trackingData: [], taskType: .task2),
+        CustomShape(shape: .spiroGraph, trackingData: [], taskType: .task2),
+        CustomShape(shape: .spiroSquare, trackingData: [], taskType: .task2),
     ]
-    
-    /*
-    init() {
-        shapes = [
-            CustomShape(shape: SpiroSquare(), trackingData: [], taskType: .task2),
-            CustomShape(shape: ArchSpiral(), trackingData: [], taskType: .task2),
-            CustomShape(shape: Spirograph(), trackingData: [], taskType: .task2)
-        ]
-    }*/
     
     func updateTrackingData(laps: [Int], trackingData: [EyeTrackInfo]) {
         // 1. Process trackingInfo: Split into laps
