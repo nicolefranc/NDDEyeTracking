@@ -112,7 +112,7 @@ struct Task2View: View {
            Text("Task 2").font(.headline)
            Text("Complete 🎉").font(.largeTitle)
            Button(action: {
-                ettViewModel.addTaskResult(key: "Task 2", result: movingDotViewModel.images)
+                ettViewModel.addTaskResult(key: "Task 2", result: movingDotViewModel.shapes)
                 currentTask = .task3
            }) {
                Text("Next Task")
