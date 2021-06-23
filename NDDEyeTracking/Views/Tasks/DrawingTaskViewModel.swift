@@ -9,28 +9,24 @@ import Foundation
 import EyeTrackKit
 
 class DrawingTaskViewModel: ObservableObject {
-    @Published var shapes: [Any]
+    var drawings: [CustomShape] = [
+        CustomShape(shape: .archSpiral, trackingData: [], taskType: .task2),
+        CustomShape(shape: .spiroGraph, trackingData: [], taskType: .task2),
+        CustomShape(shape: .spiroSquare, trackingData: [], taskType: .task2)
+    ]
     
-    init() {
-        drawings = [
-            Template(shape: "circle", trackingData: [])
-            /*Photo(filename: "penguin", trackingData: [], dimensions: tempDimensions),
-            Photo(filename: "snail", trackingData: [], dimensions: tempDimensions),
-            Photo(filename: "field", trackingData: [], dimensions: tempDimensions)*/
-        ]
-    }
     
     // TODO: Change trackingData type to [EyeTrackInfo]
     func updateTrackingData(laps: [Int], trackingData: [EyeTrackInfo]) {
         // 1. Process trackingInfo: Split into laps
         print("========= UPDATING =========\n\(laps)")
         let firstLapData = Array(trackingData[...laps[0]])
-        //let secondLapData = Array(trackingData[laps[0] + 1...laps[1]])
-        //let lastLapData = Array(trackingData[laps[1] + 1...trackingData.count - 1])
+        let secondLapData = Array(trackingData[laps[0] + 1...laps[1]])
+        let lastLapData = Array(trackingData[laps[1] + 1...trackingData.count - 1])
         
         // 2. Add the lap data to the corresponding photo
         drawings[0].trackingData = firstLapData
-        //images[1].trackingData = secondLapData
-        //images[2].trackingData = lastLapData
+        drawings[1].trackingData = secondLapData
+        drawings[2].trackingData = lastLapData
     }
 }

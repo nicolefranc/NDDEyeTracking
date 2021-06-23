@@ -10,12 +10,18 @@ import SwiftUI
 import CoreGraphics
 import EyeTrackKit
 
+enum Pattern: String {
+    case archSpiral = "Archimedean Spiral"
+    case spiroSquare = "Spiro Square"
+    case spiroGraph = "Spirograph"
+}
+
 class CustomShape: TaskData, Identifiable {
     var id: UUID
     var trackingData: [EyeTrackInfo]
-    var shape: MovingPattern
+    var shape: Pattern
     
-    init(shape: MovingPattern, trackingData: [EyeTrackInfo], taskType: TaskType) {
+    init(shape: Pattern, trackingData: [EyeTrackInfo], taskType: TaskType) {
         self.id = UUID()
         self.trackingData = trackingData
         self.shape = shape

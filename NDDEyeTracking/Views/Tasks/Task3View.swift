@@ -19,6 +19,7 @@ struct Task3View: View {
     @Binding var patient: Patient
     @EnvironmentObject var ettViewModel: ETTViewModel
     @Binding var currentTask: TaskType
+    @ObservedObject var drawingTaskViewModel: DrawingTaskViewModel = DrawingTaskViewModel()
     @Environment(\.presentationMode) var presentationMode // To programmatically dismiss view
     
     // View Builder
@@ -27,7 +28,7 @@ struct Task3View: View {
     @State var countdownSeconds: Int = Task1View.defaultCountdownSeconds
     
     // Photo Loop
-    @State var currentImgIdx: Int = 0
+    @State var currentDrawingIdx: Int = 0
     @State var imageSeconds: Int = Task1View.defaultImageSeconds
     
     // Eye Tracking
@@ -87,16 +88,14 @@ struct Task3View: View {
     @ViewBuilder
     private func displayDrawingTask() -> some View {
         ZStack {
-            /*Image(imageTaskViewModel.filenames[currentImgIdx])
-                            .resizable()
-                            .scaledToFit()
-                            .aspectRatio(contentMode: .fill)
-                            .ignoresSafeArea()
-                            .onReceive(timer, perform: { _ in
-                                self.startImageTimer()
-                            })*/
+            // Moving Dot Task View
+            switch drawingTaskViewModel.drawings[currentDrawingIdx].shape {
+            case .archSpiral: ArchSpiral()
+            case .spiroSquare: Spirograph()
+            case .spiroGraph: SpiroSquare()
+            }
             
-//             Eye Tracking View
+            // Eye Tracking View
             ZStack(alignment: .top) {
                 ZStack(alignment: .topLeading) {
                     self.eyeTrackController.view

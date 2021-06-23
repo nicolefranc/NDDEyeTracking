@@ -16,12 +16,6 @@ private enum Task2Checkpoint {
     case complete
 }
 
-public enum MovingPattern: String {
-    case archSpiral = "Archimedean Spiral"
-    case spiroSquare = "Spiro Square"
-    case spiroGraph = "Spirograph"
-}
-
 struct Task2View: View {
     @EnvironmentObject var ettViewModel: ETTViewModel
     @Binding var currentTask: TaskType
