@@ -178,6 +178,7 @@ struct Task3View: View {
 
 struct Task3View_Previews: PreviewProvider {
     static var previews: some View {
-        Task3View(currentTask: <#Binding<TaskType>#>)
+        //Task3View(currentTask: .task3)
+        MainView()
     }
 }
