@@ -33,7 +33,7 @@ struct Task2View: View {
     @State var countdownSeconds: Int = Task2View.defaultCountdownSeconds
     
     // Photo Loop
-    @State var currentImgIdx: Int = 0
+    @State var currentShapeIdx: Int = 0
     @State var imageSeconds: Int = Task2View.defaultImageSeconds
     
     // Eye Tracking
@@ -90,7 +90,7 @@ struct Task2View: View {
     private func displayMovingDotTask() -> some View {
         ZStack {
             // Moving Dot Task View
-            switch MovingPattern {
+            switch movingDotViewModel.shapes[currentShapeIdx].shape {
             case .archSpiral: ArchSpiral()
             case .spiroSquare: Spirograph()
             case .spiroGraph: SpiroSquare()

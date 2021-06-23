@@ -13,7 +13,7 @@ class MovingDotViewModel: ObservableObject {
     var shapes: [CustomShape] = [
         CustomShape(shape: .archSpiral, trackingData: [], taskType: .task2),
         CustomShape(shape: .spiroGraph, trackingData: [], taskType: .task2),
-        CustomShape(shape: .spiroSquare, trackingData: [], taskType: .task2),
+        CustomShape(shape: .spiroSquare, trackingData: [], taskType: .task2)
     ]
     
     func updateTrackingData(laps: [Int], trackingData: [EyeTrackInfo]) {
