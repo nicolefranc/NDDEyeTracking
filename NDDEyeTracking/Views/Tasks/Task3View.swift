@@ -9,27 +9,25 @@ import SwiftUI
 import Resolver
 import EyeTrackKit
 
-private enum Task1Checkpoint {
+private enum Task3Checkpoint {
     case instructions
     case task
     case complete
 }
 
 struct Task3View: View {
-    @Binding var patient: Patient
     @EnvironmentObject var ettViewModel: ETTViewModel
     @Binding var currentTask: TaskType
     @ObservedObject var drawingTaskViewModel: DrawingTaskViewModel = DrawingTaskViewModel()
-    @Environment(\.presentationMode) var presentationMode // To programmatically dismiss view
     
     // View Builder
-    @State fileprivate var checkpoint: Task1Checkpoint = .instructions
+    @State fileprivate var checkpoint: Task2Checkpoint = .instructions
     @State var isCountdownDone: Bool = false
-    @State var countdownSeconds: Int = Task1View.defaultCountdownSeconds
+    @State var countdownSeconds: Int = Task3View.defaultCountdownSeconds
     
     // Photo Loop
-    @State var currentDrawingIdx: Int = 0
-    @State var imageSeconds: Int = Task1View.defaultImageSeconds
+    @State var currentShapeIdx: Int = 0
+    @State var imageSeconds: Int = Task3View.defaultImageSeconds
     
     // Eye Tracking
     @ObservedObject var eyeTrackController: EyeTrackController = Resolver.resolve()
@@ -47,14 +45,10 @@ struct Task3View: View {
     }
     
     var body: some View {
-        VStack {
-            Text("Task 3 View")
-            Button("Finish Test") {
-                ettViewModel.addTaskResult(key: "Task 3", result: [TaskData(taskType: .task3)])
-                patient.addTest(ett: ettViewModel.ett)
-                presentationMode.wrappedValue.dismiss()
+        displayView()
+            .onAppear {
+                self.dataController.startRecording()
             }
-        }
             .navigationBarHidden(true)
     }
     
@@ -76,7 +70,7 @@ struct Task3View: View {
             } else {
                 VStack {
                     Text("TASK 3").font(.headline).bold()
-                    Text("Trace the figures carefully").font(.title)
+                    Text("Descriptive Text").font(.title)
                 }
             }
         }
@@ -88,14 +82,13 @@ struct Task3View: View {
     @ViewBuilder
     private func displayDrawingTask() -> some View {
         ZStack {
-            // Moving Dot Task View
-            switch drawingTaskViewModel.drawings[currentDrawingIdx].shape {
+            // Drawing Task View
+            switch drawingTaskViewModel.shapes[currentShapeIdx].shape {
             case .archSpiral: ArchSpiral()
             case .spiroSquare: Spirograph()
             case .spiroGraph: SpiroSquare()
             }
-            
-            // Eye Tracking View
+//             Eye Tracking View
             ZStack(alignment: .top) {
                 ZStack(alignment: .topLeading) {
                     self.eyeTrackController.view
@@ -108,11 +101,6 @@ struct Task3View: View {
                 
                 Text("x: \(eyeTrackController.eyeTrack.lookAtPoint.x), y: \(eyeTrackController.eyeTrack.lookAtPoint.y)")
             }
-            
-///            Debugging
-//            Button("Task 1 Result") {
-//                ettViewModel.addTaskResult(key: "Task 1", result: imageTaskViewModel.images)
-//                currentTask = .task3
 //            }
         }
     }
@@ -120,16 +108,17 @@ struct Task3View: View {
     @ViewBuilder
     private func displayCompleteTask() -> some View {
         VStack {
-           Text("Task 1").font(.headline)
+           Text("Task 2").font(.headline)
            Text("Complete 🎉").font(.largeTitle)
-           /*Button(action: {
-                ettViewModel.addTaskResult(key: "Task 1", result: imageTaskViewModel.images)
+           Button(action: {
+                ettViewModel.addTaskResult(key: "Task 2", result: drawingTaskViewModel.shapes)
                 currentTask = .task3
            }) {
                Text("Next Task")
-           }.padding()*/
+           }.padding()
        }
     }
+    
     
     // MARK: - Timer Constants
         
@@ -144,7 +133,7 @@ struct Task3View: View {
         if self.countdownSeconds == 0 {
             if !isCountdownDone {
                 isCountdownDone = true
-                countdownSeconds = Task1View.defaultInstructionsSeconds
+                countdownSeconds = Task2View.defaultInstructionsSeconds
             } else {
                 checkpoint = .task
             }
@@ -152,10 +141,11 @@ struct Task3View: View {
             self.countdownSeconds -= 1
         }
     }
-        
+
+    /*
     private func startImageTimer() {
 //        print("\(seconds) seconds")
-        /*if self.imageSeconds == 0 {
+        if self.imageSeconds == 0 {
             if (self.currentImgIdx < imageTaskViewModel.filenames.count - 1) {
                 self.dataController.takeLap()
                 self.currentImgIdx += 1
@@ -168,17 +158,12 @@ struct Task3View: View {
             }
         } else {
             self.imageSeconds -= 1
-        }*/
-    }
+        }
+    }*/
 }
 
-
-
-
-
-struct Task3View_Previews: PreviewProvider {
+struct Task2View___Previews: PreviewProvider {
     static var previews: some View {
-        //Task3View(currentTask: .task3)
         MainView()
     }
 }

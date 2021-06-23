@@ -11,9 +11,9 @@ import SwiftUI
 
 class MovingDotViewModel: ObservableObject {
     var shapes: [CustomShape] = [
-        CustomShape(shape: .archSpiral, trackingData: [], taskType: .task2),
-        CustomShape(shape: .spiroGraph, trackingData: [], taskType: .task2),
-        CustomShape(shape: .spiroSquare, trackingData: [], taskType: .task2)
+        CustomShape(shape: .archSpiral, trackingData: []),
+        CustomShape(shape: .spiroGraph, trackingData: []),
+        CustomShape(shape: .spiroSquare, trackingData: [])
     ]
     
     func updateTrackingData(laps: [Int], trackingData: [EyeTrackInfo]) {

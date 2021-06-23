@@ -9,14 +9,12 @@ import Foundation
 import EyeTrackKit
 
 class DrawingTaskViewModel: ObservableObject {
-    var drawings: [CustomShape] = [
-        CustomShape(shape: .archSpiral, trackingData: [], taskType: .task2),
-        CustomShape(shape: .spiroGraph, trackingData: [], taskType: .task2),
-        CustomShape(shape: .spiroSquare, trackingData: [], taskType: .task2)
+    var shapes: [CustomShape] = [
+        CustomShape(shape: .archSpiral, trackingData: []),
+        CustomShape(shape: .spiroGraph, trackingData: []),
+        CustomShape(shape: .spiroSquare, trackingData: [])
     ]
     
-    
-    // TODO: Change trackingData type to [EyeTrackInfo]
     func updateTrackingData(laps: [Int], trackingData: [EyeTrackInfo]) {
         // 1. Process trackingInfo: Split into laps
         print("========= UPDATING =========\n\(laps)")
@@ -25,8 +23,8 @@ class DrawingTaskViewModel: ObservableObject {
         let lastLapData = Array(trackingData[laps[1] + 1...trackingData.count - 1])
         
         // 2. Add the lap data to the corresponding photo
-        drawings[0].trackingData = firstLapData
-        drawings[1].trackingData = secondLapData
-        drawings[2].trackingData = lastLapData
+        shapes[0].trackingData = firstLapData
+        shapes[1].trackingData = secondLapData
+        shapes[2].trackingData = lastLapData
     }
 }

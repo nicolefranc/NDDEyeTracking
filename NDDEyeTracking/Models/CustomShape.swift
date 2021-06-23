@@ -21,11 +21,11 @@ class CustomShape: TaskData, Identifiable {
     var trackingData: [EyeTrackInfo]
     var shape: Pattern
     
-    init(shape: Pattern, trackingData: [EyeTrackInfo], taskType: TaskType) {
+    init(shape: Pattern, trackingData: [EyeTrackInfo]) {
         self.id = UUID()
         self.trackingData = trackingData
         self.shape = shape
-        super.init(taskType: taskType)
+        super.init(taskType: .task2)
     }
 }
 
