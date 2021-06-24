@@ -15,7 +15,7 @@ class CustomPath: TaskData, Identifiable {
     var trackingData: [EyeTrackInfo]
     var path: [CGPoint]
     
-    init(trackingData: [EyeTrackInfo], pathFunc:() -> ([CGPoint], String)) {
+    init(trackingData: [EyeTrackInfo], pathFunc: () -> ([CGPoint], String)) {
         self.id = pathFunc().1
         self.trackingData = trackingData
         self.path = pathFunc().0

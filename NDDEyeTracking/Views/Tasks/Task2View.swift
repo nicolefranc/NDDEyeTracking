@@ -23,12 +23,14 @@ struct Task2View: View {
     
     // View Builder
     @State fileprivate var checkpoint: Task2Checkpoint = .instructions
-    @State var isCountdownDone: Bool = false
-    @State var countdownSeconds: Int = Task2View.defaultCountdownSeconds
+    @State var isPathAnimationDone: Bool = false
     
-    // Photo Loop
-    @State var currentShapeIdx: Int = 0
-    @State var imageSeconds: Int = Task2View.defaultImageSeconds
+    // Timer Variables
+    @State private var countdownSeconds: Int = 5
+    @State private var isCountdownDone: Bool = false
+    
+    // Path Loop
+    @State var currentPathIdx: Int = 0
     
     // Eye Tracking
     @ObservedObject var eyeTrackController: EyeTrackController = Resolver.resolve()
@@ -66,12 +68,10 @@ struct Task2View: View {
     @ViewBuilder
     private func displayInstructions() -> some View {
         ZStack {
-            if (!isCountdownDone && self.countdownSeconds > 0) {
-                Text("\(self.countdownSeconds)").font(.system(size: 96)).bold()
-            } else {
+            if (isPathAnimationDone) {
                 VStack {
                     Text("TASK 2").font(.headline).bold()
-                    Text("Descriptive Text").font(.title)
+                    Text("Follow the black dot. ").font(.title)
                 }
             }
         }
@@ -84,11 +84,14 @@ struct Task2View: View {
     private func displayMovingDotTask() -> some View {
         ZStack {
             // Moving Dot Task View
-            switch movingDotViewModel.shapes[currentShapeIdx].shape {
-            case .archSpiral: ArchSpiral()
-            case .spiroSquare: Spirograph()
-            case .spiroGraph: SpiroSquare()
-            }
+            let pointArray: [CGPoint] = movingDotViewModel.paths[currentPathIdx].path
+            Circle()
+                .fill(Color.black.opacity(0.5))
+                .frame(width: 15, height: 15)
+                .position(x: pointArray[currentPathIdx].x, y: pointArray[currentPathIdx].y)
+                .onReceive(timer, perform: {_ in
+                   currentPathIdx += 1
+                })
 //             Eye Tracking View
             ZStack(alignment: .top) {
                 ZStack(alignment: .topLeading) {
@@ -112,7 +115,7 @@ struct Task2View: View {
            Text("Task 2").font(.headline)
            Text("Complete 🎉").font(.largeTitle)
            Button(action: {
-                ettViewModel.addTaskResult(key: "Task 2", result: movingDotViewModel.shapes)
+                ettViewModel.addTaskResult(key: "Task 2", result: movingDotViewModel.paths)
                 currentTask = .task3
            }) {
                Text("Next Task")
@@ -123,10 +126,8 @@ struct Task2View: View {
     
     // MARK: - Timer Constants
         
-    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    static let defaultCountdownSeconds: Int = 3
-    static let defaultInstructionsSeconds: Int = 3
-    static let defaultImageSeconds: Int = 5
+    private let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
+    static let defaultInstructionsSeconds: Int = 5
     
     // MARK: - Timer functions
     
@@ -163,7 +164,7 @@ struct Task2View: View {
     }*/
 }
 
-struct Task2View___Previews: PreviewProvider {
+struct Task2View_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
     }

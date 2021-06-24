@@ -21,7 +21,7 @@ struct Task3View: View {
     @ObservedObject var drawingTaskViewModel: DrawingTaskViewModel = DrawingTaskViewModel()
     
     // View Builder
-    @State fileprivate var checkpoint: Task2Checkpoint = .instructions
+    @State fileprivate var checkpoint: Task3Checkpoint = .instructions
     @State var isCountdownDone: Bool = false
     @State var countdownSeconds: Int = Task3View.defaultCountdownSeconds
     

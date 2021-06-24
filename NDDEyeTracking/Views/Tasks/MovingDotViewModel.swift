@@ -10,10 +10,10 @@ import EyeTrackKit
 import SwiftUI
 
 class MovingDotViewModel: ObservableObject {
-    var shapes: [CustomShape] = [
-        CustomShape(shape: .archSpiral, trackingData: []),
-        CustomShape(shape: .spiroGraph, trackingData: []),
-        CustomShape(shape: .spiroSquare, trackingData: [])
+    var paths: [CustomPath] = [
+        CustomPath(trackingData: [], pathFunc: archSpiral),
+        CustomPath(trackingData: [], pathFunc: archSpiral),
+        CustomPath(trackingData: [], pathFunc: archSpiral)
     ]
     
     func updateTrackingData(laps: [Int], trackingData: [EyeTrackInfo]) {
@@ -24,8 +24,8 @@ class MovingDotViewModel: ObservableObject {
         let lastLapData = Array(trackingData[laps[1] + 1...trackingData.count - 1])
         
         // 2. Add the lap data to the corresponding photo
-        shapes[0].trackingData = firstLapData
-        shapes[1].trackingData = secondLapData
-        shapes[2].trackingData = lastLapData
+        paths[0].trackingData = firstLapData
+        paths[1].trackingData = secondLapData
+        paths[2].trackingData = lastLapData
     }
 }
