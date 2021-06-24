@@ -11,20 +11,29 @@ import EyeTrackKit
 import CoreGraphics
 
 class CustomPath: TaskData, Identifiable {
-    var id: UUID
+    var id: String
     var trackingData: [EyeTrackInfo]
     var path: [CGPoint]
     
-    init(path: [CGPoint], trackingData: [EyeTrackInfo]) {
-        self.id = UUID()
+    init(trackingData: [EyeTrackInfo], pathFunc:() -> ([CGPoint], String)) {
+        self.id = pathFunc().1
         self.trackingData = trackingData
-        self.path = path
+        self.path = pathFunc().0
         super.init(taskType: .task2)
     }
 }
 
 // MARK: path array definition
 
-private var archSpiralArray: [CGPoint] = {
-    
+func archSpiral() -> ([CGPoint], String) {
+    var arr: [CGPoint] = []
+    for theta in stride(from: 0, through: 6.0*CGFloat.pi, by: 0.01) {
+        let x = 500 + cos(theta) * 14 * theta
+        let y = 250 + sin(theta) * 14 * theta
+        if x > 800 || y > 800  || x < 0 || y < 0 {
+            break
+        }
+        arr.append(CGPoint(x: x, y: y))
+    }
+    return (arr, "ArchSpiral")
 }
