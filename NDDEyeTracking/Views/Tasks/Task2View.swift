@@ -29,8 +29,11 @@ struct Task2View: View {
     @State private var countdownSeconds: Int = 5
     @State private var isCountdownDone: Bool = false
     
-    // Path Loop
-    @State var currentPathIdx: Int = 0
+    // Animation variables
+    // Path number - keeps track of which of the 3 paths is being run right now
+    @State var currentPathNumber: Int = 0
+    // Index in path - keeps track of index within each path array
+    @State var currentIdxInPath: Int = 0
     
     // Eye Tracking
     @ObservedObject var eyeTrackController: EyeTrackController = Resolver.resolve()
@@ -55,7 +58,7 @@ struct Task2View: View {
             .navigationBarHidden(true)
     }
     
-    // MARK: - View Builder
+    // MARK: - View Builders
     @ViewBuilder
     private func displayView() -> some View {
         switch checkpoint {
@@ -84,13 +87,13 @@ struct Task2View: View {
     private func displayMovingDotTask() -> some View {
         ZStack {
             // Moving Dot Task View
-            let pointArray: [CGPoint] = movingDotViewModel.paths[currentPathIdx].path
+            let pointArray: [CGPoint] = movingDotViewModel.paths[currentPathNumber].path
             Circle()
                 .fill(Color.black.opacity(0.5))
                 .frame(width: 15, height: 15)
-                .position(x: pointArray[currentPathIdx].x, y: pointArray[currentPathIdx].y)
+                .position(x: pointArray[currentIdxInPath].x, y: pointArray[currentIdxInPath].y)
                 .onReceive(timer, perform: {_ in
-                   currentPathIdx += 1
+                   currentIdxInPath += 1
                 })
 //             Eye Tracking View
             ZStack(alignment: .top) {

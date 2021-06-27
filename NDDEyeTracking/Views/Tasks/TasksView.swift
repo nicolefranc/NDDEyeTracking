@@ -31,7 +31,7 @@ struct TasksView: View {
     private func displayTask() -> some View {
         switch currentTask {
         case .start: displayStartTest()
-        case .task1: Task1View(currentTask: $currentTask).environmentObject(ettViewModel)
+        case .task1: Task2View(currentTask: $currentTask).environmentObject(ettViewModel)
         case .task2: Task2View(currentTask: $currentTask).environmentObject(ettViewModel)
         case .task3: Task3View(currentTask: $currentTask).environmentObject(ettViewModel)
         }
