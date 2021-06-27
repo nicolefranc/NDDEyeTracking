@@ -10,11 +10,15 @@ import EyeTrackKit
 import SwiftUI
 
 class MovingDotViewModel: ObservableObject {
-    var paths: [CustomPath] = [
-        CustomPath(trackingData: [], pathFunc: archSpiral),
-        CustomPath(trackingData: [], pathFunc: archSpiral),
-        CustomPath(trackingData: [], pathFunc: archSpiral)
-    ]
+    @Published var paths: [CustomPath]
+        
+    init() {
+        paths = [
+            CustomPath(trackingData: [], pathFunc: archSpiral),
+            CustomPath(trackingData: [], pathFunc: archSpiral),
+            CustomPath(trackingData: [], pathFunc: archSpiral)
+        ]
+    }
     
     func updateTrackingData(laps: [Int], trackingData: [EyeTrackInfo]) {
         // 1. Process trackingInfo: Split into laps

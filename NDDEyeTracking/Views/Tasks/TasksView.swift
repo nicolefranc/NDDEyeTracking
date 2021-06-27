@@ -8,10 +8,10 @@
 import SwiftUI
 
 enum TaskType: String {
-    case start
-    case task1
-    case task2
-    case task3
+    case start = "Start Task"
+    case task1 = "Task 1"
+    case task2 = "Task 2"
+    case task3 = "Task 3"
 }
 
 struct TasksView: View {

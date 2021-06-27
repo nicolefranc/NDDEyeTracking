@@ -25,7 +25,7 @@ class CustomShape: TaskData, Identifiable {
         self.id = UUID()
         self.trackingData = trackingData
         self.shape = shape
-        super.init(taskType: .task2)
+        super.init(taskType: .task3)
     }
 }
 

@@ -23,7 +23,6 @@ struct Task2View: View {
     
     // View Builder
     @State fileprivate var checkpoint: Task2Checkpoint = .instructions
-    @State var isPathAnimationDone: Bool = false
     
     // Timer Variables
     @State private var countdownSeconds: Int = 5
@@ -71,14 +70,13 @@ struct Task2View: View {
     @ViewBuilder
     private func displayInstructions() -> some View {
         ZStack {
-            if (isPathAnimationDone) {
-                VStack {
-                    Text("TASK 2").font(.headline).bold()
-                    Text("Follow the black dot. ").font(.title)
-                }
+            VStack {
+                Text("TASK 2").font(.headline).bold()
+                Text("Follow the black dot").font(.title)
             }
         }
-        .onReceive(timer, perform: { _ in
+        .onReceive(timer, perform: { time in
+            print("Instructions time: \(time)")
             self.startInstructionsTimer()
         })
     }
@@ -88,14 +86,16 @@ struct Task2View: View {
         ZStack {
             // Moving Dot Task View
             let pointArray: [CGPoint] = movingDotViewModel.paths[currentPathNumber].path
+            Text("Path Index: \(currentPathNumber)") // TODO: Remove after debugging
             Circle()
                 .fill(Color.black.opacity(0.5))
                 .frame(width: 15, height: 15)
                 .position(x: pointArray[currentIdxInPath].x, y: pointArray[currentIdxInPath].y)
-                .onReceive(timer, perform: {_ in
-                   currentIdxInPath += 1
+                .onReceive(animationTimer, perform: { time in
+                    print("Anim Timer: \(time)") // TODO: Remove after debugging
+                    self.startAnimation(points: pointArray)
                 })
-//             Eye Tracking View
+            // Eye Tracking View
             ZStack(alignment: .top) {
                 ZStack(alignment: .topLeading) {
                     self.eyeTrackController.view
@@ -108,7 +108,6 @@ struct Task2View: View {
                 
                 Text("x: \(eyeTrackController.eyeTrack.lookAtPoint.x), y: \(eyeTrackController.eyeTrack.lookAtPoint.y)")
             }
-//            }
         }
     }
     
@@ -118,7 +117,7 @@ struct Task2View: View {
            Text("Task 2").font(.headline)
            Text("Complete 🎉").font(.largeTitle)
            Button(action: {
-                ettViewModel.addTaskResult(key: "Task 2", result: movingDotViewModel.paths)
+                ettViewModel.addTaskResult(key: TaskType.task2.rawValue, result: movingDotViewModel.paths)
                 currentTask = .task3
            }) {
                Text("Next Task")
@@ -129,42 +128,47 @@ struct Task2View: View {
     
     // MARK: - Timer Constants
         
-    private let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
-    static let defaultInstructionsSeconds: Int = 5
+    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    static let defaultInstructionsSeconds: Int = 3
+
     
     // MARK: - Timer functions
     
     private func startInstructionsTimer() {
-        if self.countdownSeconds == 0 {
-            if !isCountdownDone {
-                isCountdownDone = true
-                countdownSeconds = Task2View.defaultInstructionsSeconds
-            } else {
-                checkpoint = .task
-            }
-        } else {
+        if self.countdownSeconds > 0 {
             self.countdownSeconds -= 1
+        } else {
+            self.timer.upstream.connect().cancel()
+            checkpoint = .task
         }
     }
 
-    /*
-    private func startImageTimer() {
-//        print("\(seconds) seconds")
-        if self.imageSeconds == 0 {
-            if (self.currentImgIdx < imageTaskViewModel.filenames.count - 1) {
-                self.dataController.takeLap()
-                self.currentImgIdx += 1
-                self.imageSeconds = Task1View.defaultImageSeconds
-            } else {
-                self.timer.upstream.connect().cancel()
-                self.dataController.stopRecording()
-                self.imageTaskViewModel.updateTrackingData(laps: self.dataController.laps, trackingData: self.dataController.eyeTrackData)
-                checkpoint = .complete
-            }
+    
+    // MARK: - Animation Constants
+    
+    private let animationTimer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
+    
+    // MARK: - Animation Functions
+    
+    private func startAnimation(points: [CGPoint]) {
+        print("Current Point: \(currentIdxInPath)")
+        if (currentIdxInPath < points.count) {
+            currentIdxInPath += 1
         } else {
-            self.imageSeconds -= 1
+            self.stopAnimation()
         }
-    }*/
+    }
+    
+    private func stopAnimation() {
+        print("Stopping animation...")
+        if (currentPathNumber < movingDotViewModel.paths.count) {
+            currentIdxInPath = 0 // Reset path index state
+            currentPathNumber += 1 // Proceed to next CustomPath
+        } else {
+            animationTimer.upstream.connect().cancel() // Stop the timer
+            checkpoint = .complete
+        }
+    }
 }
 
 struct Task2View_Previews: PreviewProvider {

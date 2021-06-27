@@ -91,7 +91,7 @@ struct Task1View: View {
                                 self.startImageTimer()
                             })
             
-//             Eye Tracking View
+            // Eye Tracking View
             ZStack(alignment: .top) {
                 ZStack(alignment: .topLeading) {
                     self.eyeTrackController.view
@@ -119,7 +119,7 @@ struct Task1View: View {
            Text("Task 1").font(.headline)
            Text("Complete 🎉").font(.largeTitle)
            Button(action: {
-                ettViewModel.addTaskResult(key: "Task 1", result: imageTaskViewModel.images)
+                ettViewModel.addTaskResult(key: TaskType.task1.rawValue, result: imageTaskViewModel.images)
                 currentTask = .task2
            }) {
                Text("Next Task")

@@ -25,7 +25,7 @@ class CustomPath: TaskData, Identifiable {
 
 // MARK: path array definition
 
-func archSpiral() -> ([CGPoint], String) {
+func archSpiral() -> ([CGPoint], String) { // @Jason what's the String for?
     var arr: [CGPoint] = []
     for theta in stride(from: 0, through: 6.0*CGFloat.pi, by: 0.01) {
         let x = 500 + cos(theta) * 14 * theta
@@ -35,5 +35,5 @@ func archSpiral() -> ([CGPoint], String) {
         }
         arr.append(CGPoint(x: x, y: y))
     }
-    return (arr, "ArchSpiral")
+    return (arr, Pattern.archSpiral.rawValue)
 }
