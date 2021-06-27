@@ -104,7 +104,8 @@ struct TestOverview: View {
     func startTask2() -> some View {
         return ZStack {
             if (shouldNavigate) {
-                Task2View()
+                EmptyView()
+                // Task2View(currentTask: <#Binding<TaskType>#>)
             } else if (!isCountdownDone && self.seconds > 0) {
                 Text("\(self.seconds)").font(.system(size: 96)).bold()
             } else {
