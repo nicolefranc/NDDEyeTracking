@@ -26,7 +26,7 @@ struct Task2View: View {
     
     // Timer Variables
     @State private var countdownSeconds: Int = 5
-    @State private var isCountdownDone: Bool = false
+    @State private var isCountdownDone: Bool = false // TODO: could take out?
     
     // Animation variables
     // Path number - keeps track of which of the 3 paths is being run right now
@@ -90,11 +90,14 @@ struct Task2View: View {
             Circle()
                 .fill(Color.black.opacity(0.5))
                 .frame(width: 15, height: 15)
-                .position(x: pointArray[currentIdxInPath].x, y: pointArray[currentIdxInPath].y)
                 .onReceive(animationTimer, perform: { time in
                     print("Anim Timer: \(time)") // TODO: Remove after debugging
+                    print(pointArray.count)
+                    print("current point in array: \(currentIdxInPath)")
+                    print("current path number: \(currentPathNumber)")
                     self.startAnimation(points: pointArray)
                 })
+                .position(x: pointArray[currentIdxInPath].x, y: pointArray[currentIdxInPath].y)
             // Eye Tracking View
             ZStack(alignment: .top) {
                 ZStack(alignment: .topLeading) {
@@ -152,20 +155,27 @@ struct Task2View: View {
     
     private func startAnimation(points: [CGPoint]) {
         print("Current Point: \(currentIdxInPath)")
-        if (currentIdxInPath < points.count) {
+        // @Nicole put a minus 1 here because the update of the index is weird
+        if (currentIdxInPath < points.count - 1) {
+            print("updating")
             currentIdxInPath += 1
         } else {
+            print("index not in range anymore")
             self.stopAnimation()
         }
     }
     
     private func stopAnimation() {
         print("Stopping animation...")
-        if (currentPathNumber < movingDotViewModel.paths.count) {
+        // @Nicole same reason as above
+        if (currentPathNumber < movingDotViewModel.paths.count - 1) {
+            self.dataController.takeLap()
             currentIdxInPath = 0 // Reset path index state
             currentPathNumber += 1 // Proceed to next CustomPath
         } else {
             animationTimer.upstream.connect().cancel() // Stop the timer
+            self.dataController.stopRecording()
+            self.movingDotViewModel.updateTrackingData(laps: self.dataController.laps, trackingData: self.dataController.eyeTrackData)
             checkpoint = .complete
         }
     }
