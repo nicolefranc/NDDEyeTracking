@@ -28,3 +28,5 @@ class DrawingTaskViewModel: ObservableObject {
         shapes[2].trackingData = lastLapData
     }
 }
+
+

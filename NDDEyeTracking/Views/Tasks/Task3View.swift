@@ -25,9 +25,15 @@ struct Task3View: View {
     @State var isCountdownDone: Bool = false
     @State var countdownSeconds: Int = Task3View.defaultCountdownSeconds
     
-    // Photo Loop
-    @State var currentShapeIdx: Int = 0
-    @State var imageSeconds: Int = Task3View.defaultImageSeconds
+    // Drawing Variables
+    @State private var currentDrawing : Drawing = Drawing()
+    @State private var drawings : [Drawing] = [Drawing]()
+    @State private var color : Color = Color.black
+    @State private var lineWidth : CGFloat = 3.0
+    @State private var data = DrawingData()
+    
+    // Shape Variables
+    @State var currentShapeNumber: Int = 0
     
     // Eye Tracking
     @ObservedObject var eyeTrackController: EyeTrackController = Resolver.resolve()
@@ -70,7 +76,7 @@ struct Task3View: View {
             } else {
                 VStack {
                     Text("TASK 3").font(.headline).bold()
-                    Text("Descriptive Text").font(.title)
+                    Text("Carefully trace the figure to the best of your ability.").font(.title)
                 }
             }
         }
@@ -83,11 +89,49 @@ struct Task3View: View {
     private func displayDrawingTask() -> some View {
         ZStack {
             // Drawing Task View
-            switch drawingTaskViewModel.shapes[currentShapeIdx].shape {
-            case .archSpiral: ArchSpiral()
-            case .spiroSquare: Spirograph()
-            case .spiroGraph: SpiroSquare()
+            DrawingPad(currentDrawing: $currentDrawing, drawings: $drawings)
+            HStack {
+                Spacer()
+                
+                // Shape type
+                switch drawingTaskViewModel.shapes[currentShapeNumber].shape {
+                case .archSpiral:
+                    ArchSpiral().stroke(lineWidth:3).opacity(0.5)
+                case .spiroSquare:
+                    Spirograph().stroke(lineWidth:3).opacity(0.5)
+                case .spiroGraph:
+                    SpiroSquare().stroke(lineWidth:3).opacity(0.5)
+                }
+                
+                Spacer()
             }
+            
+            TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data)
+                .opacity(0.1)
+            
+            Spacer()
+            Button(action: {
+                /*self.data.finishDrawing(patient : self.patient, drawingName: "trial" + trialnum.description + ".csv")*/
+                print("current shape number: \(currentShapeNumber)")
+                if currentShapeNumber < drawingTaskViewModel.shapes.count - 1 {
+                    currentShapeNumber += 1
+                } else {
+                    print("last shape")
+                    /*self.drawings = [Drawing]()
+                    self.data = DrawingData()*/
+                    self.dataController.stopRecording()
+                    self.drawingTaskViewModel.updateTrackingData(laps: self.dataController.laps, trackingData: self.dataController.eyeTrackData)
+                    checkpoint = .complete
+                }
+            }, label: {
+                if currentShapeNumber < drawingTaskViewModel.shapes.count - 1{
+                    Text("Next Drawing").foregroundColor(.white)
+                    
+                } else {
+                    Text("Finish Test").foregroundColor(.white)
+                }
+            })/*.buttonStyle(MainButtonStyle())*/
+            
 //             Eye Tracking View
             ZStack(alignment: .top) {
                 ZStack(alignment: .topLeading) {
