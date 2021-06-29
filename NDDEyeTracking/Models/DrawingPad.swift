@@ -48,6 +48,20 @@ struct DrawingPad: View {
             }
         }
     }
+    
+    public func clear(/*drawing: Drawing, toPath path : inout Path*/) {
+        currentDrawing.points.removeAll()
+        /*let points = drawing.points
+        if points.count > 1 {
+            for i in 0..<points.count - 1 {
+                let current = points[i]
+                let next = points[i+1]
+                path.move(to: current)
+                path.addLine(to: next)
+                UIColor.white.set()
+            }
+        }*/
+    }
 }
 
 

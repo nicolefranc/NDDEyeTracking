@@ -91,13 +91,18 @@ struct Task3View: View {
         // Drawing Task View
         VStack {
             ZStack {
-                DrawingPad(currentDrawing: $currentDrawing, drawings: $drawings)
                 switch drawingTaskViewModel.shapes[currentShapeNumber].shape {
                 case .archSpiral:
+                    DrawingPad(currentDrawing: $currentDrawing, drawings: $drawings)
+
                     ArchSpiral().stroke(lineWidth:3).opacity(0.5)
                 case .spiroSquare:
+                    DrawingPad(currentDrawing: $currentDrawing, drawings: $drawings)
+
                     Spirograph().stroke(lineWidth:3).opacity(0.5)
+                    
                 case .spiroGraph:
+                    DrawingPad(currentDrawing: $currentDrawing, drawings: $drawings)
                     SpiroSquare().stroke(lineWidth:3).opacity(0.5)
                 }
                 TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
