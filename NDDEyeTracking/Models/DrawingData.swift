@@ -68,20 +68,41 @@ class DrawingData {
         }
     }
     
+    // get URL of folder and/or filename passed in
+    func getDocumentsDirectory(foldername foldercomponent : String?, filename pathcomponent : String) -> URL {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            .first!
+        
+        if let folder = foldercomponent {
+            do {
+                try FileManager.default.createDirectory(at: path.appendingPathComponent(folder), withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("Could not create directory \(folder) at \(path)")
+                print(error)
+            }
+            return path.appendingPathComponent(folder, isDirectory: true)
+                .appendingPathComponent(pathcomponent, isDirectory: false)
+        } else {
+            return path.appendingPathComponent(pathcomponent, isDirectory: false)
+        }
+    }
+    
     /**
-     Called when a drawing is finished. Saves contents of this object to system storage for later access and conversion to CSV.
+        Stores drawing data; returns false if no drawing has been made (no coordinate point is recorded)
      */
-    /*func finishDrawing(patient : String, drawingName : String = "drawing.csv") {
+    func finishDrawing(patient : String, drawingName : String = "drawing.csv") -> Bool {
+        
         let url : URL = getDocumentsDirectory(foldername: patient, filename: drawingName)
-        let str : String = CSVString()
         do {
+        let str : String = CSVString()
             try str.write(to: url, atomically: true, encoding: .utf8)
-            let input = try String(contentsOf: url)
-            print(input)
+            //let input = try String(contentsOf: url)
+            //print(input)
         } catch {
             print("Failed to write to disk")
             print(error.localizedDescription)
         }
+        return true
     }
     
     /**
@@ -104,6 +125,5 @@ class DrawingData {
     func convertToJSON() {
 //        TODO
     }
-*/
 }
 

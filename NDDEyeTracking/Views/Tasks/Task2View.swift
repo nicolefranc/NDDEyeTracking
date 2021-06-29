@@ -36,13 +36,13 @@ struct Task2View: View {
     
     // Eye Tracking
     @ObservedObject var eyeTrackController: EyeTrackController = Resolver.resolve()
-    @ObservedObject var dataController: DataController = Resolver.resolve()
+    @ObservedObject var dataController: EyeDataController = Resolver.resolve()
     
     init(currentTask: Binding<TaskType>) {
         _currentTask = currentTask
         
         // Retrieve Eye Tracking Data
-        let data: DataController = Resolver.resolve()
+        let data: EyeDataController = Resolver.resolve()
         self.eyeTrackController.onUpdate = { info in
             data.addTrackingData(info: info!)
 //            print(info?.centerEyeLookAtPoint ?? "nil")

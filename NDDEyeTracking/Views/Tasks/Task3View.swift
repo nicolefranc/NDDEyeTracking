@@ -31,19 +31,20 @@ struct Task3View: View {
     @State private var color : Color = Color.black
     @State private var lineWidth : CGFloat = 3.0
     @State private var data = DrawingData()
+    @State private var showPopup: Bool = false
     
     // Shape Variables
     @State var currentShapeNumber: Int = 0
     
     // Eye Tracking
     @ObservedObject var eyeTrackController: EyeTrackController = Resolver.resolve()
-    @ObservedObject var dataController: DataController = Resolver.resolve()
+    @ObservedObject var dataController: EyeDataController = Resolver.resolve()
     
     init(currentTask: Binding<TaskType>) {
         _currentTask = currentTask
         
         // Retrieve Eye Tracking Data
-        let data: DataController = Resolver.resolve()
+        let data: EyeDataController = Resolver.resolve()
         self.eyeTrackController.onUpdate = { info in
             data.addTrackingData(info: info!)
 //            print(info?.centerEyeLookAtPoint ?? "nil")
@@ -100,11 +101,15 @@ struct Task3View: View {
                     SpiroSquare().stroke(lineWidth:3).opacity(0.5)
                 }
                 TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
-            }.padding()
-            Spacer()
+            }.padding().frame(height: 750)
             Button(action: {
                 /*self.data.finishDrawing(patient : self.patient, drawingName: "trial" + trialnum.description + ".csv")*/
                 print("current shape number: \(currentShapeNumber)")
+                
+                if data.coordinates.count == 0 {
+                    self.showPopup = true
+                }
+                
                 if currentShapeNumber < drawingTaskViewModel.shapes.count - 1 {
                     currentShapeNumber += 1
                     self.dataController.takeLap()
@@ -118,13 +123,11 @@ struct Task3View: View {
                 }
             }, label: {
                 if currentShapeNumber < drawingTaskViewModel.shapes.count - 1{
-                    //Text("Next Drawing").foregroundColor(.white)
                     Text("Next Drawing").font(.system(size:30))
                 } else {
-                    // Text("Finish Test").foregroundColor(.white)
                     Text("Finish Test").font(.system(size:30))
                 }
-            })
+            }).alert(isPresented: $showPopup, content: {return Alert(title: Text("No Drawing"), message: Text("Please follow the instructions and perform the drawing task to the best of your ability"), dismissButton: .default(Text("OK"), action: {self.showPopup = false}))})
         }.padding()
         
         // Eye Tracking View
