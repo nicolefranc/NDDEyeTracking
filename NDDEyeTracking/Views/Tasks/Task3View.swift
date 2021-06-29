@@ -87,13 +87,10 @@ struct Task3View: View {
     
     @ViewBuilder
     private func displayDrawingTask() -> some View {
-        ZStack {
-            // Drawing Task View
-            DrawingPad(currentDrawing: $currentDrawing, drawings: $drawings)
-            HStack {
-                Spacer()
-                
-                // Shape type
+        // Drawing Task View
+        VStack {
+            ZStack {
+                DrawingPad(currentDrawing: $currentDrawing, drawings: $drawings)
                 switch drawingTaskViewModel.shapes[currentShapeNumber].shape {
                 case .archSpiral:
                     ArchSpiral().stroke(lineWidth:3).opacity(0.5)
@@ -102,19 +99,55 @@ struct Task3View: View {
                 case .spiroGraph:
                     SpiroSquare().stroke(lineWidth:3).opacity(0.5)
                 }
-                
-                Spacer()
-            }
-            
-            TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data)
-                .opacity(0.1)
-            
+                TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
+            }.padding()
             Spacer()
             Button(action: {
                 /*self.data.finishDrawing(patient : self.patient, drawingName: "trial" + trialnum.description + ".csv")*/
                 print("current shape number: \(currentShapeNumber)")
                 if currentShapeNumber < drawingTaskViewModel.shapes.count - 1 {
                     currentShapeNumber += 1
+                    self.dataController.takeLap()
+                } else {
+                    print("last shape")
+                    /*self.drawings = [Drawing]()
+                    self.data = DrawingData()*/
+                    self.dataController.stopRecording()
+                    self.drawingTaskViewModel.updateTrackingData(laps: self.dataController.laps, trackingData: self.dataController.eyeTrackData)
+                    checkpoint = .complete
+                }
+            }, label: {
+                if currentShapeNumber < drawingTaskViewModel.shapes.count - 1{
+                    //Text("Next Drawing").foregroundColor(.white)
+                    Text("Next Drawing").font(.system(size:30))
+                } else {
+                    // Text("Finish Test").foregroundColor(.white)
+                    Text("Finish Test").font(.system(size:30))
+                }
+            })
+        }.padding()
+        
+        // Eye Tracking View
+        ZStack(alignment: .top) {
+            ZStack(alignment: .topLeading) {
+                self.eyeTrackController.view
+                Circle()
+                    .fill(Color.red.opacity(0.5))
+                    .frame(width: 15, height: 15)
+                    .position(x: eyeTrackController.eyeTrack.lookAtPoint.x, y: eyeTrackController.eyeTrack.lookAtPoint.y)
+            }
+                .edgesIgnoringSafeArea(.all)
+            
+            Text("x: \(eyeTrackController.eyeTrack.lookAtPoint.x), y: \(eyeTrackController.eyeTrack.lookAtPoint.y)")
+        }
+        /*
+        VStack {
+            Button(action: {
+                /*self.data.finishDrawing(patient : self.patient, drawingName: "trial" + trialnum.description + ".csv")*/
+                print("current shape number: \(currentShapeNumber)")
+                if currentShapeNumber < drawingTaskViewModel.shapes.count - 1 {
+                    currentShapeNumber += 1
+                    self.dataController.takeLap()
                 } else {
                     print("last shape")
                     /*self.drawings = [Drawing]()
@@ -132,21 +165,33 @@ struct Task3View: View {
                 }
             })/*.buttonStyle(MainButtonStyle())*/
             
-//             Eye Tracking View
-            ZStack(alignment: .top) {
-                ZStack(alignment: .topLeading) {
-                    self.eyeTrackController.view
-                    Circle()
-                        .fill(Color.red.opacity(0.5))
-                        .frame(width: 15, height: 15)
-                        .position(x: eyeTrackController.eyeTrack.lookAtPoint.x, y: eyeTrackController.eyeTrack.lookAtPoint.y)
-                }
-                    .edgesIgnoringSafeArea(.all)
-                
-                Text("x: \(eyeTrackController.eyeTrack.lookAtPoint.x), y: \(eyeTrackController.eyeTrack.lookAtPoint.y)")
+            DrawingPad(currentDrawing: $currentDrawing, drawings: $drawings)
+            // Shape type
+            switch drawingTaskViewModel.shapes[currentShapeNumber].shape {
+            case .archSpiral:
+                ArchSpiral().stroke(lineWidth:3).opacity(0.5)
+            case .spiroSquare:
+                Spirograph().stroke(lineWidth:3).opacity(0.5)
+            case .spiroGraph:
+                SpiroSquare().stroke(lineWidth:3).opacity(0.5)
             }
-//            }
+            
+            TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
         }
+            
+        // Eye Tracking View
+        ZStack(alignment: .top) {
+            ZStack(alignment: .topLeading) {
+                self.eyeTrackController.view
+                Circle()
+                    .fill(Color.red.opacity(0.5))
+                    .frame(width: 15, height: 15)
+                    .position(x: eyeTrackController.eyeTrack.lookAtPoint.x, y: eyeTrackController.eyeTrack.lookAtPoint.y)
+            }
+                .edgesIgnoringSafeArea(.all)
+            
+            Text("x: \(eyeTrackController.eyeTrack.lookAtPoint.x), y: \(eyeTrackController.eyeTrack.lookAtPoint.y)")
+        }*/
     }
     
     @ViewBuilder

@@ -98,6 +98,7 @@ struct Task2View: View {
                     self.startAnimation(points: pointArray)
                 })
                 .position(x: pointArray[currentIdxInPath].x, y: pointArray[currentIdxInPath].y)
+            
             // Eye Tracking View
             ZStack(alignment: .top) {
                 ZStack(alignment: .topLeading) {
