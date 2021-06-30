@@ -44,9 +44,9 @@ struct Task3View: View {
         _currentTask = currentTask
         
         // Retrieve Eye Tracking Data
-        let data: EyeDataController = Resolver.resolve()
+        let eyeTrackingData: EyeDataController = Resolver.resolve()
         self.eyeTrackController.onUpdate = { info in
-            data.addTrackingData(info: info!)
+            eyeTrackingData.addTrackingData(info: info!)
 //            print(info?.centerEyeLookAtPoint ?? "nil")
         }
     }
@@ -94,37 +94,42 @@ struct Task3View: View {
                 switch drawingTaskViewModel.shapes[currentShapeNumber].shape {
                 case .archSpiral:
                     DrawingPad(currentDrawing: $currentDrawing, drawings: $drawings)
-
                     ArchSpiral().stroke(lineWidth:3).opacity(0.5)
+                    TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
                 case .spiroSquare:
                     DrawingPad(currentDrawing: $currentDrawing, drawings: $drawings)
-
                     Spirograph().stroke(lineWidth:3).opacity(0.5)
-                    
+                    TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
                 case .spiroGraph:
                     DrawingPad(currentDrawing: $currentDrawing, drawings: $drawings)
                     SpiroSquare().stroke(lineWidth:3).opacity(0.5)
+                    TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
                 }
-                TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
             }.padding().frame(height: 750)
             Button(action: {
                 /*self.data.finishDrawing(patient : self.patient, drawingName: "trial" + trialnum.description + ".csv")*/
                 print("current shape number: \(currentShapeNumber)")
+                print(data.coordinates.count)
                 
                 if data.coordinates.count == 0 {
                     self.showPopup = true
-                }
-                
-                if currentShapeNumber < drawingTaskViewModel.shapes.count - 1 {
-                    currentShapeNumber += 1
-                    self.dataController.takeLap()
                 } else {
-                    print("last shape")
-                    /*self.drawings = [Drawing]()
-                    self.data = DrawingData()*/
-                    self.dataController.stopRecording()
-                    self.drawingTaskViewModel.updateTrackingData(laps: self.dataController.laps, trackingData: self.dataController.eyeTrackData)
-                    checkpoint = .complete
+                    if currentShapeNumber < drawingTaskViewModel.shapes.count - 1 && !self.showPopup {
+                        currentShapeNumber += 1
+                        self.dataController.takeLap()
+                        
+                        // clear drawing and drawing coordinates from previous drawing
+                        self.currentDrawing.points.removeAll()
+                        self.drawings.removeAll()
+                        self.data.coordinates.removeAll()
+                    } else {
+                        print("last shape")
+                        /*self.drawings = [Drawing]()
+                        self.data = DrawingData()*/
+                        self.dataController.stopRecording()
+                        self.drawingTaskViewModel.updateTrackingData(laps: self.dataController.laps, trackingData: self.dataController.eyeTrackData)
+                        checkpoint = .complete
+                    }
                 }
             }, label: {
                 if currentShapeNumber < drawingTaskViewModel.shapes.count - 1{
@@ -132,7 +137,11 @@ struct Task3View: View {
                 } else {
                     Text("Finish Test").font(.system(size:30))
                 }
-            }).alert(isPresented: $showPopup, content: {return Alert(title: Text("No Drawing"), message: Text("Please follow the instructions and perform the drawing task to the best of your ability"), dismissButton: .default(Text("OK"), action: {self.showPopup = false}))})
+            }).alert(isPresented: $showPopup, content: {
+                return Alert(title: Text("No Drawing"), message: Text("Please follow the instructions and perform the drawing task to the best of your ability"), dismissButton: .default(Text("OK"), action: {
+                    self.showPopup = false
+                }))
+            })
         }.padding()
         
         // Eye Tracking View

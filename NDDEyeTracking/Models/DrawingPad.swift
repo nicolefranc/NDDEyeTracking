@@ -11,6 +11,12 @@ struct Drawing {
     var points : [CGPoint] = [CGPoint]()
 }
 
+extension UIScreen{
+   static let screenWidth = UIScreen.main.bounds.size.width
+   static let screenHeight = UIScreen.main.bounds.size.height
+   static let screenSize = UIScreen.main.bounds.size
+}
+
 struct DrawingPad: View {
     @Binding var currentDrawing : Drawing
     @Binding var drawings : [Drawing]
@@ -32,7 +38,6 @@ struct DrawingPad: View {
             }
             .stroke(self.color, lineWidth: self.lineWidth)
             .background(Color(white:0.95))
-            
         }
         .frame(maxHeight: .infinity)
     }
@@ -47,20 +52,6 @@ struct DrawingPad: View {
                 path.addLine(to: next)
             }
         }
-    }
-    
-    public func clear(/*drawing: Drawing, toPath path : inout Path*/) {
-        currentDrawing.points.removeAll()
-        /*let points = drawing.points
-        if points.count > 1 {
-            for i in 0..<points.count - 1 {
-                let current = points[i]
-                let next = points[i+1]
-                path.move(to: current)
-                path.addLine(to: next)
-                UIColor.white.set()
-            }
-        }*/
     }
 }
 
