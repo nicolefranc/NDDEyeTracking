@@ -9,11 +9,15 @@ import Foundation
 import EyeTrackKit
 
 class DrawingTaskViewModel: ObservableObject {
-    var shapes: [CustomShape] = [
-        CustomShape(shape: .archSpiral, trackingData: []),
-        CustomShape(shape: .spiroGraph, trackingData: []),
-        CustomShape(shape: .spiroSquare, trackingData: [])
-    ]
+    @Published var shapes: [CustomShape]
+        
+    init() {
+        shapes = [
+            CustomShape(shape: .archSpiral, trackingData: []),
+            CustomShape(shape: .spiroGraph, trackingData: []),
+            CustomShape(shape: .spiroSquare, trackingData: [])
+        ]
+    }
     
     func updateTrackingData(laps: [Int], trackingData: [EyeTrackInfo]) {
         // 1. Process trackingInfo: Split into laps

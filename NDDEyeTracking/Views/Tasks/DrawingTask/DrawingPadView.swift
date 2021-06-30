@@ -1,5 +1,5 @@
 //
-//  DrawingPad.swift
+//  DrawingPadView.swift
 //  NDDEyeTracking
 //
 //  Created by Richard Deng on 27/6/21.
@@ -17,7 +17,7 @@ extension UIScreen{
    static let screenSize = UIScreen.main.bounds.size
 }
 
-struct DrawingPad: View {
+struct DrawingPadView: View {
     @Binding var currentDrawing : Drawing
     @Binding var drawings : [Drawing]
     let color : Color = .black

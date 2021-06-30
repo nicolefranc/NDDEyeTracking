@@ -69,11 +69,9 @@ struct Task2View: View {
     
     @ViewBuilder
     private func displayInstructions() -> some View {
-        ZStack {
-            VStack {
-                Text("TASK 2").font(.headline).bold()
-                Text("Follow the black dot").font(.title)
-            }
+        VStack {
+            Text("TASK 2").font(.headline).bold()
+            Text("Follow the black dot").font(.title)
         }
         .onReceive(timer, perform: { time in
             print("Instructions time: \(time)")

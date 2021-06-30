@@ -12,6 +12,7 @@ class ImageTaskViewModel: ObservableObject {
     @Published var images: [Photo]
     let tempDimensions: [Int] = [0, 0]
     
+    // TODO: Implement actual image dimensions
     init() {
         images = [
             Photo(filename: "penguin", trackingData: [], dimensions: tempDimensions),
@@ -28,7 +29,6 @@ class ImageTaskViewModel: ObservableObject {
         }
     }
     
-    // TODO: Change trackingData type to [EyeTrackInfo]
     func updateTrackingData(laps: [Int], trackingData: [EyeTrackInfo]) {
         // 1. Process trackingInfo: Split into laps
         print("========= UPDATING =========\n\(laps)")
