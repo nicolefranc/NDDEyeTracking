@@ -25,12 +25,13 @@ class CustomPath: TaskData, Identifiable {
 
 // MARK: path array definition
 
-func archSpiral() -> ([CGPoint], String) { // @Jason what's the String for?
+func archSpiral() -> ([CGPoint], String) {
     var arr: [CGPoint] = []
     for theta in stride(from: 0, through: 6.0*CGFloat.pi, by: 0.01) {
-        let x = 500 + cos(theta) * 14 * theta
-        let y = 250 + sin(theta) * 14 * theta
-        if x > 800 || y > 800  || x < 0 || y < 0 {
+        let factor = UIScreen.screenWidth / 45
+        let x = UIScreen.screenWidth*0.45 + cos(theta) * factor * theta
+        let y = UIScreen.screenHeight*0.4 + sin(theta) * factor * theta
+        if x > UIScreen.screenWidth || y > UIScreen.screenHeight  || x < 0 || y < 0 {
             break
         }
         arr.append(CGPoint(x: x, y: y))

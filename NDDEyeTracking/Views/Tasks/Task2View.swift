@@ -81,10 +81,25 @@ struct Task2View: View {
     
     @ViewBuilder
     private func displayMovingDotTask() -> some View {
-        ZStack {
-            // Moving Dot Task View
+        
+        // MARK: Eye Tracking View
+        
+        ZStack(alignment: .top) {
+            ZStack(alignment: .topLeading) {
+                self.eyeTrackController.view
+                Circle()
+                    .fill(Color.red.opacity(0.5))
+                    .frame(width: 15, height: 15)
+                    .position(x: eyeTrackController.eyeTrack.lookAtPoint.x, y: eyeTrackController.eyeTrack.lookAtPoint.y)
+            }
+                .edgesIgnoringSafeArea(.all)
+        }
+        
+        // MARK: Moving Dot Task View
+        
+        VStack {
             let pointArray: [CGPoint] = movingDotViewModel.paths[currentPathNumber].path
-            Text("Path Index: \(currentPathNumber)") // TODO: Remove after debugging
+            Text("x: \(eyeTrackController.eyeTrack.lookAtPoint.x), y: \(eyeTrackController.eyeTrack.lookAtPoint.y)")
             Circle()
                 .fill(Color.black.opacity(0.5))
                 .frame(width: 15, height: 15)
@@ -96,21 +111,7 @@ struct Task2View: View {
                     self.startAnimation(points: pointArray)
                 })
                 .position(x: pointArray[currentIdxInPath].x, y: pointArray[currentIdxInPath].y)
-            
-            // Eye Tracking View
-            ZStack(alignment: .top) {
-                ZStack(alignment: .topLeading) {
-                    self.eyeTrackController.view
-                    Circle()
-                        .fill(Color.red.opacity(0.5))
-                        .frame(width: 15, height: 15)
-                        .position(x: eyeTrackController.eyeTrack.lookAtPoint.x, y: eyeTrackController.eyeTrack.lookAtPoint.y)
-                }
-                    .edgesIgnoringSafeArea(.all)
-                
-                Text("x: \(eyeTrackController.eyeTrack.lookAtPoint.x), y: \(eyeTrackController.eyeTrack.lookAtPoint.y)")
-            }
-        }
+        }.padding().frame(height: UIScreen.screenHeight)
     }
     
     @ViewBuilder

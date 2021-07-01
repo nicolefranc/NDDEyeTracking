@@ -96,14 +96,14 @@ struct Task3View: View {
                     .position(x: eyeTrackController.eyeTrack.lookAtPoint.x, y: eyeTrackController.eyeTrack.lookAtPoint.y)
             }
                 .edgesIgnoringSafeArea(.all)
-            
-            Text("x: \(eyeTrackController.eyeTrack.lookAtPoint.x), y: \(eyeTrackController.eyeTrack.lookAtPoint.y)")
         }
         
         
         // MARK: Drawing Task View
         
         VStack {
+            Spacer()
+            Text("x: \(eyeTrackController.eyeTrack.lookAtPoint.x), y: \(eyeTrackController.eyeTrack.lookAtPoint.y)")
             ZStack {
                 switch drawingTaskViewModel.shapes[currentShapeNumber].shape {
                 case .archSpiral:
@@ -119,7 +119,7 @@ struct Task3View: View {
                     SpiroSquare().stroke(lineWidth:3).opacity(0.5)
                     TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
                 }
-            }.padding().frame(height: 750)
+            }.padding()
             Button(action: {
                 /*self.data.finishDrawing(patient : self.patient, drawingName: "trial" + trialnum.description + ".csv")*/
                 print("current shape number: \(currentShapeNumber)")
@@ -156,7 +156,8 @@ struct Task3View: View {
                     self.showPopup = false
                 }))
             })
-        }.padding()
+            Spacer()
+        }.padding().frame(height: UIScreen.screenHeight)
     }
     
     @ViewBuilder
@@ -191,7 +192,7 @@ struct Task3View: View {
     }
 }
 
-struct Task2View___Previews: PreviewProvider {
+struct Task3View_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
     }
