@@ -116,7 +116,7 @@ struct Task3View: View {
                     TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
                 case .spiroGraph:
                     DrawingPadView(currentDrawing: $currentDrawing, drawings: $drawings)
-                    SpiroSquare().stroke(lineWidth:3).opacity(0.5)
+                    Spirograph().stroke(lineWidth:3).opacity(0.5)
                     TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
                 }
             }.padding()

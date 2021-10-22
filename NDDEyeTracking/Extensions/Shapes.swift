@@ -17,8 +17,12 @@ struct ArchSpiral: Shape {
         var path = Path()
         for theta in stride(from: 0, through: 6.0*CGFloat.pi, by: 0.01) {
             let factor = UIScreen.screenWidth / 45
-            let x = UIScreen.screenWidth*0.45 + cos(theta) * factor * theta
-            let y = UIScreen.screenHeight*0.4 + sin(theta) * factor * theta
+            
+            let centerX = UIScreen.main.bounds.size.width/2
+            let centerY = UIScreen.main.bounds.size.height/2
+            
+            let x = centerX*0.9 + cos(theta) * factor * theta
+            let y = centerY*0.9 + sin(theta) * factor * theta
             if x > UIScreen.screenWidth || y > UIScreen.screenHeight  || x < 0 || y < 0 {
                 break
             }
@@ -40,8 +44,11 @@ struct Spirograph: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
         for theta in stride(from: 0, through: 100*CGFloat.pi, by: 0.01) {
-            let x = 500 + 5.5 * (25 * cos(theta) + 15 * cos(1/3 * theta))
-            let y = 250 + 5.5 * (25 * sin(theta) - 15 * sin(1/3 * theta))
+            let centerX = UIScreen.main.bounds.size.width/2
+            let centerY = UIScreen.main.bounds.size.height/2
+            
+            let x = centerX*0.9 + 5.5 * (25 * cos(theta) + 15 * cos(1/3 * theta))
+            let y = centerY*0.9 + 5.5 * (25 * sin(theta) - 15 * sin(1/3 * theta))
             if theta == 0 {
                 path.move(to: CGPoint(x: x, y: y))
             }
