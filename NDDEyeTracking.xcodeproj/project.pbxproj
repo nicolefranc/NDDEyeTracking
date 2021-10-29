@@ -37,6 +37,7 @@
 		1DD7D56D265E3086008EA48E /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */; };
 		1DD7D575265ED187008EA48E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7D574265ED187008EA48E /* .gitignore */; };
 		1DF62AB22663DC5600065CB3 /* PatientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF62AB12663DC5600065CB3 /* PatientViewModel.swift */; };
+		5CE31EAE272C8A7A00A22B66 /* Task1Heatmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE31EAD272C8A7A00A22B66 /* Task1Heatmap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
 		1DD7D574265ED187008EA48E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		1DF62AB12663DC5600065CB3 /* PatientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientViewModel.swift; sourceTree = "<group>"; };
+		5CE31EAD272C8A7A00A22B66 /* Task1Heatmap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task1Heatmap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				1D98FC0726606C9600BFD44B /* Task3View.swift */,
 				1D0BFE8D2667C9B7006875EF /* ImageTaskViewModel.swift */,
 				1D0BFE912667D348006875EF /* DataController.swift */,
+				5CE31EAD272C8A7A00A22B66 /* Task1Heatmap.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				1DD7D56D265E3086008EA48E /* AppDelegate+Injection.swift in Sources */,
 				1D98FC06266066B200BFD44B /* Task2View.swift in Sources */,
 				1D98FBFB265F561C00BFD44B /* DataStore.swift in Sources */,
+				5CE31EAE272C8A7A00A22B66 /* Task1Heatmap.swift in Sources */,
 				1D0BFE922667D348006875EF /* DataController.swift in Sources */,
 				1D582E1E2667876E00547757 /* TasksView.swift in Sources */,
 				1D98FBFF265F7CC900BFD44B /* TestOverview.swift in Sources */,
