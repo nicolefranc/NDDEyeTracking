@@ -16,16 +16,13 @@ extension CGPoint: Hashable {
         hasher.combine(x)
         hasher.combine(y)
     }
-    
-    init (otherPoint: CGPoint) {
-        self.init()
-        self.x = otherPoint.x.rounded()
-        self.y = otherPoint.x.rounded()
-    }
-    
 }
 
 struct HeatmapView: View {
+    
+    let pointSize: CGFloat = 5
+    let shadowRadius: CGFloat = 20
+    let pointColor: Color = .red
     
     var body: some View {
         ZStack {
@@ -33,31 +30,24 @@ struct HeatmapView: View {
 
             ForEach(pointArray, id: \.self) { point in
                 Circle()
-//                    .fill(.radialGradient(colors: [.red, .clear, .clear], center: UnitPoint(x: 0.5, y: 0.5), startRadius: 0, endRadius: 30))
-                    .foregroundColor(.red)
-                    .frame(width: 5, height: 20, alignment: .center)
+                    .foregroundColor(pointColor)
+                    .frame(width: pointSize, height: pointSize, alignment: .center)
                     .brightness(0.2)
-                    .position(CGPoint(x: point.x, y: point.y))
-                    .shadow(color: .red, radius: 20, x: 0, y: 0)
-                    .shadow(color: .red, radius: 20, x: 0, y: 0)
-                    .shadow(color: .red, radius: 20, x: 0, y: 0)
-                    .shadow(color: .red, radius: 20, x: 0, y: 0)
+                    .position(point)
+                    .shadow(color: pointColor, radius: shadowRadius, x: 0, y: 0)
+                    .shadow(color: pointColor, radius: shadowRadius, x: 0, y: 0)
+                    .shadow(color: pointColor, radius: shadowRadius, x: 0, y: 0)
+                    .shadow(color: pointColor, radius: shadowRadius, x: 0, y: 0)
             }
         }
     }
     
+    // Perhaps it will become relevant to use the radial gradient in the future
     
-    var pointIntArray: [CGPoint] {
-        
-        var pointSet: Set<CGPoint> = []
-        
-        pointArray.forEach { point in
-            pointSet.insert(CGPoint(otherPoint: point))
-        }
-        
-        return Array(pointSet)
-    }
+    //  .fill(.radialGradient(colors: [.red, .clear, .clear], center: UnitPoint(x: 0.5, y: 0.5), startRadius: 0, endRadius: 30))
     
+    
+    // Testdata
     let pointArray: [CGPoint] = [
         CGPoint(x: 415.2645814471385, y: 366.83399479108016),
         CGPoint(x: 415.7896827652174, y: 366.4877121465849),
@@ -127,3 +117,6 @@ struct HeatmapView_Previews: PreviewProvider {
         HeatmapView()
     }
 }
+
+
+
