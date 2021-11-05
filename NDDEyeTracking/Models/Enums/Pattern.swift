@@ -9,6 +9,5 @@ import Foundation
 
 enum Pattern: String {
     case archSpiral = "Archimedean Spiral"
-    case spiroSquare = "Spiro Square"
     case spiroGraph = "Spirograph"
 }

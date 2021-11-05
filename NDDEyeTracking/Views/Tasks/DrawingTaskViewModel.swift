@@ -15,7 +15,7 @@ class DrawingTaskViewModel: ObservableObject {
         shapes = [
             CustomShape(shape: .archSpiral, trackingData: []),
             CustomShape(shape: .spiroGraph, trackingData: []),
-            CustomShape(shape: .spiroSquare, trackingData: [])
+            CustomShape(shape: .sinWave, trackingData: [])
         ]
     }
     
