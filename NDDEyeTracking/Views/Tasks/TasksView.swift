@@ -41,13 +41,13 @@ struct TasksView: View {
     private func displayStartTest() -> some View {
         VStack {
             Text("You are taking the Eye Tracking Test.").font(.title)
-            Text("This test consists of 3 tasks.\nPress START to begin.").multilineTextAlignment(.center)
+            Text("This test consists of 3 tasks.\nPress START to begin.")
             Button(action: {
                 currentTask = .task1
             }) {
                 Text("Start").font(.title)
             }.padding()
-        }
+        }.multilineTextAlignment(.center)
     }
 }
 
