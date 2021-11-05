@@ -36,10 +36,8 @@ class ImageTaskViewModel: ObservableObject {
     
     // MARK: - Timer Constants
     static let defaultImageSeconds: Double = 5
-//    static let defaultCountdownSeconds: Int = 3
-//    static let defaultInstructionsSeconds: Int = 3
     
-    @Published var timer = Timer.publish(every: defaultImageSeconds, on: .main, in: .common).autoconnect()
+    @Published var imageTimer = Timer.publish(every: defaultImageSeconds, on: .main, in: .common).autoconnect()
 
     
     

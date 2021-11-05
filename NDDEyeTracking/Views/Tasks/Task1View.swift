@@ -14,10 +14,8 @@ struct Task1View: View {
     @ObservedObject var taskVM: ImageTaskViewModel = ImageTaskViewModel()
     @Binding var currentTask: TaskType
 
-    
     // Photo Loop
     @State var currentImgIdx: Int = 0
-    // @State var imageSeconds: Int = Task1View.defaultImageSeconds
     
     // Eye Tracking
     @ObservedObject var eyeTrackController: EyeTrackController = Resolver.resolve()
@@ -52,17 +50,9 @@ struct Task1View: View {
         }
     }
     
-    // @State var countdown: Int = ImageTaskViewModel.defaultCountdownSeconds
-    
     @ViewBuilder
     private func displayInstructions() -> some View {
         ZStack {
-//            if (countdown > 0) {
-//                Text("\(countdown)")
-//                    .font(.system(size: 96))
-//                    .bold()
-//                    .onReceive(taskVM.timer, perform: { _ in countdown -= 1})
-//            } else {
                 VStack(spacing: 20) {
                     Text("TASK 1").font(.headline).bold()
                     Text("Look at the images carefully").font(.title)
@@ -75,63 +65,57 @@ struct Task1View: View {
                         }
                     )
                 }
-//                .onAppear {
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                        taskVM.setCheckpoint(to: .task)
-//                    }
-//                }
-//            }
         }
-//        .onReceive(taskVM.timer, perform: { time in
-//            print("\(time)")
-//            self.startInstructionsTimer()
-//        })
     }
     
     private func displayImageTask() -> some View {
         ZStack {
-            Image(taskVM.filenames[currentImgIdx])
-                            .resizable()
-                            .scaledToFit()
-                            .aspectRatio(contentMode: .fit)
-                            .ignoresSafeArea()
-                            .onReceive(taskVM.timer) { _ in
-                                self.dataController.takeLap()
-                                self.currentImgIdx += 1
-                                // If we have shown all pictures we mark the task as complete
-                                if (self.currentImgIdx == taskVM.filenames.count) {
-                                    taskVM.timer.upstream.connect().cancel()
-                                    self.dataController.stopRecording()
-                                    self.taskVM.updateTrackingData(
-                                        laps: self.dataController.laps,
-                                        trackingData: self.dataController.eyeTrackData
-                                    )
-                                    taskVM.setCheckpoint(to: .complete)
-                                }
-                            }
-            
-//             Eye Tracking View
-            ZStack(alignment: .top) {
-                ZStack(alignment: .topLeading) {
-                    self.eyeTrackController.view
-                    Circle()
-                        .fill(Color.red.opacity(0.5))
-                        .frame(width: 15, height: 15)
-                        .position(
-                            x: eyeTrackController.eyeTrack.lookAtPoint.x,
-                            y: eyeTrackController.eyeTrack.lookAtPoint.y
-                        )
-                }
-                    .edgesIgnoringSafeArea(.all)
-                
-                Text("x: \(eyeTrackController.eyeTrack.lookAtPoint.x), y: \(eyeTrackController.eyeTrack.lookAtPoint.y)")
-            }
-            
+            image
+            eyeTrackingView
 ///            Debugging
 //            Button("Task 1 Result") {
 //                ettViewModel.addTaskResult(key: "Task 1", result: imageTaskViewModel.images)
 //                currentTask = .task3
 //            }
+        }
+    }
+    
+    var image: some View {
+        Image(taskVM.filenames[currentImgIdx])
+                        .resizable()
+                        .scaledToFit()
+                        .aspectRatio(contentMode: .fill)
+                        .ignoresSafeArea()
+                        .onReceive(taskVM.imageTimer) { _ in
+                            self.dataController.takeLap()
+                            self.currentImgIdx += 1
+                            // If we have shown all pictures we mark the task as complete
+                            if (self.currentImgIdx == taskVM.filenames.count) {
+                                taskVM.imageTimer.upstream.connect().cancel()
+                                self.dataController.stopRecording()
+                                self.taskVM.updateTrackingData(
+                                    laps: self.dataController.laps,
+                                    trackingData: self.dataController.eyeTrackData
+                                )
+                                taskVM.setCheckpoint(to: .complete)
+                            }
+                        }
+    }
+    
+    var eyeTrackingView: some View {
+        ZStack(alignment: .top) {
+            ZStack(alignment: .topLeading) {
+                self.eyeTrackController.view
+                Circle()
+                    .fill(Color.red.opacity(0.5))
+                    .frame(width: 15, height: 15)
+                    .position(
+                        x: eyeTrackController.eyeTrack.lookAtPoint.x,
+                        y: eyeTrackController.eyeTrack.lookAtPoint.y
+                    )
+            }
+            .edgesIgnoringSafeArea(.all)
+            Text("x: \(eyeTrackController.eyeTrack.lookAtPoint.x), y: \(eyeTrackController.eyeTrack.lookAtPoint.y)")
         }
     }
     
@@ -149,46 +133,6 @@ struct Task1View: View {
             }).padding()
        }
     }
-    
-    // MARK: - Timer Constants
-        
-//    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-//    static let defaultCountdownSeconds: Int = 3
-//    static let defaultInstructionsSeconds: Int = 3
-//    static let defaultImageSeconds: Int = 5
-    
-    // MARK: - Timer functions
-    
-//    private func startInstructionsTimer() {
-//        if self.countdownSeconds == 0 {
-//            if !isCountdownDone {
-//                isCountdownDone = true
-//                countdownSeconds = taskVM.defaultInstructionsSeconds
-//            } else {
-//                checkpoint = .task
-//            }
-//        } else {
-//            self.countdownSeconds -= 1
-//        }
-//    }
-        
-//    private func startImageTimer() {
-////        print("\(seconds) seconds")
-//        if self.imageSeconds == 0 {
-//            if (self.currentImgIdx < taskVM.filenames.count - 1) {
-//                self.dataController.takeLap()
-//                self.currentImgIdx += 1
-//                self.imageSeconds = Task1View.defaultImageSeconds
-//            } else {
-//                self.timer.upstream.connect().cancel()
-//                self.dataController.stopRecording()
-//                self.taskVM.updateTrackingData(laps: self.dataController.laps, trackingData: self.dataController.eyeTrackData)
-//                checkpoint = .complete
-//            }
-//        } else {
-//            self.imageSeconds -= 1
-//        }
-//    }
 }
 
 struct Task1_Previews: PreviewProvider {
