@@ -37,6 +37,7 @@
 		1DD7D56D265E3086008EA48E /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */; };
 		1DD7D575265ED187008EA48E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7D574265ED187008EA48E /* .gitignore */; };
 		1DF62AB22663DC5600065CB3 /* PatientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF62AB12663DC5600065CB3 /* PatientViewModel.swift */; };
+		5C3911702735DCD6008366A5 /* Task1Saliency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39116F2735DCD6008366A5 /* Task1Saliency.swift */; };
 		5CE31EAE272C8A7A00A22B66 /* Task1Heatmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE31EAD272C8A7A00A22B66 /* Task1Heatmap.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
 		1DD7D574265ED187008EA48E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		1DF62AB12663DC5600065CB3 /* PatientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientViewModel.swift; sourceTree = "<group>"; };
+		5C39116F2735DCD6008366A5 /* Task1Saliency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task1Saliency.swift; sourceTree = "<group>"; };
 		5CE31EAD272C8A7A00A22B66 /* Task1Heatmap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task1Heatmap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 				1D0BFE8D2667C9B7006875EF /* ImageTaskViewModel.swift */,
 				1D0BFE912667D348006875EF /* DataController.swift */,
 				5CE31EAD272C8A7A00A22B66 /* Task1Heatmap.swift */,
+				5C39116F2735DCD6008366A5 /* Task1Saliency.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				1DF62AB22663DC5600065CB3 /* PatientViewModel.swift in Sources */,
 				1D98FBFD265F6F0900BFD44B /* EyeTrackingTestView.swift in Sources */,
 				1D98FBF5265F521800BFD44B /* PatientsView.swift in Sources */,
+				5C3911702735DCD6008366A5 /* Task1Saliency.swift in Sources */,
 				1D98FBF3265F4B2900BFD44B /* Patient.swift in Sources */,
 				1DD7D563265E2E22008EA48E /* MainView.swift in Sources */,
 				1D98FBF7265F524700BFD44B /* AboutView.swift in Sources */,
