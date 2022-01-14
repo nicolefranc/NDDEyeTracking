@@ -41,6 +41,9 @@
 		1DF73AC5268CC55D0061A538 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF73AC4268CC55D0061A538 /* Shapes.swift */; };
 		1DF73AC8268CC6220061A538 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF73AC7268CC6220061A538 /* Pattern.swift */; };
 		1DF73ACA268CC6B60061A538 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF73AC9268CC6B60061A538 /* TaskType.swift */; };
+		214BCA612792327B007411F9 /* VisuallyGuidedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BCA602792327B007411F9 /* VisuallyGuidedViewModel.swift */; };
+		214BCA632792357B007411F9 /* Task5View1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BCA622792357B007411F9 /* Task5View1.swift */; };
+		21EDC798273F23B900545FE4 /* CalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDC797273F23B900545FE4 /* CalibrationView.swift */; };
 		6C3EC1CA268157D200B7502E /* DrawingTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3EC1C9268157D200B7502E /* DrawingTaskViewModel.swift */; };
 		6C75A919268971EE000D301C /* DrawingPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C75A918268971EE000D301C /* DrawingPadView.swift */; };
 		6C75A91C26897675000D301C /* TouchCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C75A91B26897675000D301C /* TouchCaptureViewController.swift */; };
@@ -85,6 +88,9 @@
 		1DF73AC4268CC55D0061A538 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		1DF73AC7268CC6220061A538 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
 		1DF73AC9268CC6B60061A538 /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
+		214BCA602792327B007411F9 /* VisuallyGuidedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisuallyGuidedViewModel.swift; sourceTree = "<group>"; };
+		214BCA622792357B007411F9 /* Task5View1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task5View1.swift; sourceTree = "<group>"; };
+		21EDC797273F23B900545FE4 /* CalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationView.swift; sourceTree = "<group>"; };
 		6C3EC1C9268157D200B7502E /* DrawingTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingTaskViewModel.swift; sourceTree = "<group>"; };
 		6C75A918268971EE000D301C /* DrawingPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingPadView.swift; sourceTree = "<group>"; };
 		6C75A91B26897675000D301C /* TouchCaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchCaptureViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 				1D98FBF4265F521800BFD44B /* PatientsView.swift */,
 				1D2E9FD32663770D0088DC68 /* PatientsViewModel.swift */,
 				1D98FBF6265F524700BFD44B /* AboutView.swift */,
+				21EDC796273F231E00545FE4 /* Calibration */,
 				1DD25B572668B9A9002FC548 /* EyeTrackingTest */,
 				1DF62AB02663DC3A00065CB3 /* Patient */,
 				1D98FC02265FC3B800BFD44B /* Tasks */,
@@ -151,10 +158,12 @@
 				1D98FC03265FC3D300BFD44B /* Task1View.swift */,
 				1D98FC05266066B200BFD44B /* Task2View.swift */,
 				1D98FC0726606C9600BFD44B /* Task3View.swift */,
+				214BCA622792357B007411F9 /* Task5View1.swift */,
 				1D0BFE912667D348006875EF /* EyeDataController.swift */,
 				1D0BFE8D2667C9B7006875EF /* ImageTaskViewModel.swift */,
 				969633202681553A006E422F /* MovingDotViewModel.swift */,
 				6C3EC1C9268157D200B7502E /* DrawingTaskViewModel.swift */,
+				214BCA602792327B007411F9 /* VisuallyGuidedViewModel.swift */,
 				1DF73ABA268CBA560061A538 /* DrawingTask */,
 			);
 			path = Tasks;
@@ -240,6 +249,14 @@
 				1DF73AC9268CC6B60061A538 /* TaskType.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		21EDC796273F231E00545FE4 /* Calibration */ = {
+			isa = PBXGroup;
+			children = (
+				21EDC797273F23B900545FE4 /* CalibrationView.swift */,
+			);
+			path = Calibration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,9 +368,12 @@
 				1D0BFE922667D348006875EF /* EyeDataController.swift in Sources */,
 				969633212681553A006E422F /* MovingDotViewModel.swift in Sources */,
 				1D582E1E2667876E00547757 /* TasksView.swift in Sources */,
+				214BCA632792357B007411F9 /* Task5View1.swift in Sources */,
 				1DF73ABC268CBDC30061A538 /* TouchCaptureView.swift in Sources */,
+				21EDC798273F23B900545FE4 /* CalibrationView.swift in Sources */,
 				1D98FBFF265F7CC900BFD44B /* TestOverview.swift in Sources */,
 				1D2E9FD42663770D0088DC68 /* PatientsViewModel.swift in Sources */,
+				214BCA612792327B007411F9 /* VisuallyGuidedViewModel.swift in Sources */,
 				1D0BFE902667CC5E006875EF /* TaskData.swift in Sources */,
 				1D98FC0826606C9600BFD44B /* Task3View.swift in Sources */,
 			);
@@ -495,14 +515,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F6XLA3G7T7;
+				DEVELOPMENT_TEAM = BX2H78N5N7;
 				INFOPLIST_FILE = NDDEyeTracking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gami.nddp.NDDEyeTracking.christina;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gami.nddp.NDDEyeTracking.haojin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -515,14 +535,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F6XLA3G7T7;
+				DEVELOPMENT_TEAM = BX2H78N5N7;
 				INFOPLIST_FILE = NDDEyeTracking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gami.nddp.NDDEyeTracking.christina;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gami.nddp.NDDEyeTracking.haojin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -23,7 +23,7 @@ struct TasksView: View {
     @ViewBuilder
     private func displayTask() -> some View {
         switch currentTask {
-        case .start: displayStartTest()
+        case .start: CalibrationView()//displayStartTest()
 //        case .task1: Task3View(currentTask: $currentTask).environmentObject(ettViewModel)
         case .task1: Task3View(patient: $patient).environmentObject(ettViewModel)
         case .task2: Task2View(currentTask: $currentTask).environmentObject(ettViewModel)
