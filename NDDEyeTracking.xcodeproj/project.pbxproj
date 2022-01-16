@@ -33,7 +33,6 @@
 		1DD7D55B265E2B6E008EA48E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7D559265E2B6E008EA48E /* LaunchScreen.storyboard */; };
 		1DD7D563265E2E22008EA48E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D562265E2E22008EA48E /* MainView.swift */; };
 		1DD7D566265E2F6C008EA48E /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD7D565265E2F6C008EA48E /* Resolver */; };
-		1DD7D569265E2F7E008EA48E /* EyeTrackKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD7D568265E2F7E008EA48E /* EyeTrackKit */; };
 		1DD7D56D265E3086008EA48E /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */; };
 		1DD7D575265ED187008EA48E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7D574265ED187008EA48E /* .gitignore */; };
 		1DF62AB22663DC5600065CB3 /* PatientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF62AB12663DC5600065CB3 /* PatientViewModel.swift */; };
@@ -116,7 +115,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DD7D566265E2F6C008EA48E /* Resolver in Frameworks */,
-				1DD7D569265E2F7E008EA48E /* EyeTrackKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +282,6 @@
 			name = NDDEyeTracking;
 			packageProductDependencies = (
 				1DD7D565265E2F6C008EA48E /* Resolver */,
-				1DD7D568265E2F7E008EA48E /* EyeTrackKit */,
 			);
 			productName = NDDEyeTracking;
 			productReference = 1DD7D54B265E2B6D008EA48E /* NDDEyeTracking.app */;
@@ -315,7 +312,6 @@
 			mainGroup = 1DD7D542265E2B6D008EA48E;
 			packageReferences = (
 				1DD7D564265E2F6C008EA48E /* XCRemoteSwiftPackageReference "Resolver" */,
-				1DD7D567265E2F7E008EA48E /* XCRemoteSwiftPackageReference "EyeTrackKit" */,
 			);
 			productRefGroup = 1DD7D54C265E2B6D008EA48E /* Products */;
 			projectDirPath = "";
@@ -593,14 +589,6 @@
 				minimumVersion = 1.4.1;
 			};
 		};
-		1DD7D567265E2F7E008EA48E /* XCRemoteSwiftPackageReference "EyeTrackKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ukitomato/EyeTrackKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.8.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -608,11 +596,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1DD7D564265E2F6C008EA48E /* XCRemoteSwiftPackageReference "Resolver" */;
 			productName = Resolver;
-		};
-		1DD7D568265E2F7E008EA48E /* EyeTrackKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1DD7D567265E2F7E008EA48E /* XCRemoteSwiftPackageReference "EyeTrackKit" */;
-			productName = EyeTrackKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
