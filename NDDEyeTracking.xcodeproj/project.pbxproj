@@ -48,6 +48,10 @@
 		9615569B2683FDB00077AB39 /* CustomPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9615569A2683FDB00077AB39 /* CustomPath.swift */; };
 		9696331F268154CC006E422F /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696331E268154CC006E422F /* CustomShape.swift */; };
 		969633212681553A006E422F /* MovingDotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969633202681553A006E422F /* MovingDotViewModel.swift */; };
+		DCDB4C142794BC860005DE56 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDB4C132794BC860005DE56 /* Extension.swift */; };
+		DCDB4C162794BCA20005DE56 /* EyeTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDB4C152794BCA20005DE56 /* EyeTrack.swift */; };
+		DCDB4C182794BCC80005DE56 /* EyeTrackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDB4C172794BCC80005DE56 /* EyeTrackController.swift */; };
+		DCDB4C1A2794BCD90005DE56 /* EyeTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDB4C192794BCD90005DE56 /* EyeTrackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +96,10 @@
 		9615569A2683FDB00077AB39 /* CustomPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPath.swift; sourceTree = "<group>"; };
 		9696331E268154CC006E422F /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
 		969633202681553A006E422F /* MovingDotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingDotViewModel.swift; sourceTree = "<group>"; };
+		DCDB4C132794BC860005DE56 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		DCDB4C152794BCA20005DE56 /* EyeTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrack.swift; sourceTree = "<group>"; };
+		DCDB4C172794BCC80005DE56 /* EyeTrackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackController.swift; sourceTree = "<group>"; };
+		DCDB4C192794BCD90005DE56 /* EyeTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +133,10 @@
 			children = (
 				1D98FBE6265F10EF00BFD44B /* EyeTrackingView.swift */,
 				1D98FBFE265F7CC900BFD44B /* TestOverview.swift */,
+				DCDB4C132794BC860005DE56 /* Extension.swift */,
+				DCDB4C152794BCA20005DE56 /* EyeTrack.swift */,
+				DCDB4C172794BCC80005DE56 /* EyeTrackController.swift */,
+				DCDB4C192794BCD90005DE56 /* EyeTrackView.swift */,
 			);
 			path = EyeTracking;
 			sourceTree = "<group>";
@@ -335,6 +347,8 @@
 				1DD7D563265E2E22008EA48E /* MainView.swift in Sources */,
 				1D98FBF7265F524700BFD44B /* AboutView.swift in Sources */,
 				1DD7D54F265E2B6D008EA48E /* AppDelegate.swift in Sources */,
+				DCDB4C182794BCC80005DE56 /* EyeTrackController.swift in Sources */,
+				DCDB4C1A2794BCD90005DE56 /* EyeTrackView.swift in Sources */,
 				9696331F268154CC006E422F /* CustomShape.swift in Sources */,
 				1DF73ACA268CC6B60061A538 /* TaskType.swift in Sources */,
 				1DD7D551265E2B6D008EA48E /* SceneDelegate.swift in Sources */,
@@ -356,6 +370,8 @@
 				1D2E9FD42663770D0088DC68 /* PatientsViewModel.swift in Sources */,
 				1D0BFE902667CC5E006875EF /* TaskData.swift in Sources */,
 				1D98FC0826606C9600BFD44B /* Task3View.swift in Sources */,
+				DCDB4C142794BC860005DE56 /* Extension.swift in Sources */,
+				DCDB4C162794BCA20005DE56 /* EyeTrack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,14 +511,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F6XLA3G7T7;
+				DEVELOPMENT_TEAM = YX9WK28J96;
 				INFOPLIST_FILE = NDDEyeTracking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gami.nddp.NDDEyeTracking.christina;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gami.nddp.NDDEyeTracking.richard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -515,14 +531,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F6XLA3G7T7;
+				DEVELOPMENT_TEAM = YX9WK28J96;
 				INFOPLIST_FILE = NDDEyeTracking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gami.nddp.NDDEyeTracking.christina;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gami.nddp.NDDEyeTracking.richard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
