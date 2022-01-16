@@ -33,7 +33,7 @@ public class Face {
         self.leftEye.node.simdTransform = anchor.leftEyeTransform
         self.rightEye.node.simdTransform = anchor.rightEyeTransform
         // 瞬き情報更新
-        updateBlink(anchor: anchor)
+        self.updateBlink(anchor: anchor)
     }
     
     private func updateBlink(anchor: ARFaceAnchor) {

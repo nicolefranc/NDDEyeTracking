@@ -17,7 +17,7 @@ public class Eye {
     public var node: SCNNode
     public var target: SCNNode
     public var numBlinks: Int = 0
-    public var blink: Float = 1.0
+    public var blink: Float = 1.0 // value of "blink" at an instant (continuous value from 0.0 - open to 1.0 - closed)
     
     //TODO: need to test and adjust this threshold
     private var blinkThreshold: Float = 0.9
