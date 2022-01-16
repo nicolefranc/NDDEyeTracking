@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import EyeTrackKit
+//import EyeTrackKit
 
 class DrawingTaskViewModel: ObservableObject {
     @Published var shapes: [CustomShape]

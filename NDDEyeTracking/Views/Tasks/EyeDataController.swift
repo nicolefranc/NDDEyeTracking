@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import EyeTrackKit
+//import EyeTrackKit
 
 enum TrackingStatus {
     case initialized

@@ -8,7 +8,7 @@
 
 import SwiftUI
 import Resolver
-import EyeTrackKit
+//import EyeTrackKit
 
 private enum Task2Checkpoint {
     case instructions

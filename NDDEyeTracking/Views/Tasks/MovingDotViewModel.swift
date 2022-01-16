@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import EyeTrackKit
+//import EyeTrackKit
 import SwiftUI
 
 class MovingDotViewModel: ObservableObject {

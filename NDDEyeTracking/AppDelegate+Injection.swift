@@ -7,7 +7,7 @@
 
 import Foundation
 import Resolver
-import EyeTrackKit
+//import EyeTrackKit
 
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {

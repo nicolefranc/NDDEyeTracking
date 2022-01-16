@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import EyeTrackKit
+//import EyeTrackKit
 
 class Photo: TaskData, Identifiable {
     var id: UUID

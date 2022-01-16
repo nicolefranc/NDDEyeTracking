@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import EyeTrackKit
+//import EyeTrackKit
 
 class ImageTaskViewModel: ObservableObject {
     @Published var images: [Photo]
