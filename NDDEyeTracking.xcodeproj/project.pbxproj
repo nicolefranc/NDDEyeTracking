@@ -48,6 +48,10 @@
 		9615569B2683FDB00077AB39 /* CustomPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9615569A2683FDB00077AB39 /* CustomPath.swift */; };
 		9696331F268154CC006E422F /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696331E268154CC006E422F /* CustomShape.swift */; };
 		969633212681553A006E422F /* MovingDotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969633202681553A006E422F /* MovingDotViewModel.swift */; };
+		96AACA912794BD3600557BCD /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACA902794BD3600557BCD /* Device.swift */; };
+		96AACA932794BD5200557BCD /* Eye.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACA922794BD5200557BCD /* Eye.swift */; };
+		96AACA952794BD6700557BCD /* EyeTrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACA942794BD6700557BCD /* EyeTrackInfo.swift */; };
+		96AACA972794BD7D00557BCD /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACA962794BD7D00557BCD /* Face.swift */; };
 		DCDB4C142794BC860005DE56 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDB4C132794BC860005DE56 /* Extension.swift */; };
 		DCDB4C162794BCA20005DE56 /* EyeTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDB4C152794BCA20005DE56 /* EyeTrack.swift */; };
 		DCDB4C182794BCC80005DE56 /* EyeTrackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDB4C172794BCC80005DE56 /* EyeTrackController.swift */; };
@@ -96,6 +100,10 @@
 		9615569A2683FDB00077AB39 /* CustomPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPath.swift; sourceTree = "<group>"; };
 		9696331E268154CC006E422F /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
 		969633202681553A006E422F /* MovingDotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingDotViewModel.swift; sourceTree = "<group>"; };
+		96AACA902794BD3600557BCD /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		96AACA922794BD5200557BCD /* Eye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eye.swift; sourceTree = "<group>"; };
+		96AACA942794BD6700557BCD /* EyeTrackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackInfo.swift; sourceTree = "<group>"; };
+		96AACA962794BD7D00557BCD /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
 		DCDB4C132794BC860005DE56 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DCDB4C152794BCA20005DE56 /* EyeTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrack.swift; sourceTree = "<group>"; };
 		DCDB4C172794BCC80005DE56 /* EyeTrackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackController.swift; sourceTree = "<group>"; };
@@ -152,6 +160,10 @@
 				9696331E268154CC006E422F /* CustomShape.swift */,
 				9615569A2683FDB00077AB39 /* CustomPath.swift */,
 				6C75A921268978A5000D301C /* DrawingData.swift */,
+				96AACA902794BD3600557BCD /* Device.swift */,
+				96AACA922794BD5200557BCD /* Eye.swift */,
+				96AACA942794BD6700557BCD /* EyeTrackInfo.swift */,
+				96AACA962794BD7D00557BCD /* Face.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,6 +349,7 @@
 				1DD7D553265E2B6D008EA48E /* ViewController.swift in Sources */,
 				1D98FBEC265F154200BFD44B /* PatientView.swift in Sources */,
 				1D0BFE8E2667C9B7006875EF /* ImageTaskViewModel.swift in Sources */,
+				96AACA932794BD5200557BCD /* Eye.swift in Sources */,
 				1D98FBE7265F10EF00BFD44B /* EyeTrackingView.swift in Sources */,
 				1DF62AB22663DC5600065CB3 /* PatientViewModel.swift in Sources */,
 				6C75A919268971EE000D301C /* DrawingPadView.swift in Sources */,
@@ -360,12 +373,15 @@
 				1DD7D56D265E3086008EA48E /* AppDelegate+Injection.swift in Sources */,
 				6C75A91C26897675000D301C /* TouchCaptureViewController.swift in Sources */,
 				9615569B2683FDB00077AB39 /* CustomPath.swift in Sources */,
+				96AACA912794BD3600557BCD /* Device.swift in Sources */,
 				1D98FC06266066B200BFD44B /* Task2View.swift in Sources */,
 				1D98FBFB265F561C00BFD44B /* DataStore.swift in Sources */,
+				96AACA972794BD7D00557BCD /* Face.swift in Sources */,
 				1D0BFE922667D348006875EF /* EyeDataController.swift in Sources */,
 				969633212681553A006E422F /* MovingDotViewModel.swift in Sources */,
 				1D582E1E2667876E00547757 /* TasksView.swift in Sources */,
 				1DF73ABC268CBDC30061A538 /* TouchCaptureView.swift in Sources */,
+				96AACA952794BD6700557BCD /* EyeTrackInfo.swift in Sources */,
 				1D98FBFF265F7CC900BFD44B /* TestOverview.swift in Sources */,
 				1D2E9FD42663770D0088DC68 /* PatientsViewModel.swift in Sources */,
 				1D0BFE902667CC5E006875EF /* TaskData.swift in Sources */,
