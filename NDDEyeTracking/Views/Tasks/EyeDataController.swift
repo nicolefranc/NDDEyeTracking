@@ -37,6 +37,10 @@ class EyeDataController: ObservableObject {
     public func stopRecording() {
         print("Acquired \(eyeTrackData.count) frames")
         self.trackingStatus = .finished
+        
+        for data in eyeTrackData {
+            print(data.toCSV)
+        }
     }
     
     public func resetTracking() {

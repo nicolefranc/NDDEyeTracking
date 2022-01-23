@@ -28,14 +28,14 @@ public class EyeTrackInfo {
     public var timestamp: Date
     public var isTracked: Bool
 
-    public var faceRotaion: SCNVector4
+    public var faceRotation: SCNVector4
     public var facePosition: SCNVector3
     
     public var devicePosition: SCNVector3
     public var deviceRotation: SCNVector4
     
-    public var rightEyePotision: SCNVector3
-    public var leftEyePotision: SCNVector3
+    public var rightEyePosition: SCNVector3
+    public var leftEyePosition: SCNVector3
 
     public var rightEyeLookAtPosition: SCNVector3
     public var leftEyeLookAtPosition: SCNVector3
@@ -44,11 +44,8 @@ public class EyeTrackInfo {
     public var leftEyeLookAtPoint: CGPoint
     public var centerEyeLookAtPoint: CGPoint
 
-    public var rightEyeBlink: Float
-    public var leftEyeBlink: Float
-    
-    public var rightEyeNumBlinks: Int
-    public var leftEyeNumBlinks: Int
+    public var rightEyeBlinkState: Float
+    public var leftEyeBlinkState: Float
 
     public var rightEyeDistance: Float
     public var leftEyeDistance: Float
@@ -58,12 +55,12 @@ public class EyeTrackInfo {
         self.timestamp = Date.init()
         self.isTracked = isTracked
 
-        self.faceRotaion = face.node.worldOrientation
+        self.faceRotation = face.node.worldOrientation
         self.facePosition = face.node.worldPosition
         self.deviceRotation = device.node.worldOrientation
         self.devicePosition = device.node.worldPosition
-        self.rightEyePotision = face.rightEye.node.worldPosition
-        self.leftEyePotision = face.leftEye.node.worldPosition
+        self.rightEyePosition = face.rightEye.node.worldPosition
+        self.leftEyePosition = face.leftEye.node.worldPosition
 
         self.rightEyeLookAtPosition = face.rightEye.target.worldPosition
         self.leftEyeLookAtPosition = face.leftEye.target.worldPosition
@@ -72,11 +69,8 @@ public class EyeTrackInfo {
         self.leftEyeLookAtPoint = face.leftEye.lookAtPoint
         self.centerEyeLookAtPoint = lookAtPoint
 
-        self.rightEyeBlink = face.rightEye.blink
-        self.leftEyeBlink = face.leftEye.blink
-
-        self.rightEyeNumBlinks = face.rightEye.numBlinks
-        self.leftEyeNumBlinks = face.leftEye.numBlinks
+        self.rightEyeBlinkState = face.rightEye.blinkState
+        self.leftEyeBlinkState = face.leftEye.blinkState
         
         self.rightEyeDistance = face.rightEye.getDistanceToDevice()
         self.leftEyeDistance = face.leftEye.getDistanceToDevice()
@@ -87,12 +81,12 @@ public class EyeTrackInfo {
     public var toCSV: [String] {
         let detail = [dateToString(date: self.timestamp), String(self.isTracked)]
         let worldPosition = [
-            String(self.faceRotaion.x), String(self.faceRotaion.y), String(self.faceRotaion.z), String(self.faceRotaion.w),
+            String(self.faceRotation.x), String(self.faceRotation.y), String(self.faceRotation.z), String(self.faceRotation.w),
             String(self.facePosition.x), String(self.facePosition.y), String(self.facePosition.z),
             String(self.deviceRotation.x), String(self.deviceRotation.y), String(self.deviceRotation.z), String(self.deviceRotation.w),
             String(self.devicePosition.x), String(self.devicePosition.y), String(self.devicePosition.z),
-            String(self.rightEyePotision.x), String(self.rightEyePotision.y), String(self.rightEyePotision.z),
-            String(self.leftEyePotision.x), String(self.leftEyePotision.y), String(self.leftEyePotision.z)]
+            String(self.rightEyePosition.x), String(self.rightEyePosition.y), String(self.rightEyePosition.z),
+            String(self.leftEyePosition.x), String(self.leftEyePosition.y), String(self.leftEyePosition.z)]
         let lookAtPosition = [
             String(self.rightEyeLookAtPosition.x), String(self.rightEyeLookAtPosition.y), String(self.rightEyeLookAtPosition.z),
             String(self.leftEyeLookAtPosition.x), String(self.leftEyeLookAtPosition.y), String(self.leftEyeLookAtPosition.z)]
@@ -101,8 +95,7 @@ public class EyeTrackInfo {
             String(format: "%.8F", Float(self.leftEyeLookAtPoint.x)), String(format: "%.8F", Float(self.leftEyeLookAtPoint.y)),
             String(format: "%.8F", Float(self.centerEyeLookAtPoint.x)), String(format: "%.8F", Float(self.centerEyeLookAtPoint.y))]
         let eyeself = [
-            String(self.rightEyeBlink), String(self.leftEyeBlink),
-            String(self.rightEyeNumBlinks), String(self.leftEyeNumBlinks),
+            String(self.rightEyeBlinkState), String(self.leftEyeBlinkState),
             String(self.rightEyeDistance), String(self.leftEyeDistance)]
         var row = detail + worldPosition
         row = row + lookAtPosition

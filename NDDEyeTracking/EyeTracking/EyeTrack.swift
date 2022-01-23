@@ -72,7 +72,7 @@ public class EyeTrack: ObservableObject {
         // 顔座標更新(眼球座標更新)
         self.face.update(anchor: anchor)
         // 瞬き判定
-        if self.face.leftEye.blink > blinkThreshold {
+        if self.face.leftEye.blinkState > blinkThreshold {
             print("Close")
         } else {
             updateLookAtPosition()

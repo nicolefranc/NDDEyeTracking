@@ -16,8 +16,7 @@ public class Eye {
     public var lookAtPoint: CGPoint = CGPoint(x: 0, y: 0)
     public var node: SCNNode
     public var target: SCNNode
-    public var numBlinks: Int = 0
-    public var blink: Float = 1.0 // value of "blink" at an instant (continuous value from 0.0 - open to 1.0 - closed)
+    public var blinkState: Float = 0.0 // instantaneous values of "blink" (continuous value from 0.0 - open to 1.0 - closed)
     
     //TODO: need to test and adjust this threshold
     private var blinkThreshold: Float = 0.9
@@ -26,7 +25,7 @@ public class Eye {
     
     public init(isShowRayHint: Bool = false) {
         self.isShowRayHint = isShowRayHint
-        // Node生成
+        // Node生成 - research how to better model the eye with the SCNNode (and how do we test??)
         self.node = {
             let geometry = SCNCone(topRadius: 0.005, bottomRadius: 0, height: 0.1)
             geometry.radialSegmentCount = 3
@@ -71,10 +70,7 @@ public class Eye {
     }
     
     // blink = 0.0 is eye completely open, blink = 1.0 is eye completely closed
-    public func updateBlink(blink: Float) {
-        self.blink = blink
-        if (blink > blinkThreshold) {
-            self.numBlinks += 1
-        }
+    public func updateBlinkState(blinkState: Float) {
+        self.blinkState = blinkState
     }
 }
