@@ -25,8 +25,7 @@ struct Task2View: View {
     @State fileprivate var checkpoint: Task2Checkpoint = .instructions
     
     // Timer Variables
-    @State private var countdownSeconds: Int = 5
-    @State private var isCountdownDone: Bool = false // TODO: could take out?
+    @State private var instructionsSeconds: Int = Task2View.defaultInstructionsSeconds
     
     // Animation variables
     // Path number - keeps track of which of the 3 paths is being run right now
@@ -138,8 +137,8 @@ struct Task2View: View {
     // MARK: - Timer functions
     
     private func startInstructionsTimer() {
-        if self.countdownSeconds > 0 {
-            self.countdownSeconds -= 1
+        if self.instructionsSeconds > 0 {
+            self.instructionsSeconds -= 1
         } else {
             self.timer.upstream.connect().cancel()
             checkpoint = .task
