@@ -37,11 +37,11 @@
 		1DD7D56D265E3086008EA48E /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */; };
 		1DD7D575265ED187008EA48E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7D574265ED187008EA48E /* .gitignore */; };
 		1DF62AB22663DC5600065CB3 /* PatientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF62AB12663DC5600065CB3 /* PatientViewModel.swift */; };
-		5CE31EAE272C8A7A00A22B66 /* Task1HeatmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE31EAD272C8A7A00A22B66 /* Task1HeatmapView.swift */; };
 		1DF73ABC268CBDC30061A538 /* TouchCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF73ABB268CBDC30061A538 /* TouchCaptureView.swift */; };
 		1DF73AC5268CC55D0061A538 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF73AC4268CC55D0061A538 /* Shapes.swift */; };
 		1DF73AC8268CC6220061A538 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF73AC7268CC6220061A538 /* Pattern.swift */; };
 		1DF73ACA268CC6B60061A538 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF73AC9268CC6B60061A538 /* TaskType.swift */; };
+		5CE31EAE272C8A7A00A22B66 /* Task1HeatmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE31EAD272C8A7A00A22B66 /* Task1HeatmapView.swift */; };
 		6C3EC1CA268157D200B7502E /* DrawingTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3EC1C9268157D200B7502E /* DrawingTaskViewModel.swift */; };
 		6C75A919268971EE000D301C /* DrawingPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C75A918268971EE000D301C /* DrawingPadView.swift */; };
 		6C75A91C26897675000D301C /* TouchCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C75A91B26897675000D301C /* TouchCaptureViewController.swift */; };
@@ -82,11 +82,11 @@
 		1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
 		1DD7D574265ED187008EA48E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		1DF62AB12663DC5600065CB3 /* PatientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientViewModel.swift; sourceTree = "<group>"; };
-		5CE31EAD272C8A7A00A22B66 /* Task1HeatmapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task1HeatmapView.swift; sourceTree = "<group>"; };
 		1DF73ABB268CBDC30061A538 /* TouchCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchCaptureView.swift; sourceTree = "<group>"; };
 		1DF73AC4268CC55D0061A538 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		1DF73AC7268CC6220061A538 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
 		1DF73AC9268CC6B60061A538 /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
+		5CE31EAD272C8A7A00A22B66 /* Task1HeatmapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task1HeatmapView.swift; sourceTree = "<group>"; };
 		6C3EC1C9268157D200B7502E /* DrawingTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingTaskViewModel.swift; sourceTree = "<group>"; };
 		6C75A918268971EE000D301C /* DrawingPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingPadView.swift; sourceTree = "<group>"; };
 		6C75A91B26897675000D301C /* TouchCaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchCaptureViewController.swift; sourceTree = "<group>"; };
@@ -360,7 +360,7 @@
 				1D98FC06266066B200BFD44B /* Task2View.swift in Sources */,
 				1D98FBFB265F561C00BFD44B /* DataStore.swift in Sources */,
 				5CE31EAE272C8A7A00A22B66 /* Task1HeatmapView.swift in Sources */,
-				1D0BFE922667D348006875EF /* DataController.swift in Sources */,
+				1D0BFE922667D348006875EF /* EyeDataController.swift in Sources */,
 				1D0BFE922667D348006875EF /* EyeDataController.swift in Sources */,
 				969633212681553A006E422F /* MovingDotViewModel.swift in Sources */,
 				1D582E1E2667876E00547757 /* TasksView.swift in Sources */,
@@ -508,14 +508,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F6XLA3G7T7;
+				DEVELOPMENT_TEAM = 4NAU8ZMDR5;
 				INFOPLIST_FILE = NDDEyeTracking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gami.nddp.NDDEyeTracking.christina;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gami.nddp.NDDEyeTracking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -528,14 +528,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F6XLA3G7T7;
+				DEVELOPMENT_TEAM = 4NAU8ZMDR5;
 				INFOPLIST_FILE = NDDEyeTracking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gami.nddp.NDDEyeTracking.christina;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gami.nddp.NDDEyeTracking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -126,7 +126,7 @@ struct Task1View: View {
            Button(
             action: {
                 ettViewModel.addTaskResult(key: "Task 1", result: taskVM.images)
-                currentTask = .task3
+                currentTask = .task2
             },
             label: {
                Text("Next Task")
