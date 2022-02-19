@@ -37,6 +37,7 @@
 		1DD7D56D265E3086008EA48E /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */; };
 		1DD7D575265ED187008EA48E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1DD7D574265ED187008EA48E /* .gitignore */; };
 		1DF62AB22663DC5600065CB3 /* PatientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF62AB12663DC5600065CB3 /* PatientViewModel.swift */; };
+		5CE31EAE272C8A7A00A22B66 /* Task1HeatmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE31EAD272C8A7A00A22B66 /* Task1HeatmapView.swift */; };
 		1DF73ABC268CBDC30061A538 /* TouchCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF73ABB268CBDC30061A538 /* TouchCaptureView.swift */; };
 		1DF73AC5268CC55D0061A538 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF73AC4268CC55D0061A538 /* Shapes.swift */; };
 		1DF73AC8268CC6220061A538 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF73AC7268CC6220061A538 /* Pattern.swift */; };
@@ -81,6 +82,7 @@
 		1DD7D56C265E3086008EA48E /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
 		1DD7D574265ED187008EA48E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		1DF62AB12663DC5600065CB3 /* PatientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientViewModel.swift; sourceTree = "<group>"; };
+		5CE31EAD272C8A7A00A22B66 /* Task1HeatmapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task1HeatmapView.swift; sourceTree = "<group>"; };
 		1DF73ABB268CBDC30061A538 /* TouchCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchCaptureView.swift; sourceTree = "<group>"; };
 		1DF73AC4268CC55D0061A538 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		1DF73AC7268CC6220061A538 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		1D2E9FD0266367540088DC68 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1D6E253127C14430006F01E9 /* Results */,
 				1D98FBF4265F521800BFD44B /* PatientsView.swift */,
 				1D2E9FD32663770D0088DC68 /* PatientsViewModel.swift */,
 				1D98FBF6265F524700BFD44B /* AboutView.swift */,
@@ -118,6 +121,14 @@
 				1D98FC02265FC3B800BFD44B /* Tasks */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1D6E253127C14430006F01E9 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				5CE31EAD272C8A7A00A22B66 /* Task1HeatmapView.swift */,
+			);
+			path = Results;
 			sourceTree = "<group>";
 		};
 		1D98FBE5265F10DF00BFD44B /* EyeTracking */ = {
@@ -348,6 +359,8 @@
 				9615569B2683FDB00077AB39 /* CustomPath.swift in Sources */,
 				1D98FC06266066B200BFD44B /* Task2View.swift in Sources */,
 				1D98FBFB265F561C00BFD44B /* DataStore.swift in Sources */,
+				5CE31EAE272C8A7A00A22B66 /* Task1HeatmapView.swift in Sources */,
+				1D0BFE922667D348006875EF /* DataController.swift in Sources */,
 				1D0BFE922667D348006875EF /* EyeDataController.swift in Sources */,
 				969633212681553A006E422F /* MovingDotViewModel.swift in Sources */,
 				1D582E1E2667876E00547757 /* TasksView.swift in Sources */,

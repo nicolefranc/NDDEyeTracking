@@ -8,30 +8,48 @@
 import Foundation
 import EyeTrackKit
 
+enum Task1Checkpoint {
+    case instructions
+    case task
+    case complete
+}
+
 class ImageTaskViewModel: ObservableObject {
-    @Published var images: [Photo]
-    let tempDimensions: [Int] = [0, 0]
+
+    @Published private (set) var checkpoint: Task1Checkpoint = .instructions
+    func setCheckpoint(to newCheckpoint: Task1Checkpoint) {
+        self.checkpoint = newCheckpoint
+    }
     
-    // TODO: Implement actual image dimensions
-    init() {
-        images = [
+    static let tempDimensions: [Int] = [0, 0]
+    
+    let images: [Photo] =
+        [
             Photo(filename: "penguin", trackingData: [], dimensions: tempDimensions),
             Photo(filename: "snail", trackingData: [], dimensions: tempDimensions),
             Photo(filename: "field", trackingData: [], dimensions: tempDimensions)
         ]
-    }
     
     var filenames: [String] {
-        get {
-            images.map { image in
-                image.filename
-            }
-        }
+        images.map { $0.filename }
     }
     
+    // MARK: - Timer Constants
+    static let defaultImageSeconds: Double = 5
+    
+    @Published var imageTimer = Timer.publish(every: defaultImageSeconds, on: .main, in: .common).autoconnect()
+
+    
+    
+    // TODO: Change trackingData type to [EyeTrackInfo]
     func updateTrackingData(laps: [Int], trackingData: [EyeTrackInfo]) {
+        // If there was no data collected, we return
+        if (laps[0] == 0) {
+            return
+        }
         // 1. Process trackingInfo: Split into laps
         print("========= UPDATING =========\n\(laps)")
+
         let firstLapData = Array(trackingData[...laps[0]])
         let secondLapData = Array(trackingData[laps[0] + 1...laps[1]])
         let lastLapData = Array(trackingData[laps[1] + 1...trackingData.count - 1])
