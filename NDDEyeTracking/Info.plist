@@ -20,14 +20,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>NSCameraUsageDescription</key>
-    <string>This app needs camera access for AR features</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>This app needs microphone access</string>
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>This app needs access to the Photo Library to export AR media</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>This app needs access to the Photo Library to export AR media</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs camera access for AR features</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app needs microphone access</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app needs access to the Photo Library to export AR media</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs access to the Photo Library to export AR media</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -14,7 +14,7 @@ enum TrackingStatus {
     case finished
 }
 
-class DataController: ObservableObject {
+class EyeDataController: ObservableObject {
     @Published var trackingStatus: TrackingStatus = .initialized
     @Published var eyeTrackData: [EyeTrackInfo] = []
     @Published var laps: [Int] = []
