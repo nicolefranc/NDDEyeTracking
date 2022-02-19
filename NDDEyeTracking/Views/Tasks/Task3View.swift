@@ -110,13 +110,13 @@ struct Task3View: View {
                     DrawingPadView(currentDrawing: $currentDrawing, drawings: $drawings)
                     ArchSpiral().stroke(lineWidth:3).opacity(0.5)
                     TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
-                case .spiroSquare:
-                    DrawingPadView(currentDrawing: $currentDrawing, drawings: $drawings)
-                    Spirograph().stroke(lineWidth:3).opacity(0.5)
-                    TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
                 case .spiroGraph:
                     DrawingPadView(currentDrawing: $currentDrawing, drawings: $drawings)
                     Spirograph().stroke(lineWidth:3).opacity(0.5)
+                    TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
+                case .sinWave:
+                    DrawingPadView(currentDrawing: $currentDrawing, drawings: $drawings)
+                    SinWave().stroke(lineWidth:3).opacity(0.5)
                     TouchCaptureView(currentDrawing: $currentDrawing, drawings: $drawings, data: $data).opacity(0.1)
                 }
             }.padding()
