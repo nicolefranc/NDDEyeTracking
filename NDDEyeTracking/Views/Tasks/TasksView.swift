@@ -25,9 +25,9 @@ struct TasksView: View {
         switch currentTask {
         case .start: displayStartTest()
 //        case .task1: Task3View(currentTask: $currentTask).environmentObject(ettViewModel)
-        case .task1: Task3View(patient: $patient).environmentObject(ettViewModel)
+        case .task1: Task1View(currentTask: $currentTask).environmentObject(ettViewModel)
         case .task2: Task2View(currentTask: $currentTask).environmentObject(ettViewModel)
-        case .task3: Task3View(patient: $patient).environmentObject(ettViewModel) // hello, this wasn't a bug 👺
+        case .task3: Task3View(patient: $patient).environmentObject(ettViewModel)
         }
     }
     
