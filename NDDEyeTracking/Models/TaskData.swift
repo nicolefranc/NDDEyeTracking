@@ -7,10 +7,14 @@
 
 import Foundation
 
-class TaskData {
+class TaskData : Codable {
     var taskType: TaskType
     
     init(taskType: TaskType) {
         self.taskType = taskType
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case taskType
     }
 }

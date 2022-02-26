@@ -21,6 +21,10 @@ class CustomPath: TaskData, Identifiable {
         self.path = pathFunc().0
         super.init(taskType: .task2)
     }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
 }
 
 // MARK: path array definition

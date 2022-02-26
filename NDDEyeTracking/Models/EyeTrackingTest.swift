@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EyeTrackingTest: Identifiable {
+struct EyeTrackingTest: Identifiable, Codable {
     var id: UUID
     var name: String
     var tasks: [String:[TaskData]]

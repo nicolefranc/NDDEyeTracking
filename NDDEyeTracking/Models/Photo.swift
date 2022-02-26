@@ -21,4 +21,8 @@ class Photo: TaskData, Identifiable {
         self.dimensions = dimensions
         super.init(taskType: .task1)
     }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
 }

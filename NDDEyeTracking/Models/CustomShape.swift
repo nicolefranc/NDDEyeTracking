@@ -19,4 +19,8 @@ class CustomShape: TaskData, Identifiable {
         self.shape = shape
         super.init(taskType: .task3)
     }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
 }

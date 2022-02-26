@@ -112,9 +112,7 @@ struct Task1View: View {
 //            }
         }
     }
-    
-    //test
-    
+        
     @ViewBuilder
     private func displayCompleteTask() -> some View {
         VStack {
