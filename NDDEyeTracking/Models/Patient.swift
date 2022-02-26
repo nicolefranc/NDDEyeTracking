@@ -19,15 +19,16 @@ struct Patient: Identifiable, Codable {
     }
 }
 
-extension Patient {
-    static var list: [Patient] {
-        [
-            Patient("John Appleseed"),
-            Patient("Isaiah Pearflower"),
-            Patient("Arthur Watermelon")
-        ]
-    }
-}
+// hardcoded patient list for testing purposes
+//extension Patient {
+//    static var list: [Patient] {
+//        [
+//            Patient("John Appleseed"),
+//            Patient("Isaiah Pearflower"),
+//            Patient("Arthur Watermelon")
+//        ]
+//    }
+//}
 
 extension Patient {
     /// Editable fields of Patient

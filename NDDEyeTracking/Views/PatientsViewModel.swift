@@ -8,10 +8,17 @@
 import Foundation
 
 final class PatientsViewModel: ObservableObject {
-    @Published var patients: [Patient] = Patient.list
+    @Published var patients: [Patient] = []
+    let storedPatientsArrKey = "storedPatientsArr"
+    
+    init() {
+        self.patients = retrieve()
+    }
     
     func addPatient(patientData: Patient.Data) {
         self.patients.append(Patient(patientData.name))
+        self.persist()
+        
         print("Add \(patientData.name ) as patient")
     }
     
@@ -43,6 +50,31 @@ final class PatientsViewModel: ObservableObject {
                 let p: [Patient] = patients
                 print(p)
             }
+        }
+    }
+}
+
+// extension for retrieving from persisted data and persisting to userDefaults
+extension PatientsViewModel {
+    // retrieve persisted patient list
+    func retrieve() -> [Patient] {
+        do {
+            self.patients = try userDefaults.getObject(forKey: storedPatientsArrKey, castTo: [Patient].self)
+            print("data has been retrieved")
+        } catch {
+            print("retrieve failed")
+            return []
+        }
+        return self.patients
+    }
+    
+    // persist patient list in app storage
+    func persist() {
+        do {
+            try userDefaults.setObject(self.patients, forKey: storedPatientsArrKey)
+            print("data has been persisted")
+        } catch {
+            print("persist failed")
         }
     }
 }

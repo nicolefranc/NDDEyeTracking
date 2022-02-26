@@ -45,6 +45,7 @@
 		6C75A91C26897675000D301C /* TouchCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C75A91B26897675000D301C /* TouchCaptureViewController.swift */; };
 		6C75A922268978A5000D301C /* DrawingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C75A921268978A5000D301C /* DrawingData.swift */; };
 		9615569B2683FDB00077AB39 /* CustomPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9615569A2683FDB00077AB39 /* CustomPath.swift */; };
+		967A0B9127CACD8E00F021D9 /* ObjectSavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967A0B9027CACD8E00F021D9 /* ObjectSavable.swift */; };
 		9696331F268154CC006E422F /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696331E268154CC006E422F /* CustomShape.swift */; };
 		969633212681553A006E422F /* MovingDotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969633202681553A006E422F /* MovingDotViewModel.swift */; };
 		96AACA912794BD3600557BCD /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACA902794BD3600557BCD /* Device.swift */; };
@@ -99,6 +100,7 @@
 		6C75A91B26897675000D301C /* TouchCaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchCaptureViewController.swift; sourceTree = "<group>"; };
 		6C75A921268978A5000D301C /* DrawingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingData.swift; sourceTree = "<group>"; };
 		9615569A2683FDB00077AB39 /* CustomPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPath.swift; sourceTree = "<group>"; };
+		967A0B9027CACD8E00F021D9 /* ObjectSavable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSavable.swift; sourceTree = "<group>"; };
 		9696331E268154CC006E422F /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
 		969633202681553A006E422F /* MovingDotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingDotViewModel.swift; sourceTree = "<group>"; };
 		96AACA902794BD3600557BCD /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				9696331E268154CC006E422F /* CustomShape.swift */,
 				9615569A2683FDB00077AB39 /* CustomPath.swift */,
 				6C75A921268978A5000D301C /* DrawingData.swift */,
+				967A0B9027CACD8E00F021D9 /* ObjectSavable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				1D98FBF3265F4B2900BFD44B /* Patient.swift in Sources */,
 				1DD7D563265E2E22008EA48E /* MainView.swift in Sources */,
 				1D98FBF7265F524700BFD44B /* AboutView.swift in Sources */,
+				967A0B9127CACD8E00F021D9 /* ObjectSavable.swift in Sources */,
 				1DD7D54F265E2B6D008EA48E /* AppDelegate.swift in Sources */,
 				DCDB4C182794BCC80005DE56 /* EyeTrackController.swift in Sources */,
 				DCDB4C1A2794BCD90005DE56 /* EyeTrackView.swift in Sources */,
