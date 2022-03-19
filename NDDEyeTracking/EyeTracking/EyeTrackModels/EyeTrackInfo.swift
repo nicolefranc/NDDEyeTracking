@@ -8,10 +8,8 @@
 import Foundation
 import ARKit
 
-public class EyeTrackInfo {
-    private var formatter = DateFormatter()
-
-    public static let CSV_COLUMNS = ["timestamp", "isTracked",
+public class EyeTrackInfo: Codable {
+    public static var CSV_COLUMNS = ["timestamp", "isTracked",
                                      "faceRotaion-x", "faceRotaion-y", "faceRotaion-z", "faceRotaion-w",
                                      "facePosition-x", "facePosition-y", "facePosition-z",
                                      "deviceRotation-x", "deviceRotation-y", "deviceRotation-z", "deviceRotation-w",
@@ -74,8 +72,6 @@ public class EyeTrackInfo {
         
         self.rightEyeDistance = face.rightEye.getDistanceToDevice()
         self.leftEyeDistance = face.leftEye.getDistanceToDevice()
-
-        formatter.dateFormat = "yyyyMMddHHmmssSSSSS"
     }
 
     public var toCSV: [String] {
@@ -105,6 +101,41 @@ public class EyeTrackInfo {
     }
 
     public func dateToString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMddHHmmssSSSSS"
         return formatter.string(from: date)
     }
+    
+    // for conformance to Codable
+//    private enum CodingKeys: String, CodingKey {
+//        case formatter
+//        case CSV_COLUMNS
+//        case timestamp
+//        case isTracked
+//        case faceRotation
+//        case facePosition
+//        case devicePosition
+//        case deviceRotation
+//        case rightEyePosition
+//        case leftEyePosition
+//        case rightEyeLookAtPosition
+//        case leftEyeLookAtPosition
+//        case rightEyeLookAtPoint
+//        case leftEyeLookAtPoint
+//        case centerEyeLookAtPoint
+//        case rightEyeBlinkState
+//        case leftEyeBlinkState
+//        case rightEyeDistance
+//        case leftEyeDistance
+//    }
+//
+//    required public init(from decoder:Decoder) throws {
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+////        formatter = try values.decode(DateFormatter.self, forKey: .formatter)
+//        EyeTrackInfo.CSV_COLUMNS = try values.decode([String].self, forKey: .CSV_COLUMNS)
+//        timestamp = try values.decode(Date.self, forKey: .timestamp)
+//        isTracked = try values.decode(Bool.self, forKey: .isTracked)
+//        faceRotation = try values.decode(SCNVector4.self, forKey: .faceRotation)
+//
+//    }
 }

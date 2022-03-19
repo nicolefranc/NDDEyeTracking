@@ -9,6 +9,7 @@ import Foundation
 
 // initialize userDefaults globally for calling setObject and getObject
 let userDefaults = UserDefaults.standard
+let storedPatientsArrKey = "storedPatientsArr"
 
 protocol ObjectSavable {
     func setObject<Object>(_ object: Object, forKey: String) throws where Object: Encodable
@@ -17,7 +18,13 @@ protocol ObjectSavable {
 
 extension UserDefaults: ObjectSavable {
     func setObject<Object>(_ object: Object, forKey: String) throws where Object: Encodable {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmmssSSSSS"
+        
         let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .formatted(dateFormatter)
+        
         do {
             let data = try encoder.encode(object)
             set(data, forKey: forKey)
@@ -28,7 +35,13 @@ extension UserDefaults: ObjectSavable {
     
     func getObject<Object>(forKey: String, castTo type: Object.Type) throws -> Object where Object: Decodable {
         guard let data = data(forKey: forKey) else { throw ObjectSavableError.noValue }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmmssSSSSS"
+        
         let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        
         do {
             let object = try decoder.decode(type, from: data)
             return object

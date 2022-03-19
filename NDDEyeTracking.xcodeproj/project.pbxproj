@@ -44,6 +44,7 @@
 		6C75A919268971EE000D301C /* DrawingPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C75A918268971EE000D301C /* DrawingPadView.swift */; };
 		6C75A91C26897675000D301C /* TouchCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C75A91B26897675000D301C /* TouchCaptureViewController.swift */; };
 		6C75A922268978A5000D301C /* DrawingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C75A921268978A5000D301C /* DrawingData.swift */; };
+		96049CDE27E66DA90017D8F0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96049CDD27E66DA90017D8F0 /* Extensions.swift */; };
 		9615569B2683FDB00077AB39 /* CustomPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9615569A2683FDB00077AB39 /* CustomPath.swift */; };
 		967A0B9127CACD8E00F021D9 /* ObjectSavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967A0B9027CACD8E00F021D9 /* ObjectSavable.swift */; };
 		9696331F268154CC006E422F /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696331E268154CC006E422F /* CustomShape.swift */; };
@@ -99,6 +100,7 @@
 		6C75A918268971EE000D301C /* DrawingPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingPadView.swift; sourceTree = "<group>"; };
 		6C75A91B26897675000D301C /* TouchCaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchCaptureViewController.swift; sourceTree = "<group>"; };
 		6C75A921268978A5000D301C /* DrawingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingData.swift; sourceTree = "<group>"; };
+		96049CDD27E66DA90017D8F0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = NDDEyeTracking/Models/Extensions.swift; sourceTree = SOURCE_ROOT; };
 		9615569A2683FDB00077AB39 /* CustomPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPath.swift; sourceTree = "<group>"; };
 		967A0B9027CACD8E00F021D9 /* ObjectSavable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSavable.swift; sourceTree = "<group>"; };
 		9696331E268154CC006E422F /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				9615569A2683FDB00077AB39 /* CustomPath.swift */,
 				6C75A921268978A5000D301C /* DrawingData.swift */,
 				967A0B9027CACD8E00F021D9 /* ObjectSavable.swift */,
+				96049CDD27E66DA90017D8F0 /* Extensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				1D2E9FD42663770D0088DC68 /* PatientsViewModel.swift in Sources */,
 				1D0BFE902667CC5E006875EF /* TaskData.swift in Sources */,
 				96AACA992794BF4300557BCD /* EyeTrackViewController.swift in Sources */,
+				96049CDE27E66DA90017D8F0 /* Extensions.swift in Sources */,
 				1D98FC0826606C9600BFD44B /* Task3View.swift in Sources */,
 				DCDB4C142794BC860005DE56 /* Extension.swift in Sources */,
 				DCDB4C162794BCA20005DE56 /* EyeTrack.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Pattern: String {
+enum Pattern: String, Codable {
     case archSpiral = "Archimedean Spiral"
     case spiroSquare = "Spiro Square"
     case spiroGraph = "Spirograph"

@@ -11,6 +11,7 @@ struct PatientView: View {
     @Binding var patient: Patient // Always come back to update this bound patient variable
     @ObservedObject var ettViewModel: ETTViewModel = ETTViewModel()
     
+    
     @State private var isNewTestToggled: Bool = false
     @State private var shouldStartTest: Bool = false
     
@@ -46,7 +47,7 @@ struct PatientView: View {
     }
     
     private func didNewTestSheetDismiss() {
-//        patient.addTest(ett: ettViewModel.ett)
+        // patient.addTest(ett: ettViewModel.ett)
         //            MARK: - TODO: Comment below when debugging this page
         self.shouldStartTest = true
         ettViewModel.printETT()

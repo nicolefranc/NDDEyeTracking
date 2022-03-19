@@ -9,7 +9,6 @@ import Foundation
 
 final class PatientsViewModel: ObservableObject {
     @Published var patients: [Patient] = []
-    let storedPatientsArrKey = "storedPatientsArr"
     
     init() {
         self.patients = retrieve()
@@ -65,11 +64,27 @@ extension PatientsViewModel {
             print("retrieve failed")
             return []
         }
+
+//        for patient in self.patients {
+//            print("name: \(patient)")
+//            for test in patient.eyeTrackingTests {
+//                print("name: \(patient), test: \(test)")
+//            }
+//        }
+
         return self.patients
     }
-    
+
     // persist patient list in app storage
     func persist() {
+//        print("IN PERSIST()!!")
+//        for patient in self.patients {
+//            print("persist name: \(patient)")
+//            for test in patient.eyeTrackingTests {
+//                print("persist name: \(patient), test: \(test)")
+//            }
+//        }
+
         do {
             try userDefaults.setObject(self.patients, forKey: storedPatientsArrKey)
             print("data has been persisted")
