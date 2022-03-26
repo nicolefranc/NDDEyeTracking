@@ -10,6 +10,7 @@ import SwiftUI
 struct PatientView: View {
     @Binding var patient: Patient // Always come back to update this bound patient variable
     @ObservedObject var ettViewModel: ETTViewModel = ETTViewModel()
+    @EnvironmentObject var viewModel: PatientsViewModel
     
     
     @State private var isNewTestToggled: Bool = false
@@ -19,7 +20,7 @@ struct PatientView: View {
         VStack {
             NavigationLink(
 //                destination: TestOverview(checkpoint: .startTest).navigationBarHidden(true),
-                destination: TasksView(patient: $patient).environmentObject(ettViewModel),
+                destination: TasksView(patient: $patient).environmentObject(ettViewModel).environmentObject(viewModel),
                 isActive: $shouldStartTest,
                 label: {
                     EmptyView()

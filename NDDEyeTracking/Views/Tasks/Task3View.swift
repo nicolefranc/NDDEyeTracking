@@ -20,6 +20,7 @@ struct Task3View: View {
     @Environment(\.presentationMode) var presentationMode // To programmatically dismiss view
     
     // View Models
+    @EnvironmentObject var patientsViewModel: PatientsViewModel
     @EnvironmentObject var ettViewModel: ETTViewModel
     @ObservedObject var drawingTaskViewModel: DrawingTaskViewModel = DrawingTaskViewModel()
     
@@ -166,9 +167,10 @@ struct Task3View: View {
            Text("Task 3").font(.headline)
            Text("Complete 🎉").font(.largeTitle)
            Button(action: {
-            ettViewModel.addTaskResult(key: TaskType.task3.rawValue, result: drawingTaskViewModel.shapes)
-            patient.addTest(ett: ettViewModel.ett)
-            presentationMode.wrappedValue.dismiss()
+               ettViewModel.addTaskResult(key: TaskType.task3.rawValue, result: drawingTaskViewModel.shapes)
+               patient.addTest(ett: ettViewModel.ett)
+               presentationMode.wrappedValue.dismiss()
+               patientsViewModel.persist()
            }) {
                Text("Finish Test")
            }.padding()

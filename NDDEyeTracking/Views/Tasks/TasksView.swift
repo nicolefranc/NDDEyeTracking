@@ -10,6 +10,7 @@ import SwiftUI
 struct TasksView: View {
     @Binding var patient: Patient
     @EnvironmentObject var ettViewModel: ETTViewModel
+    @EnvironmentObject var patientsViewModel: PatientsViewModel
     
     @State var currentTask: TaskType = .start
     
@@ -27,7 +28,7 @@ struct TasksView: View {
 //        case .task1: Task3View(currentTask: $currentTask).environmentObject(ettViewModel)
         case .task1: Task3View(patient: $patient).environmentObject(ettViewModel)
         case .task2: Task2View(currentTask: $currentTask).environmentObject(ettViewModel)
-        case .task3: Task3View(patient: $patient).environmentObject(ettViewModel) // hello, this wasn't a bug 👺
+        case .task3: Task3View(patient: $patient).environmentObject(ettViewModel).environmentObject(patientsViewModel)
         }
     }
     

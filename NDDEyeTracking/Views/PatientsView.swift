@@ -16,7 +16,7 @@ struct PatientsView: View {
         List {
             ForEach(viewModel.patients) { patient in
                 NavigationLink(
-                    destination: PatientView(patient: binding(for: patient)),
+                    destination: PatientView(patient: binding(for: patient)).environmentObject(self.viewModel),
                     label: {
                         Text(patient.name)
                     })
@@ -75,6 +75,7 @@ struct PatientEditor: View {
 
 struct PatientsView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        Group {
+            MainView()        }
     }
 }
