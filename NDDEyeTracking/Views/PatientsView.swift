@@ -10,7 +10,9 @@ import SwiftUI
 struct PatientsView: View {
     @ObservedObject var viewModel: PatientsViewModel = PatientsViewModel()
     @State private var isAddPatientToggled: Bool = false
+    @State private var isSelectMode: Bool = false
     @State private var newPatientData: Patient.Data = Patient.Data()
+    //@State privar var selection: Set<Patient>()
     
     var body: some View {
         List {
@@ -24,6 +26,8 @@ struct PatientsView: View {
         }
         .navigationBarTitle("Patients")
         .toolbar {
+            EditButton()
+            
             Button(action: { isAddPatientToggled.toggle() }) {
                 Image(systemName: "plus").imageScale(.large)
             }.sheet(isPresented: $isAddPatientToggled, onDismiss: didAddSheetDismiss) {
@@ -34,6 +38,22 @@ struct PatientsView: View {
                         .navigationTitle("Add Patient")
                 }
             }
+//            ToolbarItemGroup {
+//                Button(action: { isSelectMode = true}) {
+//                    Text("Select")
+//                }
+//
+//                Button(action: { isAddPatientToggled.toggle() }) {
+//                    Image(systemName: "plus").imageScale(.large)
+//                }.sheet(isPresented: $isAddPatientToggled, onDismiss: didAddSheetDismiss) {
+//                    NavigationView {
+//                        PatientEditor(editablePatientData: $newPatientData)
+//                            .environmentObject(self.viewModel)
+//                            .toolbar { Button("Add") { self.isAddPatientToggled = false } }
+//                            .navigationTitle("Add Patient")
+//                    }
+//                }
+//            }
         }
         .onAppear {
             viewModel.printPatients()
