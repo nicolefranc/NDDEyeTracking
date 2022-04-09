@@ -12,10 +12,11 @@ struct PatientsView: View {
     @State private var isAddPatientToggled: Bool = false
     @State private var isSelectMode: Bool = false
     @State private var newPatientData: Patient.Data = Patient.Data()
-    //@State privar var selection: Set<Patient>()
+    @State private var selection = Set<Patient>()
+    //@State private var selection = [Patient : Int]()
     
     var body: some View {
-        List {
+        List(selection: $selection) {
             ForEach(viewModel.patients) { patient in
                 NavigationLink(
                     destination: PatientView(patient: binding(for: patient)).environmentObject(self.viewModel),
@@ -23,37 +24,33 @@ struct PatientsView: View {
                         Text(patient.name)
                     })
             }
+            .onDelete(perform: deleteSingle) // enable delete
+            .onMove(perform: move) // enable move
         }
-        .navigationBarTitle("Patients")
+        .navigationTitle("Patients")
         .toolbar {
-            EditButton()
+            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                EditButton()
+            }
             
-            Button(action: { isAddPatientToggled.toggle() }) {
-                Image(systemName: "plus").imageScale(.large)
-            }.sheet(isPresented: $isAddPatientToggled, onDismiss: didAddSheetDismiss) {
-                NavigationView {
-                    PatientEditor(editablePatientData: $newPatientData)
-                        .environmentObject(self.viewModel)
-                        .toolbar { Button("Add") { self.isAddPatientToggled = false } }
-                        .navigationTitle("Add Patient")
+            ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
+                Button("Delete") {
+                    print("delete button pressed")
                 }
             }
-//            ToolbarItemGroup {
-//                Button(action: { isSelectMode = true}) {
-//                    Text("Select")
-//                }
-//
-//                Button(action: { isAddPatientToggled.toggle() }) {
-//                    Image(systemName: "plus").imageScale(.large)
-//                }.sheet(isPresented: $isAddPatientToggled, onDismiss: didAddSheetDismiss) {
-//                    NavigationView {
-//                        PatientEditor(editablePatientData: $newPatientData)
-//                            .environmentObject(self.viewModel)
-//                            .toolbar { Button("Add") { self.isAddPatientToggled = false } }
-//                            .navigationTitle("Add Patient")
-//                    }
-//                }
-//            }
+            
+            ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
+                Button(action: { isAddPatientToggled.toggle() }) {
+                    Image(systemName: "plus").imageScale(.large)
+                }.sheet(isPresented: $isAddPatientToggled, onDismiss: didAddSheetDismiss) {
+                    NavigationView {
+                        PatientEditor(editablePatientData: $newPatientData)
+                            .environmentObject(self.viewModel)
+                            .toolbar { Button("Add") { self.isAddPatientToggled = false } }
+                            .navigationTitle("Add Patient")
+                    }
+                }
+            }
         }
         .onAppear {
             viewModel.printPatients()
@@ -75,6 +72,41 @@ struct PatientsView: View {
             viewModel.addPatient(patientData: newPatientData)
             newPatientData = viewModel.resetFields(patient: newPatientData)
         }
+    }
+    
+    // MARK: Delete a single patient from List
+    private func deleteSingle(at offsets: IndexSet) {
+        if let first = offsets.first {
+            viewModel.patients.remove(at: first)
+        }
+        viewModel.persist()
+    }
+
+    // MARK: Delete patients in batch (delete selected patients)
+//    private func deleteInBatch() {
+//        for patient in $selection.keys {
+//            var patientIdx = 0
+//            for idx in 0...viewModel.patients.count {
+//                if viewModel.patients[idx] == patient {
+//                    patientIdx = idx
+//                }
+//            }
+//            viewModel.patients.remove(at: patientIdx)
+//        }
+////        for (_, patientIdx) in selection {
+////            viewModel.patients.remove(at: patientIdx)
+////        }
+//    }
+    
+    // MARK: Move a patient around (change order)
+    private func move(from source: IndexSet, to destination: Int) {
+        var dest = destination
+        //let reversedSource = source.sorted()
+        for index in source.reversed() {
+            dest = min(dest, viewModel.patients.count - 1)
+            viewModel.patients.insert(viewModel.patients.remove(at: index), at: dest)
+        }
+        viewModel.persist()
     }
 }
 

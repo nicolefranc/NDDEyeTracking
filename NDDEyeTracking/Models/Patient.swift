@@ -7,7 +7,7 @@
 
 import Foundation
     
-struct Patient: Identifiable, Codable {
+struct Patient: Identifiable, Codable, Hashable {
     private(set) var id: UUID
     private(set) var name: String
     var eyeTrackingTests: [EyeTrackingTest]

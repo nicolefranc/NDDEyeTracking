@@ -7,7 +7,12 @@
 
 import Foundation
 
-class TaskData : Codable {
+class TaskData : Codable, Hashable {
+    
+    static func == (lhs: TaskData, rhs: TaskData) -> Bool {
+        return lhs.taskType == rhs.taskType
+    }
+    
     var taskType: TaskType
     
     init(taskType: TaskType) {
@@ -16,5 +21,9 @@ class TaskData : Codable {
     
     private enum CodingKeys: String, CodingKey {
         case taskType
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.taskType)
     }
 }
