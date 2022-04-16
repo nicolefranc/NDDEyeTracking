@@ -10,9 +10,11 @@ import SwiftUI
 struct PatientsView: View {
     @ObservedObject var viewModel: PatientsViewModel = PatientsViewModel()
     @State private var isAddPatientToggled: Bool = false
+    @State private var isExportToggled: Bool = false
     @State private var isSelectMode: Bool = false
     @State private var newPatientData: Patient.Data = Patient.Data()
     @State private var selection = Set<Patient>()
+    
     //@State private var selection = [Patient : Int]()
     
     var body: some View {
@@ -34,9 +36,9 @@ struct PatientsView: View {
             }
             
             ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
-                Button("Delete") {
-                    print("delete button pressed")
-                }
+                Button(action: { isExportToggled.toggle() }) {
+                    Image(systemName: "square.and.arrow.up").imageScale(.large)
+                }.fileMover(isPresented: $isExportToggled, files: $selection) {_ in}
             }
             
             ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
