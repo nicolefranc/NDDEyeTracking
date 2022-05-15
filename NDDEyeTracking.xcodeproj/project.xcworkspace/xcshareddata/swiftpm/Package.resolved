@@ -1,25 +1,23 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "ARVideoKit",
-        "repositoryURL": "https://github.com/AFathi/ARVideoKit",
-        "state": {
-          "branch": null,
-          "revision": "8eabd3193125812439ac82dc81bf99dc79886722",
-          "version": "1.6.0"
-        }
-      },
-      {
-        "package": "Resolver",
-        "repositoryURL": "https://github.com/hmlongco/Resolver",
-        "state": {
-          "branch": null,
-          "revision": "97de0b0320036607564af4a60025b48f8d041221",
-          "version": "1.5.0"
-        }
+  "pins" : [
+    {
+      "identity" : "arvideokit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AFathi/ARVideoKit",
+      "state" : {
+        "revision" : "8eabd3193125812439ac82dc81bf99dc79886722",
+        "version" : "1.6.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "resolver",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hmlongco/Resolver",
+      "state" : {
+        "revision" : "97de0b0320036607564af4a60025b48f8d041221",
+        "version" : "1.5.0"
+      }
+    }
+  ],
+  "version" : 2
 }

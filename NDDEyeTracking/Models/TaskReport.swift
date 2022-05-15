@@ -9,7 +9,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 // contains string representing the eye track data collected for a single task
-struct TaskReport: FileDocument {
+struct TaskReport: FileDocument, Codable, Hashable {
     // tell the system we support only plain text
     static var readableContentTypes = [UTType.plainText]
 
@@ -34,5 +34,10 @@ struct TaskReport: FileDocument {
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
         let data = Data(taskData.utf8)
         return FileWrapper(regularFileWithContents: data)
+    }
+    
+    // print report String for debugging
+    func printReport() {
+        print("printing report: \(taskData)")
     }
 }

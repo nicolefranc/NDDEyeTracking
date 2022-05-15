@@ -30,7 +30,7 @@ struct ETTDetails: View {
 // TODO
 struct ETTResults: View {
     // TODO: Add export data functionality
-    
+
     var body: some View {
         Text("Results")
             .font(.title)

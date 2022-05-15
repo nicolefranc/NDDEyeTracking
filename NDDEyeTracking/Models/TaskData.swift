@@ -7,16 +7,15 @@
 
 import Foundation
 
-class TaskData : Codable, Hashable {
-    
-    static func == (lhs: TaskData, rhs: TaskData) -> Bool {
-        return lhs.taskType == rhs.taskType
-    }
-    
+class TaskData: Codable, Hashable {
     var taskType: TaskType
     
     init(taskType: TaskType) {
         self.taskType = taskType
+    }
+    
+    static func == (lhs: TaskData, rhs: TaskData) -> Bool {
+        return lhs.taskType == rhs.taskType
     }
     
     private enum CodingKeys: String, CodingKey {

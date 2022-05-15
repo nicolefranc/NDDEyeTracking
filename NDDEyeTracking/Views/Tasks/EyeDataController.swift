@@ -48,7 +48,7 @@ class EyeDataController: ObservableObject {
     }
     
     private func generateReport() -> String {
-        var taskReport: String
+        var taskReport: String = ""
         
         for data in eyeTrackData {
             for col in data.toCSV {
@@ -56,8 +56,6 @@ class EyeDataController: ObservableObject {
             }
             taskReport.append("\n==================\n")
         }
-        
-        print(taskReport)
         
         return taskReport
     }

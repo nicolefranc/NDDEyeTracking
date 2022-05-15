@@ -32,13 +32,26 @@ struct PatientView: View {
                 Section(header: Text("Eye Tracking Tests")) {
                     ForEach(patient.eyeTrackingTests) { eyeTrackingTest in
                         NavigationLink(
-                            destination: EyeTrackingTestView(eyeTrackingTest: binding(for: eyeTrackingTest)),
+                            destination: EyeTrackingTestView(
+                                eyeTrackingTest: binding(for: eyeTrackingTest)),
                             label: {
                                 Text(eyeTrackingTest.name)
                             })
                     }
                 }
             }
+//            List {
+//                Section(header: Text("Eye Tracking Test Reports")) {
+//                    ForEach(patient.testReport) { taskReport in
+//                        NavigationLink(
+//                            destination: TaskReportView(
+//                                taskReport: binding(for: taskReport)),
+//                            label: {
+//                                Text(eyeTrackingTest.name)
+//                            })
+//                    }
+//                }
+//            }
             .listStyle(InsetGroupedListStyle())
         }
         .navigationBarTitle(patient.name)

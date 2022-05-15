@@ -55,7 +55,7 @@ struct PatientsView: View {
             }
         }
         .onAppear {
-            viewModel.printPatients()
+            //viewModel.printPatients()
         }
     }
     
