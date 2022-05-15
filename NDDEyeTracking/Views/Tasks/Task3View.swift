@@ -169,6 +169,7 @@ struct Task3View: View {
            Button(action: {
                ettViewModel.addTaskResult(key: TaskType.task3.rawValue, result: drawingTaskViewModel.shapes)
                patient.addTest(ett: ettViewModel.ett)
+               patient.addReport(report: dataController.getReport())
                presentationMode.wrappedValue.dismiss()
                patientsViewModel.persist()
            }) {

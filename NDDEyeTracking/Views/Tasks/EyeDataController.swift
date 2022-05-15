@@ -18,6 +18,7 @@ class EyeDataController: ObservableObject {
     @Published var trackingStatus: TrackingStatus = .initialized
     @Published var eyeTrackData: [EyeTrackInfo] = []
     @Published var laps: [Int] = []
+    @Published var taskReport: TaskReport = TaskReport(initialText: "")
     
     public func startRecording() {
         self.trackingStatus = .recording
@@ -38,13 +39,30 @@ class EyeDataController: ObservableObject {
         print("Acquired \(eyeTrackData.count) frames")
         self.trackingStatus = .finished
         
-        for data in eyeTrackData {
-            print(data.toCSV)
-        }
+        taskReport.taskData = generateReport()
     }
     
     public func resetTracking() {
         self.eyeTrackData.removeAll()
         self.trackingStatus = .initialized
+    }
+    
+    private func generateReport() -> String {
+        var taskReport: String
+        
+        for data in eyeTrackData {
+            for col in data.toCSV {
+                taskReport.append(col + ",")
+            }
+            taskReport.append("\n==================\n")
+        }
+        
+        print(taskReport)
+        
+        return taskReport
+    }
+    
+    public func getReport() -> TaskReport {
+        return taskReport
     }
 }

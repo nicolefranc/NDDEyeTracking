@@ -38,7 +38,7 @@ struct PatientsView: View {
             ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
                 Button(action: { isExportToggled.toggle() }) {
                     Image(systemName: "square.and.arrow.up").imageScale(.large)
-                }.fileMover(isPresented: $isExportToggled, files: $selection) {_ in}
+                }//.fileMover(isPresented: $isExportToggled, files: $selection) {_ in}
             }
             
             ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {

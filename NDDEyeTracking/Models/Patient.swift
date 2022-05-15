@@ -6,16 +6,20 @@
 //
 
 import Foundation
+import SwiftUI
+import UniformTypeIdentifiers
     
 struct Patient: Identifiable, Codable, Hashable {
     private(set) var id: UUID
     private(set) var name: String
     var eyeTrackingTests: [EyeTrackingTest]
+    var testReport: [TaskReport]
     
-    init(_ name: String, eyeTrackingTests: [EyeTrackingTest] = []) {
+    init(_ name: String, eyeTrackingTests: [EyeTrackingTest] = [], testReport: [TaskReport] = []) {
         self.id = UUID()
         self.name = name
         self.eyeTrackingTests = eyeTrackingTests
+        self.testReport = testReport
     }
 }
 
@@ -47,5 +51,9 @@ extension Patient {
     
     mutating func addTest(ett: EyeTrackingTest) {
         self.eyeTrackingTests.append(ett)
+    }
+    
+    mutating func addReport(report: TaskReport) {
+        self.testReport.append(report)
     }
 }

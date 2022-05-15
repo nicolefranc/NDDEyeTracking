@@ -55,6 +55,7 @@
 		96AACA972794BD7D00557BCD /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACA962794BD7D00557BCD /* Face.swift */; };
 		96AACA992794BF4300557BCD /* EyeTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACA982794BF4300557BCD /* EyeTrackViewController.swift */; };
 		96AACA9D2794C04F00557BCD /* ARVideoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 96AACA9C2794C04F00557BCD /* ARVideoKit */; };
+		96E8B6572830724C00067551 /* TaskReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8B6562830724C00067551 /* TaskReport.swift */; };
 		DCDB4C142794BC860005DE56 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDB4C132794BC860005DE56 /* Extension.swift */; };
 		DCDB4C162794BCA20005DE56 /* EyeTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDB4C152794BCA20005DE56 /* EyeTrack.swift */; };
 		DCDB4C182794BCC80005DE56 /* EyeTrackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDB4C172794BCC80005DE56 /* EyeTrackController.swift */; };
@@ -110,6 +111,7 @@
 		96AACA942794BD6700557BCD /* EyeTrackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackInfo.swift; sourceTree = "<group>"; };
 		96AACA962794BD7D00557BCD /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
 		96AACA982794BF4300557BCD /* EyeTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackViewController.swift; sourceTree = "<group>"; };
+		96E8B6562830724C00067551 /* TaskReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskReport.swift; sourceTree = "<group>"; };
 		DCDB4C132794BC860005DE56 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DCDB4C152794BCA20005DE56 /* EyeTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrack.swift; sourceTree = "<group>"; };
 		DCDB4C172794BCC80005DE56 /* EyeTrackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		1D98FC02265FC3B800BFD44B /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				96E8B6562830724C00067551 /* TaskReport.swift */,
 				1D582E1D2667876E00547757 /* TasksView.swift */,
 				1D98FC03265FC3D300BFD44B /* Task1View.swift */,
 				1D98FC05266066B200BFD44B /* Task2View.swift */,
@@ -400,6 +403,7 @@
 				1D582E1E2667876E00547757 /* TasksView.swift in Sources */,
 				1DF73ABC268CBDC30061A538 /* TouchCaptureView.swift in Sources */,
 				96AACA952794BD6700557BCD /* EyeTrackInfo.swift in Sources */,
+				96E8B6572830724C00067551 /* TaskReport.swift in Sources */,
 				1D98FBFF265F7CC900BFD44B /* TestOverview.swift in Sources */,
 				1D2E9FD42663770D0088DC68 /* PatientsViewModel.swift in Sources */,
 				1D0BFE902667CC5E006875EF /* TaskData.swift in Sources */,
