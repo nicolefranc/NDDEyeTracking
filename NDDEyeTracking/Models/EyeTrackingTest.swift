@@ -10,13 +10,13 @@ import Foundation
 struct EyeTrackingTest: Identifiable, Codable, Hashable {
     var id: UUID
     var name: String
-    var tasks: [String:[TaskData]]
-    var taskReport: TaskReport
+    var tasks: [String: [TaskData]]
+    var taskReports: [TaskReport]
     
     init() {
         self.id = UUID()
         self.name = ""
         self.tasks = [:]
-        self.taskReport = TaskReport()
+        self.taskReports = []
     }
 }

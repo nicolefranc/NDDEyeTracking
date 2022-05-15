@@ -6,7 +6,6 @@
 //
 
 import Foundation
-//import EyeTrackKit
 
 enum TrackingStatus {
     case initialized
@@ -18,7 +17,7 @@ class EyeDataController: ObservableObject {
     @Published var trackingStatus: TrackingStatus = .initialized
     @Published var eyeTrackData: [EyeTrackInfo] = []
     @Published var laps: [Int] = []
-    @Published var taskReport: TaskReport = TaskReport(initialText: "")
+    @Published var taskReport: TaskReport = TaskReport(taskName: "", taskReportText: "")
     
     public func startRecording() {
         self.trackingStatus = .recording
@@ -39,7 +38,7 @@ class EyeDataController: ObservableObject {
         print("Acquired \(eyeTrackData.count) frames")
         self.trackingStatus = .finished
         
-        taskReport.taskData = generateReport()
+        taskReport.taskReportText = generateReport()
     }
     
     public func resetTracking() {
@@ -48,16 +47,17 @@ class EyeDataController: ObservableObject {
     }
     
     private func generateReport() -> String {
-        var taskReport: String = ""
-        
+        var reportText: String = ""
+        for CSV_col in EyeTrackInfo.CSV_COLUMNS {
+            reportText.append(CSV_col + ",")
+        }
         for data in eyeTrackData {
             for col in data.toCSV {
-                taskReport.append(col + ",")
+                reportText.append(col + ",")
             }
-            taskReport.append("\n==================\n")
+            reportText.append("\n")
         }
-        
-        return taskReport
+        return reportText
     }
     
     public func getReport() -> TaskReport {

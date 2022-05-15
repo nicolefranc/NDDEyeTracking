@@ -13,26 +13,13 @@ struct Patient: Identifiable, Codable, Hashable {
     private(set) var id: UUID
     private(set) var name: String
     var eyeTrackingTests: [EyeTrackingTest]
-//    var testReport: [TaskReport]
     
-    init(_ name: String, eyeTrackingTests: [EyeTrackingTest] = [] /*testReport: [TaskReport] = []*/) {
+    init(_ name: String, eyeTrackingTests: [EyeTrackingTest] = []) {
         self.id = UUID()
         self.name = name
         self.eyeTrackingTests = eyeTrackingTests
-        //self.testReport = testReport
     }
 }
-
-// hardcoded patient list for testing purposes
-//extension Patient {
-//    static var list: [Patient] {
-//        [
-//            Patient("John Appleseed"),
-//            Patient("Isaiah Pearflower"),
-//            Patient("Arthur Watermelon")
-//        ]
-//    }
-//}
 
 extension Patient {
     /// Editable fields of Patient
@@ -51,12 +38,5 @@ extension Patient {
     
     mutating func addTest(ett: EyeTrackingTest) {
         self.eyeTrackingTests.append(ett)
-        //addReport(report: report)
     }
-    
-//    private mutating func addReport(report: TaskReport) {
-//        print("===============ADDING REPORT===============")
-//        report.printReport()
-//        self.testReport.append(report)
-//    }
 }

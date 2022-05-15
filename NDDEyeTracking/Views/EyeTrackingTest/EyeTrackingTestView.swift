@@ -11,31 +11,39 @@ struct EyeTrackingTestView: View {
     @Binding var eyeTrackingTest: EyeTrackingTest
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            ETTDetails()
-            ETTResults()
+        List {
+            Section(header: Text("Task Reports")) {
+                ForEach(eyeTrackingTest.taskReports) { taskReport in
+                    NavigationLink(
+                        destination: TaskReportView(taskReport: binding(for: taskReport)),
+                        label: {
+                            Text(taskReport.taskName)
+                        }
+                    )
+                }
+            }
         }
-            .navigationBarTitle(eyeTrackingTest.name, displayMode: .inline)
+    }
+    
+    private func binding(for taskReport: TaskReport) -> Binding<TaskReport> {
+        guard let taskReportIndex = eyeTrackingTest.taskReports.firstIndex(where: { $0.taskReportText == taskReport.taskReportText }) else {
+            fatalError("Can't find task report in array")
+        }
+        
+        return $eyeTrackingTest.taskReports[taskReportIndex]
     }
 }
 
-// TODO
-struct ETTDetails: View {
+struct TaskReportView: View {
+    @Binding var taskReport: TaskReport
+    
     var body: some View {
-        Text("Details")
-            .font(.title)
+        ScrollView {
+            Text(taskReport.taskReportText)
+        }
     }
 }
 
-// TODO
-struct ETTResults: View {
-    // TODO: Add export data functionality
-
-    var body: some View {
-        Text("Results")
-            .font(.title)
-    }
-}
 
 struct EyeTrackingTestView_Previews: PreviewProvider {
     static var previews: some View {
