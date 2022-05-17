@@ -12,14 +12,22 @@ import SwiftUI
 // get URL of folder and/or filename passed in
 // used in DrawingView finishInfo and DataObjects finishDrawing functions
 func getDocumentsDirectory(patientFolder: String?, testFolder: String?, taskFile: String?) -> URL {
-    var path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        .first!
+    var path = getDocumentsDirectoryRoot()
+//    print("DIRECTORY ROOT: \(path)")
+    do {
+        let urls = try FileManager.default.contentsOfDirectory(at: getDocumentsDirectoryRoot(), includingPropertiesForKeys: nil, options: .skipsSubdirectoryDescendants)
+//        print("url array: \(urls)")
+
+    }
+    catch {
+        print("error")
+    }
+
     
     if let folder = patientFolder {
         do {
             try FileManager.default.createDirectory(at: path.appendingPathComponent(patientFolder!), withIntermediateDirectories: true, attributes: nil)
             path = path.appendingPathComponent(patientFolder!)
-            print("INTERMEDIATE PATH: \(path)")
             try FileManager.default.createDirectory(at: path.appendingPathComponent(testFolder!), withIntermediateDirectories: true, attributes: nil)
         } catch {
             print("Could not create directory \(folder) at \(path)")
@@ -30,6 +38,48 @@ func getDocumentsDirectory(patientFolder: String?, testFolder: String?, taskFile
     } else {
         return path.appendingPathComponent(testFolder!, isDirectory: true)
             .appendingPathComponent(taskFile!, isDirectory: false)
+    }
+}
+
+// Updates the URL path to create differently named directories every time we export (named based on date & time of export)
+func updateDocumentsPath(createDirectory: Bool) -> URL {
+    // root documents directory
+    let path = getDocumentsDirectoryRoot()
+    if (createDirectory) {
+        // get current date to add as name of new directory in documents directory (to export)
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM-d-y-HH:mm"
+        let folderName: String = formatter.string(from: now)
+        
+        do {
+            try FileManager.default.createDirectory(at: path.appendingPathComponent(folderName), withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            print("Could not create directory \(folderName) at \(path)")
+        }
+        
+        let newRootDirectory = path.appendingPathComponent(folderName, isDirectory: true)
+        
+        let urls : [URL]
+        do {
+            try urls = FileManager.default.contentsOfDirectory(at: getDocumentsDirectoryRoot(), includingPropertiesForKeys: nil, options: .skipsSubdirectoryDescendants)
+        } catch {
+            print("urls array did not get initialized")
+            urls = [URL]()
+        }
+        
+        for url in urls {
+            let newURL = newRootDirectory.appendingPathComponent(url.lastPathComponent)
+            do {
+                try FileManager.default.moveItem(at: url, to: newURL)
+            } catch {
+                print("Could not move item from \(url) to \(newURL)")
+            }
+        }
+        print("UPDATED URL: \(newRootDirectory)")
+        return newRootDirectory
+    } else {
+        return path
     }
 }
 

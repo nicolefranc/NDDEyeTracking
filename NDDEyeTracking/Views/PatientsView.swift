@@ -36,7 +36,9 @@ struct PatientsView: View {
             }
             
             ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
-                Button(action: { isExportToggled.toggle() }) {
+                Button(action: {
+                    isExportToggled.toggle()
+                }) {
                     Image(systemName: "square.and.arrow.up").imageScale(.large)
                 }//.fileMover(isPresented: $isExportToggled, files: $selection) {_ in}
             }
@@ -52,6 +54,15 @@ struct PatientsView: View {
                             .navigationTitle("Add Patient")
                     }
                 }
+            }
+        }
+        .fileMover(isPresented: $isExportToggled, file: updateDocumentsPath(createDirectory: isExportToggled)){ result in
+            switch result {
+            case .success(let url):
+//                defaults.set([], forKey: "stored_patient_array")
+                print("Saved to \(url)")
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
         .onAppear {
