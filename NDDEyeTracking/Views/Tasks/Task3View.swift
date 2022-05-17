@@ -167,8 +167,10 @@ struct Task3View: View {
            Text("Task 3").font(.headline)
            Text("Complete 🎉").font(.largeTitle)
            Button(action: {
+               dataController.taskReport.setTaskName(taskName: TaskType.task3.rawValue)
                ettViewModel.addTaskResult(key: TaskType.task3.rawValue, result: drawingTaskViewModel.shapes)
-               ettViewModel.addTaskReport(taskName: TaskType.task3.rawValue, taskReport: dataController.getReport())
+               ettViewModel.ett.taskReports.append(dataController.taskReport)
+               dataController.taskReport.saveReport(patientID: patient.id, testName: ettViewModel.ett.name)
                patient.addTest(ett: ettViewModel.ett)
                presentationMode.wrappedValue.dismiss()
                patientsViewModel.persist()

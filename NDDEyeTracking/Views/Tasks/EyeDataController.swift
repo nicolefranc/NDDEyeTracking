@@ -59,8 +59,4 @@ class EyeDataController: ObservableObject {
         }
         return reportText
     }
-    
-    public func getReport() -> TaskReport {
-        return taskReport
-    }
 }

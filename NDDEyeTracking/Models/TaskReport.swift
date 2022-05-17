@@ -51,4 +51,21 @@ struct TaskReport: FileDocument, Codable, Hashable, Identifiable {
     func printReport() {
         print("printing report: \(taskReportText)")
     }
+    
+    /**
+     Called when a report is to be saved. Saves contents of this object to system storage for later access and conversion to CSV.
+        Folder hierarchy: patient -> test -> task
+     */
+    func saveReport(patientID: UUID, testName: String) {
+        let url : URL = getDocumentsDirectory(patientFolder: patientID.uuidString, testFolder: testName, taskFile: taskName)
+        do {
+        let str : String = taskReportText // CSV
+            try str.write(to: url, atomically: true, encoding: .utf8)
+            //let input = try String(contentsOf: url)
+            print("URL: \(url)")
+        } catch {
+            print("Failed to write to disk")
+            print(error.localizedDescription)
+        }
+    }
 }

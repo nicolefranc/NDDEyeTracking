@@ -10,14 +10,6 @@ import Foundation
 class ETTViewModel: ObservableObject {
     @Published var ett: EyeTrackingTest = EyeTrackingTest()
     
-    func addTaskReport(taskName: String, taskReport: TaskReport) {
-        print("===============ADDING REPORT===============")
-        var tmp = taskReport
-        tmp.setTaskName(taskName: taskName)
-        tmp.printReport()
-        ett.taskReports.append(tmp)
-    }
-    
     func addTaskResult(key: String, result: [TaskData]) {
         ett.tasks[key] = result
     }
