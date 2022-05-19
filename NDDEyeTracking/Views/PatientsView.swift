@@ -13,10 +13,8 @@ struct PatientsView: View {
     @State private var isExportToggled: Bool = false
     @State private var isSelectMode: Bool = false
     @State private var newPatientData: Patient.Data = Patient.Data()
-    @State private var selection = Set<Patient>()
-    
-    //@State private var selection = [Patient : Int]()
-    
+    @State private var selection = Set<UUID>()
+        
     var body: some View {
         List(selection: $selection) {
             ForEach(viewModel.patients) { patient in
@@ -29,7 +27,7 @@ struct PatientsView: View {
             .onDelete(perform: deleteSingle) // enable delete
             .onMove(perform: move) // enable move
         }
-        .navigationTitle("Patients")
+        .navigationTitle("Patients \(selection.count) selected")
         .toolbar {
             ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                 EditButton()
@@ -40,7 +38,7 @@ struct PatientsView: View {
                     isExportToggled.toggle()
                 }) {
                     Image(systemName: "square.and.arrow.up").imageScale(.large)
-                }//.fileMover(isPresented: $isExportToggled, files: $selection) {_ in}
+                }
             }
             
             ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
@@ -56,11 +54,11 @@ struct PatientsView: View {
                 }
             }
         }
-        .fileMover(isPresented: $isExportToggled, file: updateDocumentsPath(createDirectory: isExportToggled)){ result in
+        .fileMover(isPresented: $isExportToggled, files: getExportURLs(patientIDSelection: selection)){ result in
             switch result {
             case .success(let url):
-//                defaults.set([], forKey: "stored_patient_array")
                 print("Saved to \(url)")
+                clearSelection()
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -69,6 +67,7 @@ struct PatientsView: View {
             //viewModel.printPatients()
         }
     }
+    
     
     private func binding(for patient: Patient) -> Binding<Patient> {
         guard let patientIndex = viewModel.patients.firstIndex(where: { $0.id == patient.id }) else {
@@ -91,6 +90,15 @@ struct PatientsView: View {
     private func deleteSingle(at offsets: IndexSet) {
         if let first = offsets.first {
             viewModel.patients.remove(at: first)
+        }
+        viewModel.persist()
+    }
+    
+    private func clearSelection() {
+        for patient in viewModel.patients {
+            if selection.contains(patient.id) {
+                viewModel.patients.remove(at: viewModel.patients.firstIndex(of: patient)!);
+            }
         }
         viewModel.persist()
     }

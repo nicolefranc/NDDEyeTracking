@@ -41,47 +41,81 @@ func getDocumentsDirectory(patientFolder: String?, testFolder: String?, taskFile
     }
 }
 
-// Updates the URL path to create differently named directories every time we export (named based on date & time of export)
-func updateDocumentsPath(createDirectory: Bool) -> URL {
-    // root documents directory
-    let path = getDocumentsDirectoryRoot()
-    if (createDirectory) {
-        // get current date to add as name of new directory in documents directory (to export)
-        let now = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM-d-y-HH:mm"
-        let folderName: String = formatter.string(from: now)
-        
-        do {
-            try FileManager.default.createDirectory(at: path.appendingPathComponent(folderName), withIntermediateDirectories: true, attributes: nil)
-        } catch {
-            print("Could not create directory \(folderName) at \(path)")
-        }
-        
-        let newRootDirectory = path.appendingPathComponent(folderName, isDirectory: true)
-        
-        let urls : [URL]
-        do {
-            try urls = FileManager.default.contentsOfDirectory(at: getDocumentsDirectoryRoot(), includingPropertiesForKeys: nil, options: .skipsSubdirectoryDescendants)
-        } catch {
-            print("urls array did not get initialized")
-            urls = [URL]()
-        }
-        
-        for url in urls {
-            let newURL = newRootDirectory.appendingPathComponent(url.lastPathComponent)
-            do {
-                try FileManager.default.moveItem(at: url, to: newURL)
-            } catch {
-                print("Could not move item from \(url) to \(newURL)")
-            }
-        }
-        print("UPDATED URL: \(newRootDirectory)")
-        return newRootDirectory
-    } else {
-        return path
+func getExportURLs(patientIDSelection: Set<UUID>) -> Set<URL> {
+    print("SELECTION SIZE: \(patientIDSelection.count)")
+    var exportURLs = Set<URL>()
+    var idStrings = Set<String>()
+    for patientID in patientIDSelection {
+        idStrings.insert(patientID.uuidString)
     }
+    let urls : [URL]
+    do {
+        try urls = FileManager.default.contentsOfDirectory(at: getDocumentsDirectoryRoot(), includingPropertiesForKeys: nil, options: .skipsSubdirectoryDescendants)
+    } catch {
+        print("urls array did not get initialized")
+        urls = [URL]()
+    }
+    for url in urls {
+        print("URL ARRAY URL: \(url)")
+        let patientID = url.lastPathComponent
+        if idStrings.contains(String(patientID)) {
+            exportURLs.insert(url)
+        }
+    }
+    return exportURLs
 }
+
+//// Updates the URL path to create differently named directories every time we export (named based on date & time of export)
+//func updateDocumentsPath(createDirectory: Bool, patientSelection: Set<Patient>) -> URL {
+//    var selectionIDs = Set<String>()
+//    for patient in patientSelection {
+//        selectionIDs.insert(patient.id.uuidString)
+//    }
+//
+//    // root documents directory
+//    let path = getDocumentsDirectoryRoot()
+//    if (createDirectory) {
+//        // get current date to add as name of new directory in documents directory (to export)
+//        let now = Date()
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "MMM-d-y-HH:mm"
+//        let folderName: String = formatter.string(from: now)
+//
+//        do {
+//            try FileManager.default.createDirectory(at: path.appendingPathComponent(folderName), withIntermediateDirectories: true, attributes: nil)
+//        } catch {
+//            print("Could not create directory \(folderName) at \(path)")
+//        }
+//
+//        let newRootDirectory = path.appendingPathComponent(folderName, isDirectory: true)
+//
+//        let urls : [URL]
+//        do {
+//            try urls = FileManager.default.contentsOfDirectory(at: getDocumentsDirectoryRoot(), includingPropertiesForKeys: nil, options: .skipsSubdirectoryDescendants)
+//        } catch {
+//            print("urls array did not get initialized")
+//            urls = [URL]()
+//        }
+//
+//        for url in urls {
+//            print("URL ARRAY URL: \(url)")
+//            let components = url.absoluteString.split(separator: "/")
+//            let patientID = components[components.count - 3]
+//            if selectionIDs.contains(String(patientID)) {
+//                let newURL = newRootDirectory.appendingPathComponent(url.lastPathComponent)
+//                do {
+//                    try FileManager.default.moveItem(at: url, to: newURL)
+//                } catch {
+//                    print("Could not move item from \(url) to \(newURL)")
+//                }
+//            }
+//        }
+//        print("UPDATED URL: \(newRootDirectory)")
+//        return newRootDirectory
+//    } else {
+//        return path
+//    }
+//}
 
 // Original app root directory URL
 func getDocumentsDirectoryRoot() -> URL {
