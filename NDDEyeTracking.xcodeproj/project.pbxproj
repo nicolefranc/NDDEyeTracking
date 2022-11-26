@@ -47,6 +47,7 @@
 		6C75A91C26897675000D301C /* TouchCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C75A91B26897675000D301C /* TouchCaptureViewController.swift */; };
 		6C75A922268978A5000D301C /* DrawingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C75A921268978A5000D301C /* DrawingData.swift */; };
 		9615569B2683FDB00077AB39 /* CustomPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9615569A2683FDB00077AB39 /* CustomPath.swift */; };
+		96828B3D2932751700EAC2C3 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96828B3C2932751700EAC2C3 /* RecordingView.swift */; };
 		9696331F268154CC006E422F /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696331E268154CC006E422F /* CustomShape.swift */; };
 		969633212681553A006E422F /* MovingDotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969633202681553A006E422F /* MovingDotViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +93,7 @@
 		6C75A91B26897675000D301C /* TouchCaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchCaptureViewController.swift; sourceTree = "<group>"; };
 		6C75A921268978A5000D301C /* DrawingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingData.swift; sourceTree = "<group>"; };
 		9615569A2683FDB00077AB39 /* CustomPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPath.swift; sourceTree = "<group>"; };
+		96828B3C2932751700EAC2C3 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		9696331E268154CC006E422F /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
 		969633202681553A006E422F /* MovingDotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingDotViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +121,7 @@
 				1DD25B572668B9A9002FC548 /* EyeTrackingTest */,
 				1DF62AB02663DC3A00065CB3 /* Patient */,
 				1D98FC02265FC3B800BFD44B /* Tasks */,
+				96828B3C2932751700EAC2C3 /* RecordingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				1D98FBFD265F6F0900BFD44B /* EyeTrackingTestView.swift in Sources */,
 				6C75A922268978A5000D301C /* DrawingData.swift in Sources */,
 				1D98FBF5265F521800BFD44B /* PatientsView.swift in Sources */,
+				96828B3D2932751700EAC2C3 /* RecordingView.swift in Sources */,
 				1D98FBF3265F4B2900BFD44B /* Patient.swift in Sources */,
 				1DD7D563265E2E22008EA48E /* MainView.swift in Sources */,
 				1D98FBF7265F524700BFD44B /* AboutView.swift in Sources */,
@@ -508,7 +512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4NAU8ZMDR5;
+				DEVELOPMENT_TEAM = LJF9B77S4D;
 				INFOPLIST_FILE = NDDEyeTracking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -528,7 +532,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4NAU8ZMDR5;
+				DEVELOPMENT_TEAM = LJF9B77S4D;
 				INFOPLIST_FILE = NDDEyeTracking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (

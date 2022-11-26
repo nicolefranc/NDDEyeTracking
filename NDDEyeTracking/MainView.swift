@@ -22,10 +22,13 @@ struct MainView: View {
                     label: {
                         Text("About")
                     })
+                NavigationLink(destination: RecordingView(), label: {
+                    Text("Recording")
+                })
             }
             .navigationBarTitle("Menu")
             .padding(.leading, 1)
-            PatientsView()
+            //RecordingView()
         }
     }
 }
