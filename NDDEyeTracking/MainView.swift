@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject private var model = FrameHandler()
+    //@StateObject private var model = FrameHandler()
     
     var body: some View {
         NavigationView {
@@ -23,8 +23,8 @@ struct MainView: View {
                     label: {
                         Text("About")
                     })
-                NavigationLink(destination: VideoPreview(), label: {
-                    Text("Video Preview")
+                NavigationLink(destination: RecordingView(), label: {
+                    Text("Recording View")
                 })
             }
             .navigationBarTitle("Menu")
